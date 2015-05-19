@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  introvert: 1
+  extrovert: 1
+  positive: 1
+  negative: 1
+
+two:
+  introvert: 1
+  extrovert: 1
+  positive: 1
+  negative: 1
