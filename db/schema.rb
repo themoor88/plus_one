@@ -39,6 +39,11 @@ ActiveRecord::Schema.define(version: 20150520204601) do
     t.datetime "updated_at",          null: false
   end
 
+  create_table "events_users", force: :cascade do |t|
+    t.integer "event_id"
+    t.integer "user_id"
+  end
+
   create_table "user_reviews", force: :cascade do |t|
     t.integer  "introvert"
     t.integer  "extrovert"
