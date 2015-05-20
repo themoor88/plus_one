@@ -40,6 +40,7 @@ group :development, :test do
   gem 'quiet_assets'
   gem 'pry-rails'
   gem 'factory_girl'
+  gem 'geocoder'
 
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0'
