@@ -1,5 +1,6 @@
 class Event < ActiveRecord::Base
   has_and_belongs_to_many :users
+  has_many :event_reviews
   validates :event_name, :address_1, :city, :country, :number_of_attendees, :time, :description, :category, presence: true
   validates :event_name, length: { minimum: 2,
     too_short: "%{count} characters are the minimum allowed." }

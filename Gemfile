@@ -37,8 +37,9 @@ group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
   gem 'better_errors'
-  gem 'quiet_assets'
-  gem 'pry-rails'
+
+  gem 'favorite_things'
+
   gem 'factory_girl'
   gem 'geocoder'
 
