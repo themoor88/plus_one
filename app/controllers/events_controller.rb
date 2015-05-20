@@ -1,5 +1,5 @@
 class EventsController < ApplicationController
-
+  skip_before_filter :require_login, only: [:index, :show]
   def index
     @events = Event.all
   end
@@ -45,7 +45,6 @@ class EventsController < ApplicationController
   end
 
   private
-
   def event_params
     params.require(:event).permit(:event_name, :address_1, :address_2, :city, :country, :z_post_code, :latitude, :longitude, :number_of_attendees, :time, :description, :cost, :image, :category)
   end
