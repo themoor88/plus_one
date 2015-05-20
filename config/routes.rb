@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  root "events#index"
   resources :users, only: [:new, :create, :update]
   resources :user_sessions, only: [:new, :create, :destroy]
 
@@ -7,7 +8,6 @@ Rails.application.routes.draw do
   post 'logout' => 'user_sessions#destroy', :as => :logout
 
   resources :events
-
 
 
   # The priority is based upon order of creation: first created -> highest priority.
