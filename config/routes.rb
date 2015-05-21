@@ -7,7 +7,9 @@ Rails.application.routes.draw do
   get 'login' => 'user_sessions#new', :as => :login
   post 'logout' => 'user_sessions#destroy', :as => :logout
 
-  resources :events
+  resources :events do
+    resources :event_reviews, only: [:show, :create, :destroy]
+  end
 
 
   # The priority is based upon order of creation: first created -> highest priority.

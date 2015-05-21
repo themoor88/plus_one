@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150520213918) do
+ActiveRecord::Schema.define(version: 20150521200907) do
 
   create_table "event_reviews", force: :cascade do |t|
     t.text     "comment"
@@ -39,6 +39,7 @@ ActiveRecord::Schema.define(version: 20150520213918) do
     t.string   "category"
     t.datetime "created_at",          null: false
     t.datetime "updated_at",          null: false
+    t.integer  "user_id"
   end
 
   create_table "events_users", force: :cascade do |t|
@@ -57,7 +58,7 @@ ActiveRecord::Schema.define(version: 20150520213918) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string   "email",            null: false
+    t.string   "email",                            null: false
     t.string   "crypted_password"
     t.string   "salt"
     t.datetime "created_at"
@@ -65,6 +66,7 @@ ActiveRecord::Schema.define(version: 20150520213918) do
     t.string   "first_name"
     t.string   "last_name"
     t.string   "username"
+    t.boolean  "admin",            default: false
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
