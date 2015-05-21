@@ -16,5 +16,4 @@ class Event < ActiveRecord::Base
   def full_street_address #Take all location fields, remove nil elements with .compact, then return a string for Geocoder
     [address_1, address_2, city, country, z_post_code].compact.join(', ') #TEST THIS
   end
-
 end

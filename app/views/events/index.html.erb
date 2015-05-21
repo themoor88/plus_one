@@ -1,8 +1,14 @@
-<div class="event">
-<% @events.each do |event| %>
-  <%= event.event_name %></br>
-  <%= event.full_street_address %>
-  <hr>
-<% end %>
+<form id="search-form">
+  <%= text_field_tag :search, params[:search] %>
+  <%= submit_tag "search" %>
+</form>
 
+<hr>
+
+<div class="event">
+  <% @events.each do |event| %>
+    <%= event.event_name %></br>
+    <%= event.full_street_address %>
+    <hr>
+  <% end %>
 </div>

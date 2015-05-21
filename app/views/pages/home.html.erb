@@ -1,4 +1,9 @@
 <h1>Welcome to PlusOne!</h1>
 <h2>Meet people and start networking!</h2>
 
-<%= link_to 'Browse events in your area', events_path %>
+<%= link_to 'Browse events in your area', events_path %><br>
+
+<% if current_user %>
+  <%= link_to 'Make a New Event', new_event_path %>
+<% else %>
+<% end %>
