@@ -1,7 +1,7 @@
 class UserReviewsController < ApplicationController
   before_filter :load_user
   def show
-    @user_review = User_review.find(params[:id])
+    @user_review = UserReview.find(params[:id])
   end
 
   def create
@@ -11,7 +11,7 @@ class UserReviewsController < ApplicationController
     if @user_review.save
       redirect_to @user, notice: "Review created successfully."
     else
-      render @user
+      render
     end
 
   end
