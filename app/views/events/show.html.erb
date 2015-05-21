@@ -1,0 +1,25 @@
+<h2><%= @event.event_name %></h2>
+
+<h4><%= @event.address_1 %></h4>
+
+<h4><%= @event.address_2 %></h4>
+
+<h4><%= @event.city %></h4>
+
+<h4><%= @event.country %></h4>
+
+<h4><%= @event.z_post_code %></h4>
+
+<h4><%= @event.number_of_attendees %></h4>
+
+<h4><%= @event.time %></h4>
+
+<h4><%= @event.description %></h4>
+
+<h4><%= @event.cost %></h4>
+
+<h4><%= @event.image %></h4>
+
+<h4><%= @event.category %></h4>
+
+<div class="map-canvas" data-latitude="<%= @event.latitude.to_f %>" data-longitude="<%= @event.longitude.to_f %>"></div>
