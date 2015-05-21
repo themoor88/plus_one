@@ -6,7 +6,7 @@ function Map(mapElem) {
 Map.prototype.init = function(latitude, longitude) {
   var options = {
     center: {lat: latitude, lng: longitude}, // Latitude / Longitude are passed via the data-* attributes
-    zoom: 15,
+    zoom: 18,
     mapTypeId: google.maps.MapTypeId.ROADMAP
   };
 

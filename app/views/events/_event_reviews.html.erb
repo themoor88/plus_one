@@ -1,0 +1,14 @@
+<h3>Event Reviews</h3>
+
+  <% @event.event_reviews.each do |review| %>
+    <hr>
+    <h4>
+      <%= review.comment %></br>
+
+      <% if review.user_id != nil %>
+        <em> by <%= review.user.first_name %> </em>
+        <h5>My Event Rating: <%= review.star_rating %></h5>
+        Added on: <%=review.created_at %>
+      <% end %>
+    </h4>
+  <% end %>
