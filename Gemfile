@@ -42,6 +42,7 @@ group :development, :test do
 
   gem 'factory_girl'
   gem 'geocoder'
+  gem 'figaro'
 
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0'
