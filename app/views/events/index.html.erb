@@ -6,9 +6,11 @@
 <hr>
 
 <div class="event">
-<% @events.each do |event| %>
-<a href="<%= event_path(event) %>">
-  <%= event.event_name %></br>
-  <%= event.full_street_address %>
-  <hr>
-<% end %>
+  <% @events.each do |event| %>
+    <a href="<%= event_path(event) %>">
+      <%= event.event_name %></br>
+      <%= event.full_street_address %>
+    </a>
+    <hr>
+  <% end %>
+</div>

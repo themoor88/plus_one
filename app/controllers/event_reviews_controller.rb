@@ -1,5 +1,9 @@
 class EventReviewsController < ApplicationController
 
+  def index
+    @event_reviews = EventReview.all
+  end
+
   def show
     @event_review = EventReview.find(params[:event_id])
   end
