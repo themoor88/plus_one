@@ -11,16 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150521210614) do
-
-  create_table "event_reviews", force: :cascade do |t|
-    t.text     "comment"
-    t.integer  "star_rating"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-    t.integer  "user_id"
-    t.integer  "event_id"
-  end
+ActiveRecord::Schema.define(version: 20150522234910) do
 
   create_table "events", force: :cascade do |t|
     t.string   "event_name"
@@ -42,13 +33,7 @@ ActiveRecord::Schema.define(version: 20150521210614) do
     t.integer  "user_id"
   end
 
-  create_table "events_users", force: :cascade do |t|
-    t.integer "event_id"
-    t.integer "user_id"
-    t.string  "status"
-  end
-
-  create_table "user_reviews", force: :cascade do |t|
+  create_table "reputations", force: :cascade do |t|
     t.integer  "introvert"
     t.integer  "extrovert"
     t.integer  "positive"
@@ -56,6 +41,21 @@ ActiveRecord::Schema.define(version: 20150521210614) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer  "user_id"
+  end
+
+  create_table "reviews", force: :cascade do |t|
+    t.text     "comment"
+    t.integer  "star_rating"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.integer  "user_id"
+    t.integer  "event_id"
+  end
+
+  create_table "rsvps", force: :cascade do |t|
+    t.integer "event_id"
+    t.integer "user_id"
+    t.string  "status"
   end
 
   create_table "users", force: :cascade do |t|
