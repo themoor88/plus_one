@@ -2,9 +2,9 @@ class User < ActiveRecord::Base
   has_many :rsvps
   has_many :events, through: :rsvps
 
-  has_many :created_events, class_name: :event
-  has_many :event_reviews
-  has_many :user_reviews
+  has_many :events
+  has_many :reviews
+  has_many :reputations
 
   authenticates_with_sorcery!
 

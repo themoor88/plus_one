@@ -11,7 +11,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @user_review = @user.user_reviews.build
+    @reputation = @user.reputations.build
   end
 
   def create

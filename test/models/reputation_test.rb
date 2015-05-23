@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class EventReviewTest < ActiveSupport::TestCase
+class ReputationTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end

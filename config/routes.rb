@@ -1,11 +1,11 @@
 Rails.application.routes.draw do
   root "pages#home"
   resources :users do
-    resources :user_reviews
+    resources :reputations
   end
 
   resources :events do
-    resources :event_reviews
+    resources :reviews
   end
 
   resources :user_sessions, only: [:new, :create, :destroy]
