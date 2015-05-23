@@ -1,5 +1,4 @@
-class RSVP < ActiveRecord::Base
-  self.table_name = "events_users"
+class Rsvp < ActiveRecord::Base
   belongs_to :event
   belongs_to :user
 end

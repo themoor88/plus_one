@@ -1,8 +1,8 @@
 class Event < ActiveRecord::Base
+  belongs_to :user
   has_many :rsvps
   has_many :users, through: :rsvps
 
-  belongs_to :creator, class_name: User
   has_many :reviews
 
   validates :event_name, :address_1, :city, :country, :number_of_attendees, :time, :description, :category, presence: true

@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class UserReviewTest < ActiveSupport::TestCase
+class ReputationsControllerTest < ActionController::TestCase
   # test "the truth" do
   #   assert true
   # end

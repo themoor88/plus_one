@@ -28,30 +28,16 @@
 
 <div class="map-canvas" data-latitude="<%= @event.latitude.to_f %>" data-longitude="<%= @event.longitude.to_f %>"></div>
 
-
 <!-- Event reviews -->
-<h1>Event Reviews</h1>
- <div id="review-form-errors">
-    <%= render :partial => "review_errors" %>
+<h1>Reviews</h1>
+  <div id="review-form-errors">
+    <%= render "review_errors" %>
   </div>
 
-  <div class="new-event-review">
-     <%= render :partial => "new_review" %>
+  <div class="new-review">
+    <%= render "new_review" %>
   </div>
 
-  <div class="event-reviews">
-    <h3>Reviews</h3>
-<div class="review">
-  <% @event.reviews.each do |review| %>
-    <hr>
-    <h4>
-      <%= review.comment %></br>
-
-      <% if review.user != nil %>
-        <em> by <%= review.user.username %> </em>
-        Added on: <%=review.created_at %>
-      <% end %>
-    </h4>
-  <% end %>
-</div>
+  <div class="reviews">
+    <%= render "review" %>
   </div>

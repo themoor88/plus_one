@@ -1,32 +1,35 @@
+
 <%= link_to 'Edit my Profile', edit_user_path(current_user.id) %>
 
 <h1>My PlusOnes</h1>
 
-<h2>Reviews</h2>
+<p>These are the events that I have created.</p>
 
-<p>Reviews for <%= @user.username %></p>
+<h2>Reputation</h2>
 
-<% @user.user_reviews.each do |review| %>
+<p>Reputation for <%= @user.username %></p>
+
+<% @user.reputations.each do |rep| %>
   <p>
-    <%= review.introvert %>
+    <%= rep.introvert %>
     <br>
-    <% if review.user != nil %>
-      <em> by <%= review.user.email %></em>
-      Added on: <%= review.created_at %>
+    <% if rep.user != nil %>
+      <em> by <%= rep.user.email %></em>
+      Added on: <%= rep.created_at %>
     <% end %>
   </p>
 <% end %>
 
 
-<% if current_user && current_user != @user %>
-  <h4>New Review</h4>
+<% if current_user && current_user != @user%>
+  <h4>New Reputation</h4>
 
-  <%= form_for ([@user, @user_review]) do |f| %>
-    <% if @user_review.errors.any? %>
+  <%= form_for ([@user, @reputation]) do |f| %>
+    <% if @reputation.errors.any? %>
       <div id="error_explanation">
-        <h2><%= pluralize(@user_review.errors.count, "error") %> prohibited this review from being saved: </h2>
+        <h2><%= pluralize(@reputation.errors.count, "error") %> prohibited this reputation from being saved: </h2>
           <ul>
-            <% @user_review.errors.full_messages.each do |msg| %>
+            <% @reputation.errors.full_messages.each do |msg| %>
               <li><%= msg %></li>
             <% end %>
           </ul>
@@ -41,11 +44,10 @@
     <div class="actions">
       <%= f.submit %>
     </div>
-
   <% end %>
 
 <% else %>
-  <p>Please <%= link_to "Log In", new_session_path %> to add a review.</p>
+  <p>Please <%= link_to "Log In", new_user_session_path %> to add a repuatation.</p>
 <% end %>
 
 

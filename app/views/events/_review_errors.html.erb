@@ -1,10 +1,9 @@
 <%= form_for [@event, @review], :remote => true do |f| %>
   <% if @review.errors.present? %>
-       <ul>
-          <% @review.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-          <% end %>
-      </ul>
-    </div>
+     <ul>
+        <% @review.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+        <% end %>
+    </ul>
   <% end %>
 <% end %>
