@@ -10,7 +10,7 @@ class EventsController < ApplicationController
 
   def show
     @event = Event.find(params[:id])
-    @event_review = @event.event_reviews.build
+    @review = @event.reviews.build
   end
 
   def new
@@ -19,7 +19,7 @@ class EventsController < ApplicationController
 
   def create
     @event = Event.new(event_params)
-    # @event.user_id = current_user.id
+    @event.user_id = current_user.id
 
     if @event.save
       redirect_to root_url

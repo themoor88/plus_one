@@ -1,0 +1,9 @@
+$(".event-reviews").html("<%= j(render partial: '/events/review') %>");
+
+  <% if @review.errors.present? %>
+    $("#review-form-errors").html("<%= j(render(:partial => '/events/review_form_errors')) %>");
+  <% else %>
+    $("#review-form-errors").html("");
+    $("review-list").html("<%= j(render(:partial => '/events/reviews')) %>");
+    $("#new_review")[0].reset();
+  <% end %>

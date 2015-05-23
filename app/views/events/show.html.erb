@@ -31,26 +31,27 @@
 
 <!-- Event reviews -->
 <h1>Event Reviews</h1>
+ <div id="review-form-errors">
+    <%= render :partial => "review_errors" %>
+  </div>
+
   <div class="new-event-review">
-     <%= form_for [@event, @event_review], :remote => true do |f| %>
-    <div class="comment">
-      <h4><%= f.label :comment %></h4>
-      <p><%= f.text_field :comment %></p>
-    </div>
+     <%= render :partial => "new_review" %>
+  </div>
 
-    <h4>How was your experience?</h4>
-    <p>1<%= f.radio_button :star_rating, 1 %></p>
-    <p>2<%= f.radio_button :star_rating, 2 %></p>
-    <p>3<%= f.radio_button :star_rating, 3, checked: true %></p>
-    <p>4<%= f.radio_button :star_rating, 4 %></p>
-    <p>5<%= f.radio_button :star_rating, 5 %></p>
+  <div class="event-reviews">
+    <h3>Reviews</h3>
+<div class="review">
+  <% @event.reviews.each do |review| %>
+    <hr>
+    <h4>
+      <%= review.comment %></br>
 
-    <p>
-      <%= f.submit "Submit" %>
-    </p>
+      <% if review.user != nil %>
+        <em> by <%= review.user.username %> </em>
+        Added on: <%=review.created_at %>
+      <% end %>
+    </h4>
   <% end %>
 </div>
-
-<div class="event-reviews">
-  <%= render :partial => "event_review", collection: @event.event_reviews %>
-</div>
+  </div>
