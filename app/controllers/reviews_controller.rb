@@ -10,7 +10,7 @@ class ReviewsController < ApplicationController
 
     respond_to do |format|
       if @review.save
-        format.html { redirect_to event, notice: "Thanks for your review" }
+        format.html { redirect_to event_path, notice: "Thanks for your review" }
         format.js {}
       else
         format.html { render 'events/show', alert: 'There was an error.'}
