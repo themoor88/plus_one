@@ -1,4 +1,4 @@
-function Map(mapElem) {
+  function Map(mapElem) {
   this.mapElem = mapElem;
   this.markers = []; // Empty array to store event markers
 }
