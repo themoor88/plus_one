@@ -29,7 +29,6 @@ Map.prototype.addMarker = function(latitude, longitude) {  // Can pass this a un
 //   this.markers.splice(index, 1); // Remove object at this particular index (from the array)
 // }
 
-
 $(document).on('ready page:load', function() {
 
   if ($('.map-canvas').length) {
@@ -50,12 +49,3 @@ $(document).on('ready page:load', function() {
     });
   }
 });
-
-
-
-
-
-
-
-
-

@@ -1,7 +1,7 @@
 <h1>Welcome to PlusOne!</h1>
 <h2>Meet people and start networking!</h2>
 
-<div id="events" data-eventGeoData="<%= @nearby_events.to_json %>" onload="javascript:initGeolocation()"></div>
+<div id="events" data-eventGeoData="<%= @nearby_events.to_json %>" ></div>
 <%= link_to 'Browse events in your area', events_path %><br>
 
 <% if current_user %>
