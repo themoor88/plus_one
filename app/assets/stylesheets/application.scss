@@ -9,15 +9,4 @@
 @import "mobilenav";
 @import "pages";
 @import "user_sessions";
-
-
 @import "events";
-
-.container {
-  @include outer-container;
-}
-
-#nav {
-  position: fixed;
-}
->>>>>>> events

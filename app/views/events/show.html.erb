@@ -27,7 +27,11 @@
 
 <h4><%= @event.category %></h4>
 
-<button id="rsvp">Request to Join</button>
+<%= form_for [@event, @rsvp] do |f| %>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
 
 <div class="map-canvas" data-latitude="<%= @event.latitude.to_f %>" data-longitude="<%= @event.longitude.to_f %>"></div>
 

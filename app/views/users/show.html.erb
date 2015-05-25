@@ -1,13 +1,13 @@
-
 <%= link_to 'Edit my Profile', edit_user_path(current_user.id) %>
 
 <h1>My PlusOnes</h1>
 
-<p>These are the events that I have created.</p>
+<p>These are the events that I have created:</p>
 
-<% @user.events.each do |created|%>
-  <%= created.event_name  %>
+<% @user.created_events.each do |created|%>
+  <hr><%= created.event_name %>
 <% end %>
+
 
 
 <h2>Reputation</h2>
@@ -30,6 +30,7 @@
   <h4>New Reputation</h4>
 
   <%= form_for ([@user, @reputation]) do |f| %>
+
     <% if @reputation.errors.any? %>
       <div id="error_explanation">
         <h2><%= pluralize(@reputation.errors.count, "error") %> prohibited this reputation from being saved: </h2>

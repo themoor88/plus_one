@@ -11,8 +11,8 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @reputation = Reputation.new(params[:user_id])
-    # @event = Event.find(user_id: current_user.id)
+    @event = @user.created_events.build
+    @reputation = @user.reputations.build
   end
 
   def create
