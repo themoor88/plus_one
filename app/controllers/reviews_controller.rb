@@ -8,7 +8,6 @@ class ReviewsController < ApplicationController
     event = Event.find(params[:event_id])
     # @review = Review.new(review_params)
     @review = event.reviews.build(review_params)
-    binding.pry
     @review.user_id = current_user.id
 
     respond_to do |format|

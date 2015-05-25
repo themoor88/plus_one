@@ -15,4 +15,12 @@ class User < ActiveRecord::Base
   validates :password, length: {minimum: 8}
   validates :password, confirmation: true
   validates :password_confirmation, presence: true
+
+  geocoded_by :ip_address,
+    :latitude => :latitude, :longitude => :longitude
+  after_validation :geocode
+
+  def ip_address
+    [longitude, latitude].join(', ')
+  end
 end

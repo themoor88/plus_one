@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150522234910) do
+ActiveRecord::Schema.define(version: 20150523164726) do
 
   create_table "events", force: :cascade do |t|
     t.string   "event_name"
@@ -20,17 +20,17 @@ ActiveRecord::Schema.define(version: 20150522234910) do
     t.string   "city"
     t.string   "country"
     t.string   "z_post_code"
-    t.decimal  "latitude"
-    t.decimal  "longitude"
     t.integer  "number_of_attendees"
     t.datetime "time"
     t.text     "description"
     t.integer  "cost"
     t.string   "image"
     t.string   "category"
-    t.datetime "created_at",          null: false
-    t.datetime "updated_at",          null: false
+    t.datetime "created_at",                                  null: false
+    t.datetime "updated_at",                                  null: false
     t.integer  "user_id"
+    t.decimal  "longitude",           precision: 9, scale: 6
+    t.decimal  "latitude",            precision: 9, scale: 6
   end
 
   create_table "reputations", force: :cascade do |t|
@@ -59,7 +59,7 @@ ActiveRecord::Schema.define(version: 20150522234910) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string   "email",                            null: false
+    t.string   "email",                                                    null: false
     t.string   "crypted_password"
     t.string   "salt"
     t.datetime "created_at"
@@ -67,7 +67,9 @@ ActiveRecord::Schema.define(version: 20150522234910) do
     t.string   "first_name"
     t.string   "last_name"
     t.string   "username"
-    t.boolean  "admin",            default: false
+    t.boolean  "admin",                                    default: false
+    t.decimal  "longitude",        precision: 9, scale: 6
+    t.decimal  "latitude",         precision: 9, scale: 6
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

@@ -7,3 +7,9 @@
   <%= link_to 'Make a New Event', new_event_path %>
 <% else %>
 <% end %>
+
+<h1> Nearby Events: </h1>
+
+    <% @allevents.nearbys do |ne| %>
+      <li><%= "#{ne.event_name}, #{ne.distance}" %></li>
+    <% end %>
