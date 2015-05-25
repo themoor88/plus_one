@@ -7,7 +7,7 @@
 
 @import "events";
 
-body {
+.container {
   @include outer-container;
 }
 
