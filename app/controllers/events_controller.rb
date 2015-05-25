@@ -10,7 +10,7 @@ class EventsController < ApplicationController
 
   def show
     @event = Event.find(params[:id])
-    @review = @event.reviews.build
+    @review = Review.new(event_id: params[:id])
   end
 
   def new

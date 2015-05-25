@@ -2,6 +2,7 @@
 <% if current_user %>
   <%= link_to "Edit", edit_event_path %>
 <% end %>
+
 <h2><%= @event.event_name %></h2>
 
 <h4><%= @event.address_1 %></h4>
@@ -26,18 +27,20 @@
 
 <h4><%= @event.category %></h4>
 
+<button id="rsvp">Request to Join</button>
+
 <div class="map-canvas" data-latitude="<%= @event.latitude.to_f %>" data-longitude="<%= @event.longitude.to_f %>"></div>
 
 <!-- Event reviews -->
 <h1>Reviews</h1>
-  <div id="review-form-errors">
-    <%= render "review_errors" %>
-  </div>
+<div id="review-form-errors">
+  <%= render "review_errors" %>
+</div>
 
-  <div class="new-review">
-    <%= render "new_review" %>
-  </div>
+<div class="new-review">
+  <%= render "new_review" %>
+</div>
 
-  <div class="reviews">
-    <%= render "review" %>
-  </div>
+<div class="reviews">
+  <%= render "review" %>
+</div>

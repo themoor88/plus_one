@@ -5,6 +5,11 @@
 
 <p>These are the events that I have created.</p>
 
+<% @user.events.each do |created|%>
+  <%= created.event_name  %>
+<% end %>
+
+
 <h2>Reputation</h2>
 
 <p>Reputation for <%= @user.username %></p>
@@ -21,7 +26,7 @@
 <% end %>
 
 
-<% if current_user && current_user != @user%>
+<% if current_user %>
   <h4>New Reputation</h4>
 
   <%= form_for ([@user, @reputation]) do |f| %>
