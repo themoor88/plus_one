@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150523164726) do
+ActiveRecord::Schema.define(version: 20150525183714) do
 
   create_table "events", force: :cascade do |t|
     t.string   "event_name"
@@ -70,6 +70,8 @@ ActiveRecord::Schema.define(version: 20150523164726) do
     t.boolean  "admin",                                    default: false
     t.decimal  "longitude",        precision: 9, scale: 6
     t.decimal  "latitude",         precision: 9, scale: 6
+    t.string   "city"
+    t.string   "country"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

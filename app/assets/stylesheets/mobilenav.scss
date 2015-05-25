@@ -1,5 +1,5 @@
 #nav {
-  width: 100%;
+  @include span-columns(3);
   height: 40px;
   position: fixed;
   bottom: 0;

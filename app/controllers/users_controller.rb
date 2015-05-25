@@ -13,6 +13,8 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @reputation = Reputation.new(params[:user_id])
     # @event = Event.find(user_id: current_user.id)
+    city = request.location.city
+    country = request.location.country_code
   end
 
   def create

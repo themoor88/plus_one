@@ -1,4 +1,4 @@
-  function Map(mapElem) {
+function Map(mapElem) {
   this.mapElem = mapElem;
   this.markers = []; // Empty array to store event markers
 }
@@ -31,19 +31,31 @@ Map.prototype.addMarker = function(latitude, longitude) {  // Can pass this a un
 
 
 $(document).on('ready page:load', function() {
+
   if ($('.map-canvas').length) {
     var latitude = $('.map-canvas').data('latitude'); // Latitude / Longitude passed via the data-* attributes
     var longitude = $('.map-canvas').data('longitude');
     // var customImage =
+    var events = document.getElementById('events')
+    var eventGeo = events.getAttribute('data-eventGeoData')
+    var event_json = JSON.parse(eventGeo)   // Returned as a string, must parse back to JSON
 
-    window.myMap = new Map($('.map-canvas')[0]); // [0] will select regular DOM object… Google Maps doesn't like jQuery objects
+
+    var myMap = new Map($('.map-canvas')[0]); // [0] will select regular DOM object… Google Maps doesn't like jQuery objects
     myMap.init(latitude, longitude);
     myMap.addMarker(latitude, longitude);
 
-    if (window.nearbys) {
-      nearbys.forEach(function(coord) {
-        myMap.addMarker(parseFloat(coord.latitude), parseFloat(coord.longitude));
-      });
-    }
+    $.each(event_json, function(index, value) {
+      myMap.addMarker(parseFloat(value.latitude), parseFloat(value.longitude));
+    });
   }
 });
+
+
+
+
+
+
+
+
+

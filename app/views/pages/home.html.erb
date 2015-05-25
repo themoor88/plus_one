@@ -1,6 +1,7 @@
 <h1>Welcome to PlusOne!</h1>
 <h2>Meet people and start networking!</h2>
 
+<div id="events" data-eventGeoData="<%= @nearby_events.to_json %>" onload="javascript:initGeolocation()"></div>
 <%= link_to 'Browse events in your area', events_path %><br>
 
 <% if current_user %>
@@ -8,8 +9,15 @@
 <% else %>
 <% end %>
 
+<div class="map-canvas" data-latitude="<%= @user.latitude.to_f %>" data-longitude="<%= @user.longitude.to_f %>"></div>
+
 <h1> Nearby Events: </h1>
 
-    <% @allevents.nearbys do |ne| %>
-      <li><%= "#{ne.event_name}, #{ne.distance}" %></li>
-    <% end %>
+  <% @nearby_events.each do |ne| %>
+    <li><%= "#{ne.event_name}, #{ne.distance}" %></li>
+  <% end %>
+
+<h1> Nearby Users: </h1>
+  <% @nearby_users.each do |ne| %>
+    <li><%= "#{ne.username}, #{ne.distance}" %></li>
+  <% end %>

@@ -16,9 +16,8 @@ class User < ActiveRecord::Base
   validates :password, confirmation: true
   validates :password_confirmation, presence: true
 
-  geocoded_by :ip_address,
-    :latitude => :latitude, :longitude => :longitude
-  after_validation :geocode
+  geocoded_by :city
+  before_validation :geocode
 
   def ip_address
     [longitude, latitude].join(', ')

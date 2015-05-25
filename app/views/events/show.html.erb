@@ -41,6 +41,10 @@
   <%= render "new_review" %>
 </div>
 
+  <% @nearby_events.each do |ne| %>
+    <li><%= "#{ne.event_name}, #{ne.distance}" %></li>
+  <% end %>
+
 <div class="reviews">
   <%= render "review" %>
 </div>

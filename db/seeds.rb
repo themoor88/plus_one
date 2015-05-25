@@ -4,7 +4,9 @@ User.create!(
     email: "admin1@gmail.com",
     username: "admin1",
     password: "password",
-    password_confirmation: "password"
+    password_confirmation: "password",
+    city: "Toronto",
+    country: "Canada"
 )
 
 100.times do
@@ -14,7 +16,9 @@ User.create!(
     email: Faker::Internet.email,
     username: Faker::Internet.user_name,
     password: "123456789",
-    password_confirmation: "123456789"
+    password_confirmation: "123456789",
+    city: Faker::Address.city,
+    country: "Canada"
   )
 end
 
