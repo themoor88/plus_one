@@ -6,3 +6,11 @@
 @import "base/base";
 
 @import "events";
+
+body {
+  @include outer-container;
+}
+
+#nav {
+  position: fixed;
+}
