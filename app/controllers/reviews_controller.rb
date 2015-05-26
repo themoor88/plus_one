@@ -6,7 +6,7 @@ class ReviewsController < ApplicationController
 
   def create
     @event = Event.find(params[:event_id])
-    @review = event.reviews.build(review_params)
+    @review = @event.reviews.build(review_params)
     @review.user = current_user
 
     respond_to do |format|
@@ -26,7 +26,6 @@ class ReviewsController < ApplicationController
   end
 
   private
-
   def review_params
     params.require(:review).permit(:comment, :star_rating)
   end

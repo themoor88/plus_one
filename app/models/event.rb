@@ -1,7 +1,7 @@
 class Event < ActiveRecord::Base
   belongs_to :user
   has_many :rsvps
-  has_many :users, through: :rsvps
+  has_many :guests, through: :rsvps, class_name: "User"
 
   has_many :reviews
 

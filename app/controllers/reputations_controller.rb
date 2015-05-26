@@ -10,8 +10,9 @@ class ReputationsController < ApplicationController
 
 
   def create
+    @reputation = Reputation.new(reputation_params)
     @user = User.find(params[:user_id])
-    @reputation = @user.reputations.build(reputation_params)
+    @reputation.user = current_user
 
     if @reputation.save
       redirect_to @user, notice: "Review created successfully."
