@@ -13,6 +13,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @event = @user.created_events.build
     @reputation = @user.reputations.build
+    @rsvp = Rsvp.where(event_id: @event.id )
   end
 
   def create
