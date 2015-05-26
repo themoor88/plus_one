@@ -8,8 +8,8 @@
   <%= link_to 'Make a New Event', new_event_path %>
 <% else %>
 <% end %>
-
-<div class="map-canvas" data-latitude="<%= @user.latitude.to_f %>" data-longitude="<%= @user.longitude.to_f %>"></div>
+<button onclick="getLocation()">Find Events Near You</button>
+<div class="user-map-canvas" data-latitude="<%= @user.latitude.to_f %>" data-longitude="<%= @user.longitude.to_f %>"></div>
 
 <h1> Nearby Events: </h1>
 

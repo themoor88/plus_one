@@ -29,23 +29,50 @@ Map.prototype.addMarker = function(latitude, longitude) {  // Can pass this a un
 //   this.markers.splice(index, 1); // Remove object at this particular index (from the array)
 // }
 
+
+
+function getLocation() {
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(showPosition);
+    } else {
+        console.log("Geolocation is not supported by this browser.");
+    }
+}
+function showPosition(position) {
+    var userGeoLatitude = position.coords.latitude
+    var userGeoLongitude = position.coords.longitude;
+}
+
+
 $(document).on('ready page:load', function() {
 
-  if ($('.map-canvas').length) {
-    var latitude = $('.map-canvas').data('latitude'); // Latitude / Longitude passed via the data-* attributes
-    var longitude = $('.map-canvas').data('longitude');
+  ////////// USER LANDING PAGE MAP //////////
+  if ($('.user-map-canvas').length) {
+    var latitude = $('.user-map-canvas').data('latitude'); // Latitude / Longitude passed via the data-* attributes
+    var longitude = $('.user-map-canvas').data('longitude');
     // var customImage =
     var events = document.getElementById('events')
     var eventGeo = events.getAttribute('data-eventGeoData')
     var event_json = JSON.parse(eventGeo)   // Returned as a string, must parse back to JSON
 
 
-    var myMap = new Map($('.map-canvas')[0]); // [0] will select regular DOM object… Google Maps doesn't like jQuery objects
+    var myMap = new Map($('.user-map-canvas')[0]); // [0] will select regular DOM object… Google Maps doesn't like jQuery objects
     myMap.init(latitude, longitude);
     myMap.addMarker(latitude, longitude);
 
     $.each(event_json, function(index, value) {
       myMap.addMarker(parseFloat(value.latitude), parseFloat(value.longitude));
     });
+  }
+
+  ////////// EVENT SHOW PAGE MAP //////////
+  if ($('.event-map-canvas').length) {
+    var latitude = $('.event-map-canvas').data('latitude'); // Latitude / Longitude passed via the data-* attributes
+    var longitude = $('.event-map-canvas').data('longitude');
+    // var customImage =
+
+    var myMap = new Map($('.event-map-canvas')[0]); // [0] will select regular DOM object… Google Maps doesn't like jQuery objects
+    myMap.init(latitude, longitude);
+    myMap.addMarker(latitude, longitude);
   }
 });

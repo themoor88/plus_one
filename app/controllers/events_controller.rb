@@ -2,9 +2,14 @@ class EventsController < ApplicationController
   skip_before_filter :require_login, only: [:index, :show]
   def index
     @events = if params[:search]
-      Event.where("LOWER(name) LIKE LOWER(?)", "%#{params[:search]}%")
+      Event.where("LOWER(event_name) LIKE LOWER(?)", "%#{params[:search]}%")
     else
       Event.all
+    end
+
+    respond_to do |format|
+      format.json {render json: @events}
+      format.html
     end
   end
 
