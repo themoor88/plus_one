@@ -34,19 +34,21 @@ Map.prototype.addMarker = function(latitude, longitude) {  // Can pass this a un
 // }
 
 
-function success(geo) {
-  console.log("Success", "geo:", geo, "args", arguments);
-  longitude = geo.coords.longitude
-  latitude = geo.coords.latitude
-}
-
-function error(msg, geo) {
-  console.log("Error", "geo:", geo, "args", arguments);
-}
 
 
 $(document).on('ready page:load', function() {
   var myMap = new Map($('.user-map-canvas')[0]);
+  function error(msg, geo) {
+    console.log("Error", "geo:", geo, "args", arguments);
+  }
+
+  function success(geo, map) {
+    console.log("Success", "geo:", geo, "args", arguments);
+    myLatitude = geo.coords.latitude // Bad practice to define global variables here, however I had no choice as navigator.geolocation.getCurrentPosition(success, error)
+    myLongitude = geo.coords.longitude
+    myMap.addMarker(myLatitude, myLongitude);
+    myMap.canvas.panTo(myMap.markers[0].getPosition());
+  }
 
   ////////// USER LANDING PAGE MAP //////////
   if ($('.user-map-canvas').length) {
@@ -61,8 +63,7 @@ $(document).on('ready page:load', function() {
       error('not supported');
     }
 
-    myMap.addMarker(latitude, longitude);
-    myMap.canvas.panTo(myMap.markers[0].getPosition());
+
 
     $("#get_location").click(function(){  // On click,
       $.getJSON('/events.json', {latitude: latitude, longitude: longitude}, function(data) {
