@@ -13,4 +13,12 @@ class RsvpsController < ApplicationController
     end
   end
 
+  def update
+  end
 end
+
+# @pm = ParentModel.find(params[:pm_id])
+# @model1 = Model1.new(:parent_model_id => @pm.id)
+# @pm = ParentModel.find(params[:pm_id])
+# @model1 = @pm.model1s.build
+

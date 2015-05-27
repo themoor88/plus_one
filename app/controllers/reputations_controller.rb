@@ -1,18 +1,10 @@
 class ReputationsController < ApplicationController
 
-  def new
-    @reputation = Reputation.new
-  end
-
-  def show
-    @reputation = Reputation.find(params[:id])
-  end
-
-
   def create
     @reputation = Reputation.new(reputation_params)
-    @user = User.find(params[:user_id])
-    @reputation.user = current_user
+    @user = User.find(params[:id])
+    @reputation.reviewer = current_user
+    @reputation.reviewed_user = @user
 
     if @reputation.save
       redirect_to @user, notice: "Review created successfully."
