@@ -1,6 +1,5 @@
 var mapStyle = [{"featureType":"all","elementType":"all","stylers":[{ hue: "#fff" },{ gamma: 1.51 },{ saturation: 60 },]}]
 
-var myMap = new Map($('.user-map-canvas')[0]);
 
 function Map(mapElem) {
   this.mapElem = mapElem;
@@ -35,56 +34,45 @@ Map.prototype.addMarker = function(latitude, longitude) {  // Can pass this a un
 // }
 
 
-
-function getLocation() {
-  if (navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(html5Coordinates);
-  } else {
-    console.log("Geolocation is not supported by this browser.");
-    }
+function success(geo) {
+  console.log("Success", "geo:", geo, "args", arguments);
+  longitude = geo.coords.longitude
+  latitude = geo.coords.latitude
 }
 
-function html5Coordinates(userposition) {
-  var userGeoLatitude = userposition.coords.latitude;
-  var userGeoLongitude = userposition.coords.longitude;
-
-  var mapDiv = $('.user-map-canvas');
-  // console.log(userGeoLatitude);
-  // console.log(userGeoLongitude);
-  getNearbyEvents(userGeoLatitude, userGeoLongitude);
-}
-
-function getNearbyEvents(lat, lng) {
-  $.getJSON('/events.json', {latitude: lat, longitude: lng}, function(data) {
-     $.each(data, function(index, value) {
-      myMap.addMarker(parseFloat(value.latitude), parseFloat(value.longitude));
-    });
-  });
+function error(msg, geo) {
+  console.log("Error", "geo:", geo, "args", arguments);
 }
 
 
 $(document).on('ready page:load', function() {
+  var myMap = new Map($('.user-map-canvas')[0]);
 
   ////////// USER LANDING PAGE MAP //////////
   if ($('.user-map-canvas').length) {
     var latitude = $('.user-map-canvas').data('latitude'); // Latitude / Longitude passed via the data-* attributes
     var longitude = $('.user-map-canvas').data('longitude');
-    // var customImage =
-    // var events = document.getElementById('events')
-    // var eventGeo = events.getAttribute('data-eventGeoData')
-    // var event_json = JSON.parse(eventGeo)   // Returned as a string, must parse back to JSON
 
-
-    var myMap = new Map($('.user-map-canvas')[0]); // [0] will select regular DOM object… Google Maps doesn't like jQuery objects
+    // var myMap = new Map($('.user-map-canvas')[0]); // [0] will select regular DOM object… Google Maps doesn't like jQuery objects
     myMap.init(latitude, longitude);
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(success, error);
+    } else {
+      error('not supported');
+    }
+
     myMap.addMarker(latitude, longitude);
+    myMap.canvas.panTo(myMap.markers[0].getPosition());
 
-    // $.each(event_json, function(index, value) {
-    //   myMap.addMarker(parseFloat(value.latitude), parseFloat(value.longitude));
-    // });
+    $("#get_location").click(function(){  // On click,
+      $.getJSON('/events.json', {latitude: latitude, longitude: longitude}, function(data) {
+       $.each(data, function(index, value) {
+          myMap.addMarker(parseFloat(value.latitude), parseFloat(value.longitude));
+        });
+      });
+    })
+
   }
-
-
 
 
   ////////// EVENT SHOW PAGE MAP //////////
