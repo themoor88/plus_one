@@ -4,8 +4,8 @@
   <title>PlusOne</title>
   <meta charset="UTF-8">
   <meta name = "viewport" content="initial-scale=1.0", width="device-width">
-  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag 'application', media: 'all' %>
+  <%= javascript_include_tag 'application' %>
   <%= javascript_include_tag "https://maps.googleapis.com/maps/api/js?key=#{Figaro.env.google_maps_api}" %>
   <%= csrf_meta_tags %>
 </head>
@@ -29,10 +29,12 @@
     <p id="notice"><%= flash[:notice] %></p>
     <p id="alert"><%= flash[:alert] %></p>
   </div>
-
-<%= yield %>
-
 </div>
+
+<main>
+  <%= yield %>
+</main>
+
 
 
 </body>

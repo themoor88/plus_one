@@ -1,23 +1,35 @@
-<h1>Welcome to PlusOne!</h1>
-<h2>Meet people and start networking!</h2>
+<div class="wrapper">
 
-<div id="events" data-eventGeoData="<%= @nearby_events.to_json %>" ></div>
-<%= link_to 'Browse events in your area', events_path %><br>
+  <div class="introduction">
+    <h1>Welcome to PlusOne!</h1>
+    <h2>Meet people and start networking!</h2>
+    <div id="events" data-eventGeoData="<%= @nearby_events.to_json %>" ></div>
+    <%= link_to 'Browse events in your area', events_path %><br>
 
-<% if current_user %>
-  <%= link_to 'Make a New Event', new_event_path %>
-<% else %>
-<% end %>
+    <% if current_user %>
+      <%= link_to 'Make a New Event', new_event_path %>
+    <% else %>
+    <% end %>
+  </div>
 
-<div class="map-canvas" data-latitude="<%= @user.latitude.to_f %>" data-longitude="<%= @user.longitude.to_f %>"></div>
+  <div class="location-button">
+    <button id="get_location" class="button">Find Events Near You</button>
+  </div>
 
-<h1> Nearby Events: </h1>
+  <div class="map">
+    <div class="user-map-canvas" data-latitude="<%= @user.latitude.to_f %>" data-longitude="<%= @user.longitude.to_f %>"></div>
+  </div>
 
-  <% @nearby_events.each do |ne| %>
-    <li><%= "#{ne.event_name}, #{ne.distance}" %></li>
-  <% end %>
+  <div class="nearby-events">
+    <h1> Nearby Events: </h1>
 
-<h1> Nearby Users: </h1>
-  <% @nearby_users.each do |ne| %>
-    <li><%= "#{ne.username}, #{ne.distance}" %></li>
-  <% end %>
+      <% @nearby_events.each do |ne| %>
+        <li><%= "#{ne.event_name}, #{ne.distance}" %></li>
+      <% end %>
+
+    <h1> Nearby Users: </h1>
+      <% @nearby_users.each do |ne| %>
+        <li><%= "#{ne.username}, #{ne.distance}" %></li>
+      <% end %>
+  </div>
+</div>

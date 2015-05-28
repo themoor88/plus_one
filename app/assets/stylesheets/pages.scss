@@ -1,0 +1,25 @@
+ .wrapper {
+  @include media($mobile);
+  @include outer-container(100%);
+  @include background(linear-gradient(black, white) left repeat, radial-gradient(black, white) left repeat);
+
+   .button {
+    @include button(#333);
+   }
+ }
+
+
+.map{
+  position: relative;
+  width: 100%;
+  height: 300px;
+}
+.map .user-map-canvas{
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: 0;
+  padding: 0;
+}

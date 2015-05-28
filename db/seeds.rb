@@ -39,8 +39,8 @@ end
     city: Faker::Address.city,
     country: Faker::Address.country,
     z_post_code: Faker::Address.postcode,
-    latitude: Faker::Address.latitude,
-    longitude: Faker::Address.longitude,
+    latitude: rand(43.6532..43.6534),
+    longitude: rand(-79.3831..-79.3833),
     number_of_attendees:rand(2..8),
     time: DateTime.now + rand(4..9).days,
     description: Faker::Company.bs,
@@ -49,3 +49,20 @@ end
     category: ["Art", "Electrical", "Machine"][rand(0..2)]
   )
 end
+
+Event.create!(
+    event_name: Faker::Company.catch_phrase,
+    address_1: Faker::Address.street_address,
+    address_2: Faker::Address.secondary_address,
+    city: Faker::Address.city,
+    country: Faker::Address.country,
+    z_post_code: Faker::Address.postcode,
+    latitude: 43.646824,
+    longitude: -79.385762,
+    number_of_attendees: 5,
+    time: DateTime.now + 4.days,
+    description: Faker::Company.bs,
+    cost: 30,
+    image: "image",
+    category: "Art"
+  )
