@@ -2,16 +2,15 @@
   <%= link_to 'Edit my Profile', edit_user_path(current_user.id) %>
 <% else %>
   <h1><%= @user.username %></h1>
-<% end %>
+<% end %><hr>
 
 <h2>PlusOnes</h2>
-
-<% if @user.created_events == nil %>
-  <p><%= @user.username %> has no events created.</p>
+<% if @user.created_events == [] %>
+  <p><%= @user.username %> has created no new events </p>
 <% else %>
   <p>These are the events that <%= @user.username %> has created:</p>
   <% @user.created_events.each do |created|%>
-    <a href="<%= event_path %>">
+    <a href="<%= event_path(created) %>">
       <hr><%= created.event_name %>
     </a>
   <% end %>
@@ -22,9 +21,9 @@
     <% @user.created_events.each do |event| %>
       <% event.rsvps.each do|rsvp| %>
         <% if rsvp.status == "Pending" %>
-          <%= rsvp.user.id %> has requested to join <%= event.event_name %>
+          <%= rsvp.user.username %> has requested to join <%= event.event_name %>
         <% elsif rsvp.status == "Accepted" %>
-          <%= rsvp.user.id %> has been accepted into <%= event.event_name %>
+          <%= rsvp.user.username %> has been accepted into <%= event.event_name %>
         <% end %>
     <% end %>
   <% end %><hr>

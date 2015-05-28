@@ -18,7 +18,7 @@ class EventsController < ApplicationController
 
   def show
     @event = Event.find(params[:id])
-    @nearby_events = @event.nearbys(50000)
+    @nearby_events = @event.nearbys(500000)
     @rsvp = @event.rsvps.build
     @review = @event.reviews.build
   end
