@@ -1,13 +1,12 @@
  .wrapper {
   @include media($mobile);
   @include outer-container(100%);
-  @include background(linear-gradient(black, white) left repeat, radial-gradient(black, white) left repeat);
-
+  // @include background(linear-gradient(grey, white) left repeat, radial-gradient(black, white) left repeat);
+  background-color: #232637;
    .button {
     @include button(#333);
    }
  }
-
 
 .map{
   position: relative;
