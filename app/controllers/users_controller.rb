@@ -11,16 +11,14 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @reputation = Reputation.new
-    @reputation.reviewed_user_id = @user.id
-    # @reputation = @user.reputations.build
+    @reputation = @user.reputations.build
   end
 
   def create
     @user = User.new(user_params)
     if @user.save
       auto_login(@user)
-      redirect_to(:root, notice: 'User was successfully created')
+      redirect_to(:root, notice: 'Thank you for signing up!')
     else
       render 'new'
     end

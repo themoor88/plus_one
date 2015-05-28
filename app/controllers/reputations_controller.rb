@@ -2,7 +2,7 @@ class ReputationsController < ApplicationController
 
   def create
     @reputation = Reputation.new(reputation_params)
-    @user = User.find(params[:id])
+    @user = User.find(params[:user_id])
     @reputation.reviewer = current_user
     @reputation.reviewed_user = @user
 

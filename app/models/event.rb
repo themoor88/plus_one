@@ -21,7 +21,7 @@ class Event < ActiveRecord::Base
   end
 
   def method_names
-    methods = ["event_name", "address_1", "address_2"]
+    methods = ["event_name", "address_1", "address_2", "city", "country", "z_post_code" ]
     methods.map do |method|
       self.send(method)
     end

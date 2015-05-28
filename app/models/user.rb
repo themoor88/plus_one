@@ -5,7 +5,7 @@ class User < ActiveRecord::Base
   has_many :created_events, class_name: "Event"
   has_many :reviews
   has_many :reputations, foreign_key: :reviewed_user_id
-  has_many :created_reputations, foreign_key: :reviewer_id
+  has_many :created_reputations, foreign_key: :reviewer_id, class_name: "Reputation"
 
 
   authenticates_with_sorcery!
