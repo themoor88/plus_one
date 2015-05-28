@@ -9,6 +9,15 @@ User.create!(
     country: "Canada"
 )
 
+User.create!(
+    first_name: "wajid",
+    last_name: "kagzi",
+    email: "wjkagzi@gmail.com",
+    username: "wjkagzi",
+    password: "password",
+    password_confirmation: "password"
+)
+
 100.times do
   User.create!(
     first_name: Faker::Name.first_name,

@@ -1,7 +1,7 @@
 class Event < ActiveRecord::Base
   belongs_to :user
   has_many :rsvps
-  has_many :users, through: :rsvps
+  has_many :guests, through: :rsvps, class_name: "User"
 
   has_many :reviews
 
@@ -18,5 +18,12 @@ class Event < ActiveRecord::Base
 
   def full_street_address #Take all location fields, remove nil elements with .compact, then return a string for Geocoder
     [address_1, address_2, city, country, z_post_code].compact.join(', ')
+  end
+
+  def method_names
+    methods = ["event_name", "address_1", "address_2", "city", "country", "z_post_code" ]
+    methods.map do |method|
+      self.send(method)
+    end
   end
 end

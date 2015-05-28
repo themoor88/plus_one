@@ -1,19 +1,24 @@
 class RsvpsController < ApplicationController
 
-  def show
-    @rsvp = Rsvp.find(params[:id])
-  end
-
   def create
-    @rsvp = Rsvp.new
+    @event = Event.find(params[:event_id])
+    @rsvp = @event.rsvps.build
+    @rsvp.user = current_user
+    @rsvp.status = "Pending"
+
+    if @rsvp.save
+      redirect_to root_url
+    else
+      render '/events/new'
+    end
   end
 
-  def new
+  def update
   end
-
-  private
-  def rsvp_params
-
-  end
-
 end
+
+# @pm = ParentModel.find(params[:pm_id])
+# @model1 = Model1.new(:parent_model_id => @pm.id)
+# @pm = ParentModel.find(params[:pm_id])
+# @model1 = @pm.model1s.build
+

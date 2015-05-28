@@ -1,17 +1,15 @@
 class EventsController < ApplicationController
   skip_before_filter :require_login, only: [:index, :show]
+
   def index
-    @events = if params[:search]
-      Event.where("LOWER(name) LIKE LOWER(?)", "%#{params[:search]}%")
-    else
-      Event.all
-    end
+    @events = Event.all
   end
 
   def show
     @event = Event.find(params[:id])
-    @review = Review.new(event_id: params[:id])
     @nearby_events = @event.nearbys(50000)
+    @rsvp = @event.rsvps.build
+    @review = @event.reviews.build
   end
 
   def new
@@ -20,7 +18,7 @@ class EventsController < ApplicationController
 
   def create
     @event = Event.new(event_params)
-    @event.user_id = current_user.id
+    @event.user = current_user
 
     if @event.save
       redirect_to root_url
@@ -43,7 +41,6 @@ class EventsController < ApplicationController
     end
   end
 
-
   def destroy
     @event = Event.find(params[:id])
     @event.destroy
@@ -54,5 +51,4 @@ class EventsController < ApplicationController
   def event_params
     params.require(:event).permit(:event_name, :address_1, :address_2, :city, :country, :z_post_code, :latitude, :longitude, :number_of_attendees, :time, :description, :cost, :image, :category)
   end
-
 end

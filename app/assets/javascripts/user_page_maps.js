@@ -11,16 +11,16 @@ Map.prototype.init = function(latitude, longitude) {
   };
 
   this.canvas = new google.maps.Map(this.mapElem, options);
-}
+};
 
 Map.prototype.addMarker = function(latitude, longitude) {  // Can pass this a unique image argument later on for individual events
   var options = {
     position: {lat: latitude, lng: longitude},
     map: this.canvas
-  }
+  };
     var myMarker = new google.maps.Marker(options);
     this.markers.push(myMarker);
-}
+};
 
 // Map.prototype.removeMarker = function(marker) {
 //   marker.setMap(null); // This will remove the marker from the map

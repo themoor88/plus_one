@@ -5,8 +5,11 @@ Rails.application.routes.draw do
   end
 
   resources :events do
+    resources :rsvps, only: [:new, :create]
     resources :reviews
   end
+
+
 
   resources :user_sessions, only: [:new, :create, :destroy]
 

@@ -3,31 +3,15 @@
   <%= link_to "Edit", edit_event_path %>
 <% end %>
 
-<h2><%= @event.event_name %></h2>
+<% @event.method_names.each do |method| %>
+  <h2><%= method %></h2>
+<% end %>
 
-<h4><%= @event.address_1 %></h4>
-
-<h4><%= @event.address_2 %></h4>
-
-<h4><%= @event.city %></h4>
-
-<h4><%= @event.country %></h4>
-
-<h4><%= @event.z_post_code %></h4>
-
-<h4><%= @event.number_of_attendees %></h4>
-
-<h4><%= @event.time %></h4>
-
-<h4><%= @event.description %></h4>
-
-<h4><%= @event.cost %></h4>
-
-<h4><%= @event.image %></h4>
-
-<h4><%= @event.category %></h4>
-
-<button id="rsvp">Request to Join</button>
+<%= form_for [@event, @rsvp] do |f| %>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
 
 <div class="event-map-canvas" data-latitude="<%= @event.latitude.to_f %>" data-longitude="<%= @event.longitude.to_f %>"></div>
 

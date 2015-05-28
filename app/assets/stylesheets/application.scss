@@ -6,11 +6,8 @@
 @import "base/base";
 
 
-@import "mobilenav";
 @import "pages";
 @import "user_sessions";
-
-
 @import "events";
 
 .container {
@@ -20,4 +17,3 @@
 #nav {
   position: fixed;
 }
-
