@@ -14,6 +14,12 @@ class UsersController < ApplicationController
     @reputation = @user.reputations.build
     city = request.location.city
     country = request.location.country_code
+
+    @user = current_user
+    if current_user
+      @nearby_events = Event.near([current_user.latitude, current_user.longitude], 5000)
+      @nearby_users = @user.nearbys(5000)
+    end
   end
 
   def create
