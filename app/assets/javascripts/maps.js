@@ -1,4 +1,4 @@
-var mapStyle = [{"featureType":"all","elementType":"all","stylers":[{ hue: "#fff" },{ gamma: 1.51 },{ saturation: 60 },]}]
+var mapStyle = [{"featureType":"all","elementType":"all","stylers":[{ hue: "#fff" },{ gamma: 1.51 },{ saturation: 60 },]}];
 
 
 function Map(mapElem) {
@@ -13,6 +13,7 @@ Map.prototype.init = function(latitude, longitude) {
     styles: mapStyle,
     mapTypeId: google.maps.MapTypeId.ROADMAP
   };
+  console.log(options)
 
   this.canvas = new google.maps.Map(this.mapElem, options);
 };
@@ -63,8 +64,6 @@ $(document).on('ready page:load', function() {
     } else {
       error('not supported');
     }
-
-
 
     $("#get_location").click(function(){  // On click,
       $.getJSON('/events.json', {latitude: latitude, longitude: longitude}, function(data) {

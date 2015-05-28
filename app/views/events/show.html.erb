@@ -12,9 +12,9 @@
     <%= f.submit %>
   </div>
 <% end %>
-
-<div class="event-map-canvas" data-latitude="<%= @event.latitude.to_f %>" data-longitude="<%= @event.longitude.to_f %>"></div>
-
+<div class="map">
+  <div class="event-map-canvas" data-latitude="<%= @event.latitude.to_f %>" data-longitude="<%= @event.longitude.to_f %>"></div>
+</div>
 <!-- Event reviews -->
 <h1>Reviews</h1>
 <div id="review-form-errors">
