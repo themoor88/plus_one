@@ -10,32 +10,33 @@
   <%= javascript_include_tag "https://maps.googleapis.com/maps/api/js?key=#{Figaro.env.google_maps_api}" %>
   <%= csrf_meta_tags %>
 </head>
-<body>
+<body class="<%= controller_name %> <%= action_name %>">
 
 <main>
-<div class="container">
-  <div id="nav">
-  <p class="nav-links">
-    <%= link_to 'Home', root_path %>
-    <% if current_user %>
-      <%= link_to 'Profile', user_path(current_user.id) %>
-      <%= link_to 'Logout', :logout, method: :post %>
-      <%= link_to 'Start a Hangout', new_event_path %>
-      <%= link_to 'Hangouts', events_path %>
-    <% else %>
-      <%= link_to 'Sign Up', new_user_path %>
-      <%= link_to 'Login', :login %>
-    <% end %>
-    </p>
-  </div>
-
   <div class="container">
-    <p id="notice"><%= flash[:notice] %></p>
-    <p id="alert"><%= flash[:alert] %></p>
+    <div id="nav">
+    <p class="nav-links">
+      <%= link_to 'Home', root_path %>
+      <% if current_user %>
+        <%= link_to 'Profile', user_path(current_user.id) %>
+        <%= link_to 'Logout', :logout, method: :post %>
+        <%= link_to 'Start a Hangout', new_event_path %>
+        <%= link_to 'Hangouts', events_path %>
+      <% else %>
+        <%= link_to 'Sign Up', new_user_path %>
+        <%= link_to 'Login', :login %>
+      <% end %>
+      </p>
+    </div>
+
+    <div class="container">
+      <p id="notice"><%= flash[:notice] %></p>
+      <p id="alert"><%= flash[:alert] %></p>
+    </div>
   </div>
-</div>
 
   <%= yield %>
+
 </main>
 
 

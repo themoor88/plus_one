@@ -1,4 +1,4 @@
-<div class="main" id="home-background-image">
+<div class="main">
 
   <div class="introduction">
 
@@ -9,7 +9,7 @@
 
 <% if current_user %>
     <%= link_to 'Browse events in your area', events_path %><br>
-      <%= link_to 'Make a New Event', new_event_path %>
+    <%= link_to 'Make a New Event', new_event_path %>
 
 
 
@@ -24,8 +24,9 @@
   </style>
 
   <div id="home-buttons">
-    <button class="sign-up-buttons">Create an Account</button>
-    <button class="sign-up-buttons">Login</button>
+    <a href="/users/new"><button class="sign-up-buttons">Create an Account</button></a>
+    <a href="/login"><button class="sign-up-buttons">Login</button></a>
   </div>
 
 <% end %>
+</div>
