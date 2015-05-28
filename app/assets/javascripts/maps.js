@@ -21,6 +21,7 @@ Map.prototype.init = function(latitude, longitude) {
 Map.prototype.addMarker = function(latitude, longitude) {  // Can pass this a unique image argument later on for individual events
   var options = {
     position: {lat: latitude, lng: longitude},
+    icon: 'http://maps.google.com/mapfiles/ms/icons/blue-dot.png',
     map: this.canvas
   };
     var myMarker = new google.maps.Marker(options);

@@ -1,6 +1,7 @@
 // Typography
 $base-font-family: $helvetica;
 $heading-font-family: $base-font-family;
+$main-font: 'Open sans';
 
 // Font Sizes
 $base-font-size: 1em;
@@ -16,17 +17,23 @@ $small-spacing: $base-spacing / 2;
 $base-z-index: 0;
 
 // Colors
-$blue: #477dca;
-$dark-gray: #333;
+$blue: #0089B0;
+$dark-gray: #A7B3C9;
 $eggshell-white: #f7f8f9;
 $medium-gray: #999;
 $light-gray: #ddd;
 $barney-purple: #555CC2;
+$light-blue: #42A5F5;
+$background-color: #232637;
+$bold-blue: #0089B0;
+$black: #000;
+$blue-gray: #657B93;
 
 // Font Colors
 $base-background-color: #fff;
 $base-font-color: $eggshell-white;
 $action-color: $barney-purple;
+$action-color: $light-blue;
 
 // Border
 $base-border-color: $light-gray;
@@ -35,3 +42,7 @@ $base-border: 1px solid $base-border-color;
 // Forms
 $form-box-shadow: inset 0 1px 3px rgba(#000, 0.06);
 $form-box-shadow-focus: $form-box-shadow, 0 0 5px adjust-color($action-color, $lightness: -5%, $alpha: -0.3);
+
+// Navbar
+$nav-height: 40px;
+$nav-background-color: $light-blue;

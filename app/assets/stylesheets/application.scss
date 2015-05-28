@@ -8,18 +8,10 @@
 
 //Third party
 
-@import "pages";
+
 @import "user_sessions";
 @import "events";
 @import "pages";
+@import "maps";
+@import "home";
 
-.container {
-  @include outer-container;
-}
-
-#nav {
-  position: fixed;
-  width:100%;
-  text-align: middle;
-  background-color: #8389F0;
-}

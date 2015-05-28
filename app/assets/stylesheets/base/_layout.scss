@@ -1,19 +1,85 @@
+///////////// Preliminary /////////////
+
+body {
+  background-color: $background-color;
+  font-family: $main-font $base-font-family;
+}
+
 main {
   @include outer-container;
-  background-color: #232637;
+  background-color: $background-color;
+  padding-bottom: $nav-height;
 }
+
+///////////// Navigation /////////////
 
 #nav {
-  @include span-columns(3);
-  height: 40px;
-  position: fixed;
-  bottom: 0;
-  text-align: center;
-  background-color: #42A5F5;
-  padding-top: 8px;
+    z-index: 1;
+    text-align: center;
+    background-color: $blue;
 
+  @include media($mobile-screen-only) {
+    @include span-columns(3);
+    height: $nav-height;
+    position: fixed;
+    bottom: 0;
+    padding-top: 8px;
+    width: 100%;
+    font-size: rem(12);
+  }
   a {
-    color: white;
-    padding: 20px;
+    color: $eggshell-white;
    }
+  & > p {
+    margin: 0;
+    height: $nav-height;
+  }
+
+
+  @include media($medium-screen-only) {
+    @include span-columns(6);
+    height: $nav-height;
+    position: fixed;
+    width: 100%;
+    font-size: rem(20);
+  }
 }
+
+#navlinks {
+  @include media($mobile-screen-only) {
+    @include span-columns(3);
+  }
+}
+
+///////////// Landing Page /////////////
+
+.welcome-text {
+    text-align: center;
+    font-size: 1.5em;
+    margin: 0;
+}
+.welcome-text2 {
+  text-align: center;
+  font-size: 1em;
+}
+
+.welcome-text-box {
+  background-color: rgba(0,0,0,0.2);
+  margin-top:10.0rem;
+}
+
+
+///////////// Event Reviews /////////////
+
+.comment {
+  font-family: #A7B3C9;
+}
+
+
+
+
+
+
+
+
+
