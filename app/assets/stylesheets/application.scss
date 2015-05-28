@@ -1,12 +1,13 @@
-@import "normalize.css";
+@import "normalize";
 
+//Base
 @import "bourbon";
 @import "base/grid-settings";
 @import "neat";
 @import "base/base";
 
 
-@import "mobilenav";
+//Third party
 @import "pages";
 @import "user_sessions";
 
@@ -20,5 +21,7 @@
 
 #nav {
   position: fixed;
+  width:100%;
+  text-align: middle;
 }
 

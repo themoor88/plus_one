@@ -9,7 +9,7 @@ function Map(mapElem) {
 Map.prototype.init = function(latitude, longitude) {
   var options = {
     center: {lat: latitude, lng: longitude}, // Latitude / Longitude are passed via the data-* attributes
-    zoom: 18,
+    zoom: 13,
     styles: mapStyle,
     mapTypeId: google.maps.MapTypeId.ROADMAP
   };
@@ -26,20 +26,21 @@ Map.prototype.addMarker = function(latitude, longitude) {  // Can pass this a un
     this.markers.push(myMarker);
 };
 
-// Map.prototype.removeMarker = function(marker) {
-//   marker.setMap(null); // This will remove the marker from the map
+Map.prototype.removeMarker = function(marker) {
+  marker.setMap(null); // This will remove the marker from the map
 
-//   var index = this.markers.indexOf(marker);
-//   this.markers.splice(index, 1); // Remove object at this particular index (from the array)
-// }
+  var index = this.markers.indexOf(marker);
+  this.markers.splice(index, 1); // Remove object at this particular index (from the array)
+}
 
 
 
 
 $(document).on('ready page:load', function() {
   var myMap = new Map($('.user-map-canvas')[0]);
+
   function error(msg, geo) {
-    console.log("Error", "geo:", geo, "args", arguments);
+    alert('Please allow geolocation services to find events near you.')
   }
 
   function success(geo, map) {
