@@ -8,17 +8,7 @@
 
 //Third party
 
-@import "pages";
+
 @import "user_sessions";
 @import "events";
-@import "pages";
-
-.container {
-  @include outer-container;
-}
-
-#nav {
-  position: fixed;
-  width:100%;
-  text-align: middle;
-}
+@import "maps";
