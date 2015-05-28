@@ -1,16 +1,30 @@
-#home-background-image {
-  // background-image: url(home-background-mobile.jpg);
-  // opacity: 0.5;
+#home-buttons {
+  margin-top:10rem;
 }
-.home-buttons {
 
-
+.sub-line {
+  text-align:center;
+  font-size: 0.8em;
 }
+
+.welcome-text-box {
+  margin-top: 3rem;
+}
+
+.welcome-text {
+    text-align: center;
+    font-size: 3.0em;
+    margin: 0;
+}
+
+.welcome-text2 {
+  text-align: center;
+  font-size: 1.0em;
+}
+
 .sign-up-buttons {
-    display: block;
-    margin: 0 auto;
-    width: 200px;
-    margin-bottom: 1em;
-    margin-top: 1em;
-    background-color: $black;
+  display: block;
+  margin: 0 auto;
+  margin-bottom:1em;
+  border-radius: 10px;
 }

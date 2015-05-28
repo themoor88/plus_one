@@ -16,7 +16,7 @@ main {
 #nav {
     z-index: 1;
     text-align: center;
-    background-color: $blue;
+    background-color: $barney-purple;
 
   @include media($mobile-screen-only) {
     @include span-columns(3);
@@ -51,32 +51,10 @@ main {
   }
 }
 
-///////////// Landing Page /////////////
-
-.welcome-text {
-    text-align: center;
-    font-size: 1.5em;
-    margin: 0;
-}
-.welcome-text2 {
-  text-align: center;
-  font-size: 1em;
-}
-
-.welcome-text-box {
-  background-color: rgba(0,0,0,0.2);
-  margin-top:10.0rem;
-}
-
-
 ///////////// Event Reviews /////////////
-
 .comment {
   font-family: #A7B3C9;
 }
-
-
-
 
 
 

@@ -3,29 +3,22 @@
   <div class="introduction">
 
     <div class="welcome-text-box">
-      <p class="welcome-text">Welcome to PlusOne!</p>
-      <p class="welcome-text2">Meet people and start networking!</p>
+      <p class="welcome-text">PlusOne</p><br>
+      <p class="welcome-text2">Meet people and start networking</p>
     </div>
 
 <% if current_user %>
     <%= link_to 'Browse events in your area', events_path %><br>
-      <%= link_to 'Make a New Event', new_event_path %>
-
-
-
-
+    <%= link_to 'Make a New Event', new_event_path %>
 <% elsif %>
-
 <!-- Clear nav on landing page alone -->
   <style>
   .container {
     display: none;
   }
   </style>
-
   <div id="home-buttons">
-    <button class="sign-up-buttons">Create an Account</button>
-    <button class="sign-up-buttons">Login</button>
+    <button class="sign-up-buttons">CREATE AN ACCOUNT</button>
+    <a href="/login"><p class="sub-line">Already Have an Account?</p></a>
   </div>
-
 <% end %>
