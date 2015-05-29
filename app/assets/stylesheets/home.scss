@@ -1,5 +1,5 @@
 #home-buttons {
-  margin-top:10rem;
+  margin-top: 2rem;
 }
 
 .sub-line {
@@ -8,7 +8,7 @@
 }
 
 .welcome-text-box {
-  margin-top: 3rem;
+  margin-top: 4rem;
 }
 
 .welcome-text {
@@ -27,4 +27,19 @@
   margin: 0 auto;
   margin-bottom:1em;
   border-radius: 10px;
+}
+
+.home-logo {
+  width: 4rem;
+  height: 4rem;
+  margin: 0 auto;
+  padding-top: 1rem;
+  margin-bottom: 3rem;
+}
+
+.home-logged-in-text {
+  text-align: center;
+  margin-top: rem(60);
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: rem(10);
 }

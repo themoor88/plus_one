@@ -25,14 +25,6 @@
   <%= render "new_review" %>
 </div>
 
-  <% if @nearby_events %>
-    <% @nearby_events.each do |ne| %>
-      <li><%= "#{ne.event_name}, #{ne.distance}" %></li>
-    <% end %>
-  <% elsif %>
-    <h1> There are no nearby events. </h1>
-  <% end %>
-
 <div class="reviews">
   <%= render "review" %>
 </div>

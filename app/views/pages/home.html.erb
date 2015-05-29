@@ -7,9 +7,14 @@
       <p class="welcome-text2">Meet people and start networking</p>
     </div>
 
-<% if current_user %>
-    <%= link_to 'Browse events in your area', events_path %><br>
-    <%= link_to 'Make a New Event', new_event_path %>
+    <div class="home-logo">
+      <%= image_tag "logo.png" %>
+    </div>
+    <% if current_user %>
+  <div class="home-logged-in-text">
+      <%= link_to 'Browse events in your area', events_path %><br>
+      <%= link_to 'Make a New Event', new_event_path %>
+  </div>
 
 <% elsif %>
 <!-- Clear nav on landing page alone -->

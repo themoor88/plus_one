@@ -1,101 +1,89 @@
-<% if current_user == @user %>
-  <%= link_to 'Edit my Profile', edit_user_path(current_user.id) %>
-<% else %>
-  <h1><%= @user.username %></h1>
-<% end %><hr>
+<div class="profile">
+  <% if current_user == @user %>
+    <%= link_to 'Edit my Profile', edit_user_path(current_user.id) %>
+  <% else %>
+    <h1><%= @user.username %></h1>
+  <% end %><hr>
 
-<h2>PlusOnes</h2>
-<% if @user.created_events == [] %>
-  <p><%= @user.username %> has created no new events </p>
-<% else %>
-  <p>These are the events that <%= @user.username %> has created:</p>
-  <% @user.created_events.each do |created|%>
-    <a href="<%= event_path(created) %>">
-      <hr><%= created.event_name %>
-    </a>
-  <% end %>
-<% end %><hr>
-
-<% if current_user == @user %>
-  <h1>Invitations</h1>
-    <% @user.created_events.each do |event| %>
-      <% event.rsvps.each do|rsvp| %>
-        <% if rsvp.status == "Pending" %>
-          <%= rsvp.user.username %> has requested to join <%= event.event_name %>
-        <% elsif rsvp.status == "Accepted" %>
-          <%= rsvp.user.username %> has been accepted into <%= event.event_name %>
-        <% end %>
+  <h2>PlusOnes</h2>
+  <% if @user.created_events == [] %>
+    <p><%= @user.username %> has created no new events </p>
+  <% else %>
+    <p>These are the events that <%= @user.username %> has created:</p>
+    <% @user.created_events.each do |created|%>
+      <a href="<%= event_path(created) %>">
+        <hr><%= created.event_name %>
+      </a>
     <% end %>
   <% end %><hr>
-<% else %>
-<% end %>
 
-<h2>Reputation for <%= @user.username %></h2>
+  <% if current_user == @user %>
+    <h1>Invitations</h1>
+      <% @user.created_events.each do |event| %>
+        <% event.rsvps.each do|rsvp| %>
+          <% if rsvp.status == "Pending" %>
+            <%= rsvp.user.username %> has requested to join <%= event.event_name %>
+          <% elsif rsvp.status == "Accepted" %>
+            <%= rsvp.user.username %> has been accepted into <%= event.event_name %>
+          <% end %>
+      <% end %>
+    <% end %><hr>
+  <% else %>
+  <% end %>
 
-<% @user.reputations.each do |rep| %>
-  <p>
-    <%= rep.introvert %>
-    <br>
-    <% if rep.reviewed_user != nil %>
-      Added on: <%= rep.created_at %>
-    <% end %>
-  </p>
-<% end %>
+  <h2>Reputation for <%= @user.username %></h2>
 
-<% if current_user && current_user != @user %>
-  <h4>New Reputation</h4>
+  <% @user.reputations.each do |rep| %>
+    <p>
+      <%= rep.introvert %>
+      <br>
+      <% if rep.reviewed_user != nil %>
+        Added on: <%= rep.created_at %>
+      <% end %>
+    </p>
+  <% end %>
 
-  <%= form_for ([@user, @reputation]) do |f| %>
+  <% if current_user && current_user != @user %>
+    <h4>New Reputation</h4>
 
-    <% if @reputation.errors.any? %>
-      <div id="error_explanation">
-        <h2><%= pluralize(@reputation.errors.count, "error") %> prohibited this reputation from being saved: </h2>
-          <ul>
-            <% @reputation.errors.full_messages.each do |msg| %>
-              <li><%= msg %></li>
-            <% end %>
-          </ul>
+    <%= form_for ([@user, @reputation]) do |f| %>
+
+      <% if @reputation.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@reputation.errors.count, "error") %> prohibited this reputation from being saved: </h2>
+            <ul>
+              <% @reputation.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+              <% end %>
+            </ul>
+        </div>
+      <% end %>
+
+      <div class="field">
+        <%= f.label :intovert %><br/>
+        <%= f.text_area :introvert %>
+      </div>
+
+      <div class="actions">
+        <%= f.submit %>
       </div>
     <% end %>
 
-    <div class="field">
-      <%= f.label :intovert %><br/>
-      <%= f.text_area :introvert %>
-    </div>
-
-    <div class="actions">
-      <%= f.submit %>
-    </div>
+  <% elsif current_user != @user %>
+    <p>Please <%= link_to "Log In", new_user_session_path %> to add a repuatation.</p>
   <% end %>
 
-<% elsif current_user != @user %>
-  <p>Please <%= link_to "Log In", new_user_session_path %> to add a repuatation.</p>
-<% end %>
 
+  <% if current_user %>
+    <div class="location-button">
+      <button id="get_location" class="button">Find Events Near You</button>
+    </div>
 
-<% if current_user %>
-  <div class="location-button">
-    <button id="get_location" class="button">Find Events Near You</button>
-  </div>
+    <div class="map">
+      <div class="user-map-canvas" data-latitude="<%= @user.latitude.to_f %>" data-longitude="<%= @user.longitude.to_f %>"></div>
+    </div>
 
-  <div class="map">
-    <div class="user-map-canvas" data-latitude="<%= @user.latitude.to_f %>" data-longitude="<%= @user.longitude.to_f %>"></div>
-  </div>
-
-
-  <div class="nearby-events">
-    <h1> Nearby Events: </h1>
-
-      <% @nearby_events.each do |ne| %>
-        <li><%= "#{ne.event_name}, #{ne.distance}" %></li>
-      <% end %>
-
-    <h1> Nearby Users: </h1>
-      <% @nearby_users.each do |ne| %>
-        <li><%= "#{ne.username}, #{ne.distance}" %></li>
-      <% end %>
-  </div>
-
-  <% elsif %>
-    <p>Please <%= link_to "Log In", new_user_session_path %> to start your own hangout.</p>
-  <% end %>
+    <% elsif %>
+      <p>Please <%= link_to "Log In", new_user_session_path %> to start your own hangout.</p>
+    <% end %>
+</div>
