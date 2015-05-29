@@ -15,7 +15,9 @@ User.create!(
     email: "wjkagzi@gmail.com",
     username: "wjkagzi",
     password: "password",
-    password_confirmation: "password"
+    password_confirmation: "password",
+    city: "Toronto",
+    country: "Canada"
 )
 
 100.times do

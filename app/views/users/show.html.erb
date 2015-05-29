@@ -39,15 +39,20 @@
 
   <h2>Reputation for <%= @user.username %></h2>
 
-  <% @user.reputations.each do |rep| %>
-    <p>
-      <%= rep.introvert %>
+  <% if @user.reputations != nil %>
+    <% @user.reputations.each do |rep| %>
+      <p>
+        <p>Introvert Rating:</p><%= rep.introvert %>
+        <p>Extrovert Rating:</p><%= rep.extrovert %>
+        <p>Positivity Rating:</p><%= rep.positive %>
+        <p>Negativity Rating:</p><%= rep.negative %>
       <br>
-      <% if rep.reviewed_user != nil %>
-        Added on: <%= rep.created_at %>
-      <% end %>
+
+    <% end %>
+    <% else %>
     </p>
   <% end %>
+  <hr>
 
   <% if current_user && current_user != @user %>
     <h4>New Reputation</h4>
@@ -66,10 +71,39 @@
       <% end %>
 
       <div class="field">
-        <%= f.label :intovert %><br/>
-        <%= f.text_area :introvert %>
+        <div class="introvert">
+        <p>Introvert</p>
+          <p>1<%= f.radio_button :introvert, 1 %></p>
+          <p>2<%= f.radio_button :introvert, 2 %></p>
+          <p>3<%= f.radio_button :introvert, 3, checked: true %></p>
+          <p>4<%= f.radio_button :introvert, 4 %></p>
+        </div>
+
+        <div class="extrovert">
+          <p>Extrovert</p>
+          <p>1<%= f.radio_button :extrovert, 1 %></p>
+          <p>2<%= f.radio_button :extrovert, 2 %></p>
+          <p>3<%= f.radio_button :extrovert, 3, checked: true %></p>
+          <p>4<%= f.radio_button :extrovert, 4 %></p>
+        </div>
+
+        <div class="positive">
+          <p>Positive Experience?</p>
+          <p>1<%= f.radio_button :positive, 1 %></p>
+          <p>2<%= f.radio_button :positive, 2 %></p>
+          <p>3<%= f.radio_button :positive, 3, checked: true %></p>
+          <p>4<%= f.radio_button :positive, 4 %></p>
+        </div>
+
+        <div class="negative">
+          <p>Negative Experience?</p>
+          <p>1<%= f.radio_button :negative, 1 %></p>
+          <p>2<%= f.radio_button :negative, 2 %></p>
+          <p>3<%= f.radio_button :negative, 3, checked: true %></p>
+          <p>4<%= f.radio_button :negative, 4 %></p>
+        </div>
       </div>
-      <div class="actions">
+      <div class="submit-button">
         <%= f.submit %>
       </div>
     <% end %>
@@ -79,7 +113,7 @@
   <% end %>
 
 
-  <% if current_user %>
+  <% if current_user == @user %>
     <div class="location-button">
       <button id="get_location" class="button">Find Events Near You</button>
     </div>
@@ -87,8 +121,9 @@
     <div class="map">
       <div class="user-map-canvas" data-latitude="<%= @user.latitude.to_f %>" data-longitude="<%= @user.longitude.to_f %>"></div>
     </div>
+    <% end %>
 
-    <% elsif %>
+    <% unless current_user %>
       <p>Please <%= link_to "Log In", new_user_session_path %> to start your own hangout.</p>
     <% end %>
 </div>
