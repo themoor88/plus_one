@@ -1,4 +1,7 @@
   <div class="profile">
+  <div class="header-background">
+    <h1 class="heading-text">Profile</h1>
+  </div>
   <% if current_user == @user %>
     <%= link_to 'Edit my Profile', edit_user_path(current_user.id) %>
   <% else %>
@@ -6,6 +9,7 @@
   <% end %><hr>
 
   <h2>PlusOnes</h2>
+
   <% if @user.created_events == [] %>
     <p><%= @user.username %> has created no new events </p>
   <% else %>

@@ -18,11 +18,12 @@ Map.prototype.init = function(latitude, longitude) {
   this.canvas = new google.maps.Map(this.mapElem, options);
 };
 
-Map.prototype.addMarker = function(latitude, longitude) {  // Can pass this a unique image argument later on for individual events
+Map.prototype.addMarker = function(latitude, longitude, title) {  // Can pass this a unique image argument later on for individual events
   var options = {
     position: {lat: latitude, lng: longitude},
     icon: 'http://maps.google.com/mapfiles/ms/icons/blue-dot.png',
-    map: this.canvas
+    map: this.canvas,
+    title: title
   };
     var myMarker = new google.maps.Marker(options);
     this.markers.push(myMarker);
@@ -49,7 +50,7 @@ $(document).on('ready page:load', function() {
     console.log("Success", "geo:", geo, "args", arguments);
     myLatitude = geo.coords.latitude // Bad practice to define global variables here, however I had no choice as navigator.geolocation.getCurrentPosition(success, error)
     myLongitude = geo.coords.longitude
-    myMap.addMarker(myLatitude, myLongitude);
+    myMap.addMarker(myLatitude, myLongitude, "Me");
     myMap.canvas.panTo(myMap.markers[0].getPosition());
   }
 
@@ -69,7 +70,8 @@ $(document).on('ready page:load', function() {
     $("#get_location").click(function(){  // On click,
       $.getJSON('/events.json', {latitude: latitude, longitude: longitude}, function(data) {
        $.each(data, function(index, value) {
-          myMap.addMarker(parseFloat(value.latitude), parseFloat(value.longitude));
+          myMap.addMarker(parseFloat(value.latitude), parseFloat(value.longitude), value.event_name);
+          // add your listener for the marker here
         });
       });
     })

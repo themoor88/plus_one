@@ -3,7 +3,7 @@
 body {
   background-color: $background-color;
   font-family: $main-font $base-font-family;
-  @include outer-container;
+  // @include outer-container;
   max-width: 100%;
 }
 
@@ -32,6 +32,14 @@ main {
 
   @include media($medium-screen-only) {
     @include span-columns(6);
+    height: ($nav-height + 30);
+    position: fixed;
+    width: 100%;
+    font-size: rem(20);
+  }
+
+  @include media($large-screen-only) {
+    @include span-columns(9);
     height: $nav-height;
     position: fixed;
     width: 100%;
@@ -72,6 +80,19 @@ main {
       margin-left: auto;
       margin-right: auto;
   }
+  @include media($large-screen-only) {
+    @include span-columns(9);
+      display: inline-block;
+      width: rem(30);
+      height: rem(30);
+      float: left;
+      margin-left: auto;
+      margin-right: auto;
+  }
+}
+
+.nav-icons:target {
+  background-color: red;
 }
 
 
@@ -118,7 +139,17 @@ main {
 }
 
 
+////////// HEADERS //////////
+.header-background {
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 0 0 rem(10) rem(10);
+}
 
+.heading-text {
+ font-size: $h1-font-size;
+ padding: 0;
+ margin: 0;
+}
 
 
 
