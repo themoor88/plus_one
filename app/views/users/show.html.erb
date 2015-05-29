@@ -12,7 +12,7 @@
     <p>These are the events that <%= @user.username %> has created:</p>
     <% @user.created_events.each do |created|%>
       <a href="<%= event_path(created) %>">
-        <hr><%= created.event_name %>
+        <%= created.event_name %>
       </a>
     <% end %>
   <% end %><hr>
@@ -22,7 +22,9 @@
       <% @user.created_events.each do |event| %>
         <% event.rsvps.each do|rsvp| %>
           <% if rsvp.status == "Pending" %>
-            <%= rsvp.user.username %> has requested to join <%= event.event_name %>
+            <a href="<%= user_path(@user) %>"><%= rsvp.user.username %></a> has requested to join <%= event.event_name %>
+            <button id="accept">Accept</button>
+            <button id="decline">Decline</button><br><br><br>
           <% elsif rsvp.status == "Accepted" %>
             <%= rsvp.user.username %> has been accepted into <%= event.event_name %>
           <% end %>

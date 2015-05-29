@@ -17,36 +17,36 @@
     <ul class="nav-links">
 
       <%= link_to root_path do %>
-        <li class="nav-icons"><%= image_tag("home.png") %></li>
+        <li class="nav-icons home"><%= image_tag("home.png") %></li>
       <% end %>
 
       <% if current_user %>
 
 
         <%= link_to events_path do %>
-          <li class="nav-icons"><%= image_tag("location.png") %></li>
+          <li class="nav-icons one"><%= image_tag("location.png") %></li>
         <% end %>
 
         <%= link_to new_event_path do %>
-          <li class="nav-icons"><%= image_tag("plus.png") %></li>
+          <li class="nav-icons two"><%= image_tag("plus.png") %></li>
         <% end %>
 
         <%= link_to :logout, method: :post do %>
-          <li class="nav-icons"><%= image_tag("x.png") %></li>
+          <li class="nav-icons three"><%= image_tag("x.png") %></li>
         <% end %>
 
         <%= link_to user_path(current_user.id) do %>
-          <li class="nav-icons"><%= image_tag("gear.png") %></li>
+          <li class="nav-icons four"><%= image_tag("gear.png") %></li>
         <% end %>
 
       <% else %>
 
         <%= link_to new_user_path do %>
-          <li class="nav-icons"><%= image_tag("signup.png") %></li>
+          <li class="nav-icons five"><%= image_tag("signup.png") %></li>
         <% end %>
 
         <%= link_to :login do %>
-          <li class="nav-icons"><%= image_tag("login.png") %></li>
+          <li class="nav-icons six"><%= image_tag("login.png") %></li>
         <% end %>
 
       <% end %>
