@@ -7,12 +7,11 @@
   <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
   <%= stylesheet_link_tag 'application', media: 'all' %>
   <%= javascript_include_tag 'application' %>
-  <%= javascript_include_tag "https://maps.googleapis.com/maps/api/js?key=#{Figaro.env.google_maps_api}" %>
+  <%= javascript_include_tag "https://maps.googleapis.com/maps/api/js?v=3?key=#{Figaro.env.google_maps_api}" %>
   <%= csrf_meta_tags %>
 </head>
 <body class="<%= controller_name %> <%= action_name %>">
 <main>
-  <div class="container">
     <div id="nav">
     <ul class="nav-links">
 
@@ -52,7 +51,7 @@
       <% end %>
       </ul>
     </div>
-  </div>
+
     <div class="container">
       <p id="notice"><%= flash[:notice] %></p>
       <p id="alert"><%= flash[:alert] %></p>
