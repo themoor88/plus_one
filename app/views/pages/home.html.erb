@@ -4,12 +4,10 @@
 
     <div class="welcome-text-box">
       <p class="welcome-text">PlusOne</p><br>
-      <p class="welcome-text2">Meet people and start networking</p>
+      <p class="welcome-text2">Meet like-minded people around<br>your area.</p>
     </div>
 
 <% if current_user %>
-    <%= link_to 'Browse events in your area', events_path %><br>
-    <%= link_to 'Make a New Event', new_event_path %>
 
 <% elsif %>
 <!-- Clear nav on landing page alone -->

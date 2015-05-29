@@ -17,6 +17,7 @@ main {
     z-index: 1;
     text-align: center;
     background-color: $barney-purple;
+    height:rem(10);
 
   @include media($mobile-screen-only) {
     @include span-columns(3);
@@ -27,14 +28,6 @@ main {
     width: 100%;
     font-size: rem(12);
   }
-  a {
-    color: $eggshell-white;
-   }
-  & > p {
-    margin: 0;
-    height: $nav-height;
-  }
-
 
   @include media($medium-screen-only) {
     @include span-columns(6);
