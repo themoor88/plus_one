@@ -27,4 +27,8 @@ class Event < ActiveRecord::Base
       self.send(method)
     end
   end
+
+  def random_event
+    self.Event.order("RANDOM()").first
+  end
 end

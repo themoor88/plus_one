@@ -11,10 +11,14 @@
       <%= image_tag "logo.png" %>
     </div>
     <% if current_user %>
-  <div class="home-logged-in-text">
-      <%= link_to 'Browse events in your area', events_path %><br>
-      <%= link_to 'Make a New Event', new_event_path %>
+
+  <!-- Swipe Card for Logged In User -->
+  <div class="swipe-card">
+    <div class="card">
+
+    </div>
   </div>
+
 
 <% elsif %>
 <!-- Clear nav on landing page alone -->
