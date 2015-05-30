@@ -7,5 +7,6 @@ class PagesController < ApplicationController
       @nearby_users = @user.nearbys(5000)
     else
     end
+    @randomevent = Event.order("RANDOM()").first
   end
 end
