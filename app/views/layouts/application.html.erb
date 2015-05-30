@@ -9,6 +9,7 @@
   <%= javascript_include_tag 'application' %>
   <%= javascript_include_tag "https://maps.googleapis.com/maps/api/js?v=3?key=#{Figaro.env.google_maps_api}" %>
   <%= javascript_include_tag "https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js" %>
+
   <%= csrf_meta_tags %>
 </head>
 <body class="<%= controller_name %> <%= action_name %>">
@@ -16,8 +17,8 @@
     <div id="nav">
     <ul class="nav-links">
 
-      <%= link_to root_path do %>
-        <li class="nav-icons home-link"><%= image_tag("home.png") %></li>
+      <%= link_to root_path class: "home-link" do %>
+        <li class="nav-icons"><%= image_tag("home.png") %></li>
       <% end %>
 
       <% if current_user %>

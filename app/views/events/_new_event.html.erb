@@ -44,7 +44,9 @@
 
   <div class="event-field">
     <%= f.label :time %><br>
-    <%= f.text_field :time %>
+    <div class="time-field">
+      <%= f.hidden_field :time %>
+    </div>
   </div>
 
   <div class="event-field">
