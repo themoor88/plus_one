@@ -18,10 +18,11 @@ class User < ActiveRecord::Base
   validates :password, confirmation: true
   validates :password_confirmation, presence: true
 
-  geocoded_by :city
-  before_validation :geocode
+  geocoded_by :full_address
+  after_validation :geocode
+  mount_uploader :avatar, AvatarUploader
 
-  def ip_address
-    [longitude, latitude].join(', ')
+  def full_address
+    [city, country].join(', ')
   end
 end

@@ -6,6 +6,7 @@
     <%= link_to 'Edit my Profile', edit_user_path(current_user.id) %>
   <% else %>
     <h1><%= @user.username %></h1>
+    <div class="profile-pic"><%= @user.avatar_url %></div>
   <% end %><hr>
 
   <h2>PlusOnes</h2>

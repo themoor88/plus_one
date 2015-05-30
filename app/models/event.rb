@@ -13,6 +13,7 @@ class Event < ActiveRecord::Base
 
   geocoded_by :full_street_address
   before_save :geocode # Forces update if any attributes have changed (should avoid uneccessary work / requests)
+  mount_uploader :image, ImageUploader
 
   ###ADD USER IP LOCATION: https://github.com/alexreisner/geocoder#request-geocoding-by-ip-address
 
