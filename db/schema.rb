@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150527124040) do
+ActiveRecord::Schema.define(version: 20150530233122) do
 
   create_table "events", force: :cascade do |t|
     t.string   "event_name"
@@ -31,6 +31,14 @@ ActiveRecord::Schema.define(version: 20150527124040) do
     t.integer  "user_id"
     t.decimal  "longitude",           precision: 9, scale: 6
     t.decimal  "latitude",            precision: 9, scale: 6
+  end
+
+  create_table "friendships", force: :cascade do |t|
+    t.boolean  "confirmed",   default: false
+    t.integer  "friendee_id"
+    t.integer  "friender_id"
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
   end
 
   create_table "reputations", force: :cascade do |t|

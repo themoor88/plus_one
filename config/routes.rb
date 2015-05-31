@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :friendships
+
   root "pages#home"
   resources :users do
     resources :reputations

@@ -1,11 +1,11 @@
 class Event < ActiveRecord::Base
   belongs_to :user
   has_many :rsvps
-  # has_many :guests, through: :rsvps, class_name: "User"
+  belongs_to :category
 
   has_many :reviews
 
-  validates :event_name, :address_1, :city, :country, :number_of_attendees, :time, :description, :category, presence: true
+  validates :event_name, :address_1, :city, :country, :number_of_attendees, :time, :description, presence: true
   validates :event_name, length: { minimum: 2,
     too_short: "%{count} characters are the minimum allowed." }
   validates :event_name, length: { maximum: 255,

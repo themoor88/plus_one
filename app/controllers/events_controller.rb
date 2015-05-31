@@ -3,13 +3,6 @@ class EventsController < ApplicationController
 
   def index
     @events = Event.all
-
-    # @events = if params[:search]
-    #   Event.where("LOWER(event_name) LIKE LOWER(?)", "%#{params[:search]}%")
-    # else
-    #   Event.all         ///// ADD SEARCH FUNCTION
-    # end
-
     respond_to do |format|
       format.json {render json: @events}
       format.html

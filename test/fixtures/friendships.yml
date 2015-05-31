@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  confirmed: false
+  friendee_id: 1
+  friender_id: 1
+
+two:
+  confirmed: false
+  friendee_id: 1
+  friender_id: 1
