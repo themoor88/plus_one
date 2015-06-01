@@ -1,7 +1,38 @@
 <div class="main">
 
   <!-- Swipe Card for Logged In User -->
+  <% if @randomevent %>
   <div class="swipe-card-wrapper">
     <%= render "randomevent" %>
   </div>
+
+  <% else %>
+  <!-- Clear nav on landing page alone -->
+    <div class="introduction">
+
+      <div class="welcome-text-box">
+        <p class="welcome-text">PlusOne</p><br>
+        <p class="welcome-text2">Meet like-minded people around<br>your area.</p>
+      </div>
+
+      <div class="home-logo">
+        <%= image_tag "logo.png" %>
+      </div>
+    <style>
+    #nav {
+      display: none;
+    }
+    .container {
+      display: none;
+    }
+    </style>
+
+    <div id="home-buttons">
+      <a href="/users/new"><button class="sign-up-buttons">CREATE AN ACCOUNT</button></a>
+      <a href="/login"><p class="sub-line">Already Have an Account?</p></a>
+    </div>
+<% end %>
+
+
 </div>
+

@@ -1,5 +1,6 @@
 ///////////// Preliminary /////////////
 
+
 body {
   background-color: $background-color;
   font-family: $main-font $base-font-family;
@@ -17,62 +18,73 @@ main {
 
 #nav {
   z-index: 1;
-  margin-left: auto ;
-  margin-right: auto ;
+  margin-left: auto;
+  margin-right: auto;
   background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5) 0%, rgba(61, 60, 59, 0.5) 100%);
+  display: inline-block;
 @include media($mobile-screen-only) {
-  @include span-columns(3);
+  @include span-columns(4);
   height: $nav-height;
   position: fixed;
   bottom: 0;
-  padding-top: 8px;
+  padding-top: 6px;
   width: 100%;
   font-size: rem(12);
   }
 
   @include media($medium-screen-only) {
-    @include span-columns(6);
-    height: ($nav-height + 30);
-    position: fixed;
-    width: 100%;
-    font-size: rem(20);
-  }
-
-  @include media($large-screen-only) {
-    @include span-columns(9);
+    @include span-columns(8);
     height: $nav-height;
     position: fixed;
     width: 100%;
     font-size: rem(20);
+    top: 0;
   }
-}
 
-#navlinks {
-  @include media($mobile-screen-only) {
-    @include span-columns(3);
+  @include media($large-screen-only) {
+    @include span-columns(12);
+    height: $nav-height;
+    position: fixed;
+    width: 100%;
+    font-size: rem(20);
+    top: 0;
   }
 }
 
 .nav-links {
-  text-align: justify;
+  text-align: center;
   margin: 0 auto;
   padding: 0px;
   display: table;
   overflow: hidden;
+
+    @include media($mobile-screen-only) {
+      text-align: center;
+      margin: 0 auto;
+      padding: 0px;
+      display: table;
+      overflow: hidden;
+  }
+  @include media($medium-screen-only) {
+    text-align: center;
+    margin: 0 auto;
+    padding: 0px;
+    display: table;
+    overflow: hidden;
+  }
 }
 
 .nav-icons {
   @include media($mobile-screen-only) {
-    @include span-columns(3);
+    @include span-columns(4);
       display: inline-block;
       width: rem(30);
       height: rem(30);
-      float: left;
       margin-left: auto;
       margin-right: auto;
   }
   @include media($medium-screen-only) {
-    @include span-columns(6);
+    @include span-columns(8);
       display: inline-block;
       width: rem(30);
       height: rem(30);
@@ -81,7 +93,7 @@ main {
       margin-right: auto;
   }
   @include media($large-screen-only) {
-    @include span-columns(9);
+    @include span-columns(12);
       display: inline-block;
       width: rem(30);
       height: rem(30);
@@ -212,11 +224,14 @@ main {
 
 .sliding-panel-button {
   @include button(flat, rgba(0, 0, 0, 0.8));
-  padding: 10px 16px;
   display: inline-block;
-  cursor: pointer;
-  position: relative;
   outline: none;
+  width: rem(30);
+  height: rem(30);
+  float: left;
+  margin-left: auto;
+  margin-right: auto;
+
 
   img {
     height: 1.3em;

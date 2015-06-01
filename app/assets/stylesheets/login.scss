@@ -1,6 +1,20 @@
  .login {
-  width: 100%;
-  text-align: center;
+  @include media($mobile-screen-only) {
+    width: 100%;
+    text-align: center;
+  }
+  @include media($medium-screen-only) {
+
+  }
+  @include media($large-screen-only) {
+    width: 50%;
+    margin: 0 auto;
+    margin-top: rem(100px);
+    .login-button {
+      width: 100%;
+    }
+
+  }
 }
 
 .login-button {

@@ -6,8 +6,26 @@
   margin-top: rem(20);
 }
 
-.map {
+.user-map {
   margin-bottom: rem(20);
+  width: 100%;
+  // @include media($large-screen-only) {
+
+    // @include span-columns(6);
+    // width: 100%;
+    // height: 100%
+
+}
+
+.user-map-canvas {
+  @include media($large-screen-only) {
+    @include span-columns(12);
+    width: 100%;
+    height: 300px;
+    margin-bottom: rem(10);
+    margin-left: rem(10);
+    margin-right: rem(10);
+  }
 }
 
 .submit-button {
@@ -15,9 +33,16 @@
 }
 
 .profile-pic {
-  border-radius: rem(10);
-  background-repeat: no-repeat;
-  background-position: 50%;
-  max-width: 50%;
-  max-height: 50%;
+  @include media($mobile-screen-only) {
+    border-radius: rem(10);
+    background-repeat: no-repeat;
+    background-position: 50%;
+    max-width: 50%;
+    max-height: 50%;
+  }
+  @include media($large-screen-only) {
+    @include span-columns(2);
+    margin: 0;
+  }
+
 }
