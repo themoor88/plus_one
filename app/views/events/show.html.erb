@@ -13,11 +13,36 @@
   </div>
 </div>
 
-<%= form_for [@event, @rsvp] do |f| %>
-  <div class="actions">
-    <%= f.submit %>
+<div class="modal">
+  <label for="modal-1">
+    <div class="modal-trigger">Request to Join</div>
+  </label>
+  <input class="modal-state" id="modal-1" type="checkbox" />
+  <div class="modal-fade-screen">
+    <div class="modal-inner">
+      <div class="modal-close" for="modal-1"></div>
+        <div class="avatars">
+          <div class="profile-pic-modal"><%= image_tag (current_user.avatar_url(:mobile)), class: "profile-pic" %></div>
+          <div class="profile-pic-modal"><%= image_tag (@user.avatar_url(:mobile)), class: "profile-pic" %></div>
+        </div>
+      <p class="modal-intro">Hi, <%= @user.username %>. I'd like to join.</p>
+      <p class="modal-content"><%= @event.event_name %></p>
+
+
+
+      <%= form_for [@event, @rsvp] do |f| %>
+        <div class="request-event-field">
+          <%= f.text_area :message, :placeholder => "Send a message (optional)" %>
+        </div>
+
+        <div class="request-button">
+          <%= f.submit "Request to Join" %>
+        </div>
+      <% end %>
+    </div>
   </div>
-<% end %>
+</div>
+
 <div class="map">
   <div class="event-map-canvas" data-latitude="<%= @event.latitude.to_f %>" data-longitude="<%= @event.longitude.to_f %>"></div>
 </div>

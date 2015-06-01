@@ -14,6 +14,7 @@ class EventsController < ApplicationController
     @nearby_events = @event.nearbys(500000)
     @rsvp = @event.rsvps.build
     @review = @event.reviews.build
+    @user = @event.user
   end
 
   def new

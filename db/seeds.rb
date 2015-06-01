@@ -18,15 +18,6 @@ User.create!(
   password_confirmation: "password",
   city: "Toronto",
   country: "Canada"
-
-    first_name: "wajid",
-    last_name: "kagzi",
-    email: "wjkagzi@gmail.com",
-    username: "wjkagzi",
-    password: "password",
-    password_confirmation: "password",
-    city: "Toronto",
-    country: "Canada",
 )
 
 20.times do
@@ -46,24 +37,24 @@ User.create!(
   )
 end
 
-100.times do
-  Event.create!(
-    event_name: Faker::Company.catch_phrase,
-    address_1: Faker::Address.street_address,
-    address_2: Faker::Address.secondary_address,
-    city: Faker::Address.city,
-    country: Faker::Address.country,
-    z_post_code: Faker::Address.postcode,
-    latitude: Faker::Address.latitude,
-    longitude: Faker::Address.longitude,
-    number_of_attendees:rand(2..8),
-    time: DateTime.now + rand(4..9).days,
-    description: Faker::Company.bs,
-    cost: rand(0..50),
-    image: "image",
-    category: ["Art", "Electrical", "Machine"][rand(0..2)]
-  )
-end
+# 100.times do
+#   Event.create!(
+#     event_name: Faker::Company.catch_phrase,
+#     address_1: Faker::Address.street_address,
+#     address_2: Faker::Address.secondary_address,
+#     city: Faker::Address.city,
+#     country: Faker::Address.country,
+#     z_post_code: Faker::Address.postcode,
+#     latitude: Faker::Address.latitude,
+#     longitude: Faker::Address.longitude,
+#     number_of_attendees:rand(2..8),
+#     time: DateTime.now + rand(4..9).days,
+#     description: Faker::Company.bs,
+#     cost: rand(0..50),
+#     image: "image",
+#     category: ["Art", "Electrical", "Machine"][rand(0..2)]
+#   )
+# end
 
 # Event.create!(
 #     event_name: Faker::Company.catch_phrase,
