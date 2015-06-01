@@ -10,8 +10,6 @@
     <%= link_to "Add #{@user.full_name} as a friend", friendships_path(id: @user.id), :class => 'btn-friend' %>
   <% end %><hr>
 
-
-
   <h2>PlusOnes</h2>
 
   <% if @user.created_events == [] %>
@@ -40,6 +38,7 @@
     <% end %><hr>
   <% else %>
   <% end %>
+  You have <%= @user.total_friends %><hr>
 
   <h2>Reputation for <%= @user.username %></h2>
 
