@@ -12,10 +12,10 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @reputation = @user.reputations.build
+    @friendship = Friendship.new(friender_id: current_user.id)
     city = request.location.city
     country = request.location.country_code
 
-    # @user = current_user
     if current_user
       @nearby_events = Event.near([current_user.latitude, current_user.longitude], 5000)
       @nearby_users = @user.nearbys(5000)
