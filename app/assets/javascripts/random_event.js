@@ -18,4 +18,3 @@ $(document).on('ready page:load', function() {
     });
   }));
 });
-$('.time-field').timepicker();

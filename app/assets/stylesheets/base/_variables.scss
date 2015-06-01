@@ -34,7 +34,6 @@ $blue-gray: #657B93;
 // Font Colors
 $base-background-color: #fff;
 $base-font-color: $eggshell-white;
-$action-color: $barney-purple;
 $action-color: $light-blue;
 
 // Border
@@ -50,19 +49,28 @@ $nav-height: 40px;
 $nav-background-color: $light-blue;
 
 // Event Card
-  $base-border-color: gainsboro !default;
-  $base-border-radius: 3px !default;
-  $base-background-color: white !default;
-  $base-spacing: 1.5em !default;
-  $action-color: #477DCA !default;
-  $base-link-color: $action-color !default;
-  $dark-gray: #333 !default;
-  $base-font-color: $dark-gray !default;
-  $card-border-color: $base-border-color;
-  $card-border: 1px solid $card-border-color;
-  $card-background: lighten($card-border-color, 10%);
-  $card-header-background: $card-background;
-  $card-hover-background: lighten($card-background, 5%);
-  $card-image-background: #DBD199;
-  $card-image-hover-background: lighten($card-image-background, 5%);
-  $card-margin: 1em;
+$base-border-color: gainsboro !default;
+$base-border-radius: 3px !default;
+$base-background-color: white !default;
+$base-spacing: 1.5em !default;
+$action-color: #477DCA !default;
+$base-link-color: $action-color !default;
+$dark-gray: #333 !default;
+$base-font-color: $dark-gray !default;
+$card-border-color: $base-border-color;
+$card-border: 1px solid $card-border-color;
+$card-background: lighten($card-border-color, 10%);
+$card-header-background: $card-background;
+$card-hover-background: lighten($card-background, 5%);
+$card-image-background: #DBD199;
+$card-image-hover-background: lighten($card-image-background, 5%);
+$card-margin: 1em;
+
+  // Sliding menu
+$sliding-panel-border-color: $dark-gray;
+$sliding-panel-background: lighten($blue, 5%);
+$sliding-panel-color: #fff;
+$sliding-panel-border: 1px solid $sliding-panel-border-color;
+$sliding-panel-background-hover: $action-color;
+$sliding-panel-color-hover: #fff;
+$sliding-panel-background-focus: lighten($sliding-panel-background, 5%);

@@ -40,6 +40,20 @@
           <li class="nav-icons profile-link"><%= image_tag("gear.png") %></li>
         <% end %>
 
+        <button type="button" class="js-menu-trigger sliding-panel-button">
+          <img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/menu-white.png" alt="Menu Icon">
+        </button>
+
+        <nav class="js-menu sliding-panel-content">
+          <ul>
+            <li><a href="javascript:void(0)">Notifications</a></li>
+            <li><a href="javascript:void(0)">Profile</a></li>
+            <li><a href="javascript:void(0)">Etc</a></li>
+          </ul>
+        </nav>
+
+        <div class="js-menu-screen sliding-panel-fade-screen"></div>
+
       <% else %>
 
         <%= link_to new_user_path do %>
