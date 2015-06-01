@@ -1,11 +1,51 @@
 .signup {
-  width: 100%;
-  text-align: center;
+  text-align: justify;
+  padding: 10px;
 }
 
 .signup-button {
+  @include media($mobile-screen-only) {
+    @include span-columns(4);
   left: 50%;
+  width: 100%;
   padding: 0;
   border-radius: 3px 3px 0 0;
   margin-bottom: rem(10);
+    input {
+      width: 100%;
+    }
+  }
+}
+
+.field {
+  @include media($mobile-screen-only) {
+    @include span-columns(4);
+    @include omega(2n);
+  }
+  label {
+    margin: 0;
+    padding: 0;
+  }
+  input {
+    height: 15px;
+  }
+}
+
+.imagefield {
+  @include media($mobile-screen-only) {
+    @include span-columns(4);
+    background: #000;
+    width: 100%;
+    input {
+      filter: alpha(opacity=0);
+      opacity: 0;
+      display: none;
+    }
+    button {
+      width: 100%;
+    }
+    label {
+      display: none;
+    }
+  }
 }

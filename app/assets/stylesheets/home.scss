@@ -47,14 +47,13 @@
 ////////// CARD /////////
 .swipe-card-wrapper {
   animation: swipeleft 1000ms linear both;
-  animation: swiperight 700ms linear both;
   @include display(flex);
   @include flex-wrap(wrap);
   @include justify-content(space-between);
 }
 
 .event-card {
-
+  @include media($mobile-screen-only) {
   @include flex-basis(15em);
   @include flex-grow(1);
   @include transition (all 0.2s ease-in-out);
@@ -65,6 +64,7 @@
   cursor: pointer;
   margin: 0 $card-margin $base-spacing $card-margin;
   position: relative;
+}
 
   .event-card-image {
     overflow: hidden;

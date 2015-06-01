@@ -84,6 +84,8 @@ ActiveRecord::Schema.define(version: 20150601183816) do
     t.string   "country"
     t.string   "image"
     t.string   "avatar"
+    t.string   "bio"
+    t.string   "interests"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

@@ -12,41 +12,64 @@
     <% end %>
 
     <div class="field">
-      <%= f.label :first_name %><br>
+      <%= f.label :first_name %>
       <%= f.text_field :first_name %>
     </div>
+
     <div class="field">
-      <%= f.label :last_name %><br>
+      <%= f.label :last_name %>
       <%= f.text_field :last_name %>
     </div>
+
     <div class="field">
-      <%= f.label :email %><br>
+      <%= f.label :bio %>
+      <%= f.text_field :bio %>
+    </div>
+
+    <div class="field">
+      <%= f.label :interests %>
+      <%= f.text_field :interests %>
+    </div>
+
+    <div class="field">
+      <%= f.label :email %>
       <%= f.text_field :email %>
     </div>
+
     <div class="field">
-      <%= f.label :username %><br>
+      <%= f.label :username %>
       <%= f.text_field :username %>
     </div>
+
     <div class="field">
-      <%= f.label :city %><br>
+      <%= f.label :city %>
       <%= f.text_field :city %>
     </div>
+
     <div class="field">
-      <%= f.label :country %><br>
+      <%= f.label :country %>
       <%= f.text_field :country %>
     </div>
+
+
     <div class="field">
-      <%= f.label :avatar, "Profile Photo" %><br>
-      <%= f.file_field :avatar %>
-    </div>
-    <div class="field">
-      <%= f.label :password %><br>
+      <%= f.label :password %>
       <%= f.password_field :password %>
     </div>
+
     <div class="field">
-      <%= f.label :password_confirmation %><br>
+      <%= f.label :password_confirmation, "Confirm Pass" %>
       <%= f.password_field :password_confirmation %>
+    </div><br>
+
+    <div class="imageupload">
+      <div class="imagefield">
+        <%= f.label :avatar %>
+        <%= f.file_field :avatar %>
+          <button class="upload" disabled>Upload a Profile Picture</button>
+      </div>
     </div>
+
     <div class="signup-button">
       <%= f.submit %><br>
     </div>
