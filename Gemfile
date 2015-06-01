@@ -21,6 +21,8 @@ gem 'figaro'
 
 gem 'uglifier', '>= 1.3.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
+gem 'carrierwave'
+gem "mini_magick"
 
 # Deployment environment
 group :development, :test do

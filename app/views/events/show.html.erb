@@ -3,9 +3,15 @@
   <%= link_to "Edit", edit_event_path %>
 <% end %>
 
-<% @event.method_names.each do |method| %>
-  <h2><%= method %></h2>
-<% end %>
+<div class="event-header-container">
+  <%= image_tag (@event.image_url(:mobile)) %>
+
+  <div class="event-details">
+    <% @event.method_names.each do |method| %>
+      <h2><%= method %></h2>
+    <% end %>
+  </div>
+</div>
 
 <%= form_for [@event, @rsvp] do |f| %>
   <div class="actions">

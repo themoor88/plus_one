@@ -11,6 +11,7 @@ class User < ActiveRecord::Base
   validates :password, confirmation: true
   validates :password_confirmation, presence: true
 
+
   has_many :rsvps
 
   has_many :created_events, class_name: "Event"
@@ -21,8 +22,13 @@ class User < ActiveRecord::Base
   has_many :friendees, :foreign_key => "friender_id", :class_name => "Friendship"
   has_many :frienders, :foreign_key => "friendee_id", :class_name => "Friendship"
 
-  def ip_address
-    [longitude, latitude].join(', ')
+  geocoded_by :full_address
+  after_validation :geocode
+  mount_uploader :avatar, AvatarUploader
+
+
+  def full_address
+    [city, country].join(', ')
   end
 
   def full_name
@@ -30,6 +36,6 @@ class User < ActiveRecord::Base
   end
 
   def total_friends
-
+    friendees.length + frienders.length
   end
 end

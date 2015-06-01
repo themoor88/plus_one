@@ -1,3 +1,4 @@
+
   <div class="profile">
     <div class="header-background">
       <h1 class="heading-text">Profile</h1>
@@ -9,6 +10,8 @@
     <h1><%= @user.username %></h1>
     <%= link_to "Add #{@user.full_name} as a friend", friendships_path(id: @user.id), :class => 'btn-friend' %>
   <% end %><hr>
+
+  <div class="profile-pic"><%= image_tag (@user.avatar_url(:mobile)), class: "profile-pic" %></div>
 
   <h2>PlusOnes</h2>
 

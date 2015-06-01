@@ -8,6 +8,11 @@
   </div>
 
   <div class="event-field">
+    <%= f.label :image %><br>
+    <%= f.file_field :image %>
+  </div>
+
+  <div class="event-field">
     <%= f.label :address_1 %><br>
     <%= f.text_field :address_1 %>
   </div>
@@ -39,7 +44,9 @@
 
   <div class="event-field">
     <%= f.label :time %><br>
-    <%= f.text_field :time %>
+    <div class="time-field">
+      <%= f.hidden_field :time %>
+    </div>
   </div>
 
   <div class="event-field">
@@ -56,6 +63,8 @@
     <%= f.label :category %><br>
     <%= f.text_field :category %>
   </div>
+
+
 
   <div class="event-field">
     <%= f.submit %><br>

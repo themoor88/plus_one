@@ -48,7 +48,7 @@ $(document).on('ready page:load', function() {
 
   function success(geo, map) {
     console.log("Success", "geo:", geo, "args", arguments);
-    myLatitude = geo.coords.latitude // Bad practice to define global variables here, however I had no choice as navigator.geolocation.getCurrentPosition(success, error)
+    myLatitude = geo.coords.latitude
     myLongitude = geo.coords.longitude
     myMap.addMarker(myLatitude, myLongitude, "Me");
     myMap.canvas.panTo(myMap.markers[0].getPosition());
