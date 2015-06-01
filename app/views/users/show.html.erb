@@ -1,15 +1,14 @@
 
   <div class="profile">
     <div class="header-background">
-      <h1 class="heading-text">Profile</h1>
+      <h1 class="heading-text"><%= @user.username %></h1>
     </div>
 
   <% if current_user == @user %>
     <%= link_to 'Edit my Profile', edit_user_path(current_user.id) %>
   <% else %>
-    <h1><%= @user.username %></h1>
     <%= link_to "Add #{@user.full_name} as a friend", friendships_path(id: @user.id), :class => 'btn-friend' %>
-  <% end %><hr>
+  <% end %>
 
   <div class="profile-pic"><%= image_tag (@user.avatar_url(:mobile)), class: "profile-pic" %></div>
 

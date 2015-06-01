@@ -5,7 +5,7 @@ class Event < ActiveRecord::Base
 
   has_many :reviews
 
-  validates :event_name, :address_1, :city, :country, :number_of_attendees, :time, :description, presence: true
+  validates :event_name, :address_1, :city, :country, :number_of_attendees, :description, presence: true
   validates :event_name, length: { minimum: 2,
     too_short: "%{count} characters are the minimum allowed." }
   validates :event_name, length: { maximum: 255,

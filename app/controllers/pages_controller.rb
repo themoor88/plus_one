@@ -8,5 +8,10 @@ class PagesController < ApplicationController
       @randomevent = Event.order("RANDOM()").near([current_user.latitude, current_user.longitude], 50).first
     else
     end
+
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 end
