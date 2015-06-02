@@ -13,7 +13,7 @@
   <%= csrf_meta_tags %>
 </head>
 <body class="<%= controller_name %> <%= action_name %>">
-<main>
+
     <div id="nav">
     <ul class="nav-links">
 
@@ -46,11 +46,11 @@
         <nav class="js-menu sliding-panel-content">
           <ul class="notifications-menu">
             <br><li><h1>Notifications</h1></li><hr>
-            <li><div class="profile-pic-notifications"><%= image_tag (@user.avatar_url(:mobile)), class: "profile-pic" %></div>James followed you</li><hr>
-            <li><div class="profile-pic-notifications"><%= image_tag (@user.avatar_url(:mobile)), class: "profile-pic" %></div>New Request: createdevents.rsvpstatus pending</li><hr>
-            <li><div class="profile-pic-notifications"><%= image_tag (@user.avatar_url(:mobile)), class: "profile-pic" %></div>New message: </li><hr>
-            <li><div class="profile-pic-notifications"><%= image_tag (@user.avatar_url(:mobile)), class: "profile-pic" %></div>Sorry you weren't chosen </li><hr>
-            <li><div class="profile-pic-notifications"><%= image_tag (@user.avatar_url(:mobile)), class: "profile-pic" %></div>Accepted, user.rsvps.each.status = accepted: </li><hr>
+            <li><div class="profile-pic-notifications"><%= image_tag (current_user.avatar_url(:mobile)), class: "profile-pic" %></div>James followed you</li><hr>
+            <li><div class="profile-pic-notifications"><%= image_tag (current_user.avatar_url(:mobile)), class: "profile-pic" %></div>New Request: createdevents.rsvpstatus pending</li><hr>
+            <li><div class="profile-pic-notifications"><%= image_tag (current_user.avatar_url(:mobile)), class: "profile-pic" %></div>New message: </li><hr>
+            <li><div class="profile-pic-notifications"><%= image_tag (current_user.avatar_url(:mobile)), class: "profile-pic" %></div>Sorry you weren't chosen </li><hr>
+            <li><div class="profile-pic-notifications"><%= image_tag (current_user.avatar_url(:mobile)), class: "profile-pic" %></div>Accepted, user.rsvps.each.status = accepted: </li><hr>
           </ul>
         </nav>
 
@@ -81,6 +81,6 @@
   </div>
 </div>
 
-</main>
+
 </body>
 </html>

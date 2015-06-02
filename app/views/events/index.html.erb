@@ -1,3 +1,4 @@
+
 <div class="header-background">
   <h1 class="heading-text">Events</h1>
 </div>
@@ -8,16 +9,17 @@
   </p>
 <% end %>
 
-
-<div class="event">
-  <% @events.each do |event| %>
-  <div class="event-image-background">
-    <%= image_tag (event.image_url(:mobile)) %>
+<div class="event-wrapper">
+  <div class="event">
+    <% @events.each do |event| %>
+    <div class="event-image-background">
+      <%= image_tag (event.image_url(:mobile)) %>
+    </div>
+      <a href="<%= event_path(event) %>">
+        <%= event.event_name %></br>
+        <%= event.full_street_address %>
+      </a>
+      <hr>
+    <% end %>
   </div>
-    <a href="<%= event_path(event) %>">
-      <%= event.event_name %></br>
-      <%= event.full_street_address %>
-    </a>
-    <hr>
-  <% end %>
 </div>

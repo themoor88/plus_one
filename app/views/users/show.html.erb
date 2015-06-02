@@ -6,6 +6,28 @@
 
   <h2><%= @user.created_events.length %> Events</h2>
   <h2>Personality</h2><br>
+  <div class="intext-icon">
+
+  <%= for @user.introvertextrovert_icon do %>
+
+    <%= if average >= -5 && average <= -3 %>
+      <p>-5  -3</p>
+
+    <%= elsif average >= -3 && average <= 0 %>
+      <p>-3  0 </p>
+
+    <%= elsif average >=0 && average <= 3 %>
+      <p>0  3</p>
+
+    <%= elsif average >=3 && average <=5 %>
+      <p>3  5</p>
+
+    <%= else %>
+      <p>nil</p>
+    <% end %>
+
+  </div>
+
   <%= form_for @friendship do |f| %>
     <div class="friend">
       <%= f.submit "Add Friend" %>

@@ -39,4 +39,37 @@ class User < ActiveRecord::Base
   def total_friends
     friendees.length + frienders.length
   end
+
+  def introvertextrovert_icon
+    intext = User.find(params[:id]).reputations.pluck(:introvertextrovert)
+    @average = (intext.reduce(:+) / intext.size)
+    # if (average >= -5 && average <= -3)
+
+    # elsif (average >= -3 && average <= 0)
+
+    # elsif (average >=0 && average <= 3)
+
+    # elsif (average >=3 && average <=5)
+
+    # else
+    #   nil
+    # end
+  end
+
+  def positivenegative_icon
+    posneg = User.find(params[:id]).reputations.pluck(:positivenegative)
+    average = (posneg.reduce(:+) / posneg.size)
+
+    if (average >= -5 && average <= -3)
+
+    elsif (average >= -3 && average <= 0)
+
+    elsif (average >=0 && average <= 3)
+
+    elsif (average >=3 && average <=5)
+
+    else
+      nil
+    end
+  end
 end

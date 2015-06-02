@@ -1,0 +1,18 @@
+
+.header-background {
+  width: 100%;
+  @include media($medium-screen-only) {
+    padding-top: $nav-height;
+  }
+  @include media($large-screen-only) {
+    padding-top: $nav-height;
+  }
+ }
+
+
+.event {
+  @include media($large-screen-only) {
+    @include fill-parent();
+    @include omega(6n);
+  }
+}
