@@ -21,6 +21,6 @@ class ReputationsController < ApplicationController
 
   private
   def reputation_params
-    params.require(:reputation).permit(:introvert, :extrovert, :positive, :negative)
+    params.require(:reputation).permit(:introvertextrovert, :positivenegative)
   end
 end

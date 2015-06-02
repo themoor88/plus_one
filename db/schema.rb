@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150601183816) do
+ActiveRecord::Schema.define(version: 20150602134936) do
 
   create_table "events", force: :cascade do |t|
     t.string   "event_name"
@@ -42,14 +42,12 @@ ActiveRecord::Schema.define(version: 20150601183816) do
   end
 
   create_table "reputations", force: :cascade do |t|
-    t.integer  "introvert"
-    t.integer  "extrovert"
-    t.integer  "positive"
-    t.integer  "negative"
-    t.datetime "created_at",       null: false
-    t.datetime "updated_at",       null: false
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
     t.integer  "reviewer_id"
     t.integer  "reviewed_user_id"
+    t.integer  "introvertextrovert"
+    t.integer  "positivenegative"
   end
 
   create_table "reviews", force: :cascade do |t|

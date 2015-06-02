@@ -1,11 +1,11 @@
 <div class="profile">
-  <div class="profile-pic"><%= image_tag (@user.avatar_url(:mobile)), class: "profile-pic" %></div><hr>
+  <div class="profile-pic"><%= image_tag (@user.avatar_url(:desktop)), class: "profile-pic" %></div>
 
 
   <h1 class="name"><%= "#{@user.first_name.capitalize}" %></h1>
 
-  <h1><%= @user.created_events.length %> Events</h1>
-  <h1>Personality</h1><br>
+  <h2><%= @user.created_events.length %> Events</h2>
+  <h2>Personality</h2><br>
   <%= form_for @friendship do |f| %>
     <div class="friend">
       <%= f.submit "Add Friend" %>

@@ -46,7 +46,6 @@
 
 ////////// CARD /////////
 .swipe-card-wrapper {
-  animation: swipeleft 1000ms linear both;
   @include display(flex);
   @include flex-wrap(wrap);
   @include justify-content(space-between);
@@ -57,6 +56,7 @@
   @include flex-basis(15em);
   @include flex-grow(1);
   @include transition (all 0.2s ease-in-out);
+  animation: swipeleft 1000ms linear both;
   background-color: $blue;
   border-radius: $base-border-radius;
   border: $card-border;
