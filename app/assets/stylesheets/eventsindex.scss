@@ -16,3 +16,9 @@
     @include omega(6n);
   }
 }
+
+.event-container {
+  @include media($mobile-screen-only) {
+    margin: rem(10);
+  }
+}

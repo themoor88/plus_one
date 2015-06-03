@@ -1,25 +1,26 @@
+  <div class="header-background">
+    <h1 class="heading-text">Events</h1>
+  </div>
+<div class="event-container">
+    <% form_tag events_path, method: :get do %>
+    <p>
+      <%= text_field_tag :search, params[:search] %>
+      <%= submit_tag "Search" %>
+    </p>
+  <% end %>
 
-<div class="header-background">
-  <h1 class="heading-text">Events</h1>
-</div>
-  <% form_tag events_path, method: :get do %>
-  <p>
-    <%= text_field_tag :search, params[:search] %>
-    <%= submit_tag "Search" %>
-  </p>
-<% end %>
-
-<div class="event-wrapper">
-  <div class="event">
-    <% @events.each do |event| %>
-    <div class="event-image-background">
-      <%= image_tag (event.image_url(:mobile)) %>
+  <div class="event-wrapper">
+    <div class="event">
+      <% @events.each do |event| %>
+      <div class="event-image-background">
+        <%= image_tag (event.image_url(:mobile)) %>
+      </div>
+        <a href="<%= event_path(event) %>">
+          <%= event.event_name %></br>
+          <%= event.full_street_address %>
+        </a>
+        <hr>
+      <% end %>
     </div>
-      <a href="<%= event_path(event) %>">
-        <%= event.event_name %></br>
-        <%= event.full_street_address %>
-      </a>
-      <hr>
-    <% end %>
   </div>
 </div>

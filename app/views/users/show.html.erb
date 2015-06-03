@@ -4,32 +4,35 @@
 
   <h1 class="name"><%= "#{@user.first_name.capitalize}" %></h1>
 
-  <h2><%= @user.created_events.length %> Events</h2>
+
+  <h2 class="event-counter"><%= @user.created_events.length %> Events</h2>
   <h2>Personality</h2><br>
-  <div class="intext-icon">
+  <p><%= @user.bio %></p>
+  <p><%= @user.interests %></p>
 
-  <%= for @user.introvertextrovert_icon do %>
+  <div class="user-ratings">
+  <ul>
+    <% socialrating = @user.social_factor %>
+    <li><p> Social Factor: <%= socialrating %> </p></li>
 
-    <%= if average >= -5 && average <= -3 %>
-      <p>-5  -3</p>
-
-    <%= elsif average >= -3 && average <= 0 %>
-      <p>-3  0 </p>
-
-    <%= elsif average >=0 && average <= 3 %>
-      <p>0  3</p>
-
-    <%= elsif average >=3 && average <=5 %>
-      <p>3  5</p>
-
-    <%= else %>
-      <p>nil</p>
-    <% end %>
-
+    <% posnegrating = @user.positivenegative %>
+    <li><p> Positive Experience Rating: <%= posnegrating %></p></li>
+  </ul>
   </div>
 
-  <%= form_for @friendship do |f| %>
+
+  <% if current_user %>
     <div class="friend">
-      <%= f.submit "Add Friend" %>
+      <form method="link" action="<%= edit_user_path(current_user) %>">
+        <input type="submit" value="Edit Profile">
+      </form>
+    </div>
+
+   <% else %>
+    <%= form_for @friendship do |f| %>
+      <div class="friend">
+        <%= f.submit "Add Friend" %>
+      </div>
+    <% end %>
   <% end %>
 </div>

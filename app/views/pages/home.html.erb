@@ -34,5 +34,23 @@
 <% end %>
 
 
+<% if current_user %>
+  <div class="home-event-wrapper">
+    <div class="home-event">
+      <% @nearby_events.each do |event| %>
+      <div class="home-event-image-background">
+        <%= image_tag (event.image_url(:mobile)) %>
+      </div>
+        <a href="<%= event_path(event) %>">
+          <%= event.event_name %></br>
+          <%= event.full_street_address %>
+        </a>
+        <hr>
+      <% end %>
+    </div>
+  </div>
+<% end %>
+
+
 </div>
 

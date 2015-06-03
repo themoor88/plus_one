@@ -13,12 +13,10 @@ class User < ActiveRecord::Base
 
 
   has_many :rsvps
-
   has_many :created_events, class_name: "Event"
   has_many :reviews
   has_many :reputations, foreign_key: :reviewed_user_id
   has_many :created_reputations, foreign_key: :reviewer_id, class_name: "Reputation"
-
   has_many :friendships
   has_many :friendees, through: :friendships, :class_name => "User"
   has_many :frienders, through: :friendships, :class_name => "User"
@@ -40,36 +38,40 @@ class User < ActiveRecord::Base
     friendees.length + frienders.length
   end
 
-  def introvertextrovert_icon
-    intext = User.find(params[:id]).reputations.pluck(:introvertextrovert)
-    @average = (intext.reduce(:+) / intext.size)
-    # if (average >= -5 && average <= -3)
+  def social_factor
+  social = self.reputations.pluck(:introvertextrovert)
+    if social != []
+      (social.reduce(:+).to_f / social.size)
+    else
+    end
 
-    # elsif (average >= -3 && average <= 0)
-
-    # elsif (average >=0 && average <= 3)
-
-    # elsif (average >=3 && average <=5)
-
+    ########## RANKED IMAGE FORMAT EXAMPLE FOR LATER IF NECESSARY ##########
+    # intext = reputations.pluck(:introvertextrovert)
+    # if intext != []
+    #   average = (intext.reduce(:+) / intext.size)
+    #     if (average >= -5 && average <= -3)
+    #       return @user.avatar_url(:mobile)
+    #     elsif (average >= -3 && average <= 0)
+    #       return @user.avatar_url(:mobile)
+    #     elsif (average >=0 && average <= 3)
+    #       return @user.avatar_url(:mobile)
+    #     elsif (average >=3 && average <=5)
+    #       return @user.avatar_url(:mobile)
+    #     else
+    #       nil
+    #     end
     # else
-    #   nil
+    #   return "fallback/profile-pic.png"
     # end
+
+
   end
 
-  def positivenegative_icon
-    posneg = User.find(params[:id]).reputations.pluck(:positivenegative)
-    average = (posneg.reduce(:+) / posneg.size)
-
-    if (average >= -5 && average <= -3)
-
-    elsif (average >= -3 && average <= 0)
-
-    elsif (average >=0 && average <= 3)
-
-    elsif (average >=3 && average <=5)
-
-    else
-      nil
-    end
+  def positivenegative
+    posneg = self.reputations.pluck(:positivenegative)
+      if posneg != []
+        (posneg.reduce(:+).to_f / posneg.size)
+      else
+      end
   end
 end
