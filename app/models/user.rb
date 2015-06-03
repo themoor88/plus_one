@@ -17,9 +17,15 @@ class User < ActiveRecord::Base
   has_many :reviews
   has_many :reputations, foreign_key: :reviewed_user_id
   has_many :created_reputations, foreign_key: :reviewer_id, class_name: "Reputation"
-  has_many :friendships
-  has_many :friendees, through: :friendships, :class_name => "User"
-  has_many :frienders, through: :friendships, :class_name => "User"
+
+
+  # has_many :friendships
+  # has_many :friends, :through => :friendships
+
+  # has_many :pending_friends,
+  #        :through => :friendships,
+  #        :source => :friend,
+  #        :conditions => "confirmed = 0"
 
   geocoded_by :full_address
   after_validation :geocode

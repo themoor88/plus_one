@@ -116,7 +116,19 @@ body {
 .home-logo {
   animation: animation 11000ms linear both;
 }
+.nav {
+  position: fixed;
+  bottom: 0px;
+  left: 0;
+  z-index: 9999;
+  width: 100%;
+  height: 50px;
+  background-color: #00a087;
+}
 
+.container{
+  margin-bottom:30px;
+}
 
 @keyframes animation {
   0% { transform: matrix3d(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }
@@ -175,9 +187,9 @@ body {
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
   // border-radius: 0 rem(10) rem(10) 0;
-
+  background-color:black;
   ul {
-    padding: 0;
+    padding: 5px;
     margin: 0;
   }
 
@@ -187,7 +199,7 @@ body {
 
   li a {
     border-bottom: $sliding-panel-border;
-    color: $sliding-panel-color;
+    color: white;
     display: block;
     font-weight: bold;
     padding: 1em;
@@ -239,8 +251,8 @@ body {
 }
 
 .notifications-menu {
-  text-align:center;
-  color: $lighter-grey-black;
+  text-align:left;
+  color: white;
 }
 
 .profile-pic-notifications{

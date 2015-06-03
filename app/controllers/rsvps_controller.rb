@@ -14,6 +14,7 @@ class RsvpsController < ApplicationController
   end
 
   def update
+
   end
 end
 

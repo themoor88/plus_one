@@ -52,6 +52,10 @@ class EventsController < ApplicationController
     redirect_to root_url
   end
 
+  def created
+    @user = current_user
+  end
+
   private
   def event_params
     params.require(:event).permit(:event_name, :address_1, :address_2, :city, :country, :z_post_code, :latitude, :longitude, :number_of_attendees, :time, :description, :cost, :image, :category)
