@@ -33,15 +33,15 @@ class ImageUploader < CarrierWave::Uploader::Base
 
   # Create different versions of your uploaded files:
   version :mobile do
-    process :resize_to_fit => [500, 375]
+    process :resize_to_fit => [500, 270]
   end
 
   version :tablet do
-    process :resize_to_fit => [1000, 750]
+    process :resize_to_fit => [1000, 540]
   end
 
   version :desktop do
-    process :resize_to_fit => [1280, 960]
+    process :resize_to_fit => [2000, 1080]
   end
 
 

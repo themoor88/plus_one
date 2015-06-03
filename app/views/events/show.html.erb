@@ -13,49 +13,99 @@
   </div>
 </div>
 
-<div class="modal">
-  <label for="modal-1">
-    <div class="modal-trigger">Request to Join</div>
-  </label>
-  <input class="modal-state" id="modal-1" type="checkbox" />
-  <div class="modal-fade-screen">
-    <div class="modal-inner">
-      <div class="modal-close" for="modal-1"></div>
-        <div class="avatars">
-          <div class="profile-pic-modal"><%= image_tag (current_user.avatar_url(:mobile)), class: "profile-pic" %></div>
-          <div class="profile-pic-modal"><%= image_tag (@user.avatar_url(:mobile)), class: "profile-pic" %></div>
+
+<div class="popup-buttons-wrapper">
+  <!-- Request To Join (POPUP) -->
+  <div class="request-to-join-button">
+    <div class="modal">
+      <label for="modal-1">
+        <div class="modal-trigger">Request to Join</div>
+      </label>
+      <input class="modal-state" id="modal-1" type="checkbox" />
+      <div class="modal-fade-screen">
+        <div class="modal-inner">
+          <div class="modal-close" for="modal-1"></div>
+            <div class="avatars">
+              <div class="profile-pic-modal"><%= image_tag (current_user.avatar_url(:mobile)), class: "popup-pic" %></div>
+              <div class="profile-pic-modal"><%= image_tag (@user.avatar_url(:mobile)), class: "popup-pic" %></div>
+            </div>
+          <p class="modal-intro">Hi, <%= @user.username %>. I'd like to join.</p>
+          <p class="modal-content"><%= @event.event_name %></p>
+
+
+
+          <%= form_for [@event, @rsvp] do |f| %>
+            <div class="request-event-field">
+              <%= f.text_area :message, :placeholder => "Send a message (optional)" %>
+            </div>
+
+            <div class="request-button">
+              <%= f.submit "Request to Join" %>
+            </div>
+          <% end %>
         </div>
-      <p class="modal-intro">Hi, <%= @user.username %>. I'd like to join.</p>
-      <p class="modal-content"><%= @event.event_name %></p>
-
-
-
-      <%= form_for [@event, @rsvp] do |f| %>
-        <div class="request-event-field">
-          <%= f.text_area :message, :placeholder => "Send a message (optional)" %>
-        </div>
-
-        <div class="request-button">
-          <%= f.submit "Request to Join" %>
-        </div>
-      <% end %>
+      </div>
     </div>
   </div>
-</div>
 
-<div class="map">
-  <div class="event-map-canvas" data-latitude="<%= @event.latitude.to_f %>" data-longitude="<%= @event.longitude.to_f %>"></div>
+
+
+  <!-- Map (POPUP) -->
+  <div class="map-button">
+    <div class="modal">
+      <label for="modal-2">
+        <div class="modal-trigger">View Map</div>
+      </label>
+      <input class="modal-state" id="modal-2" type="checkbox" />
+      <div class="modal-fade-screen">
+        <div class="modal-inner">
+          <div class="modal-close" for="modal-2"></div>
+            <div class="map-container">
+              <div class="map">
+                <div class="event-map-canvas" data-latitude="<%= @event.latitude.to_f %>" data-longitude="<%= @event.longitude.to_f %>">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<!-- Add A Review (POPUP) -->
+  <div class="review-button">
+    <div class="modal">
+      <label for="modal-3">
+        <div class="modal-trigger">Add a Review</div>
+      </label>
+      <input class="modal-state" id="modal-3" type="checkbox" />
+      <div class="modal-fade-screen">
+        <div class="modal-inner">
+          <div class="modal-close" for="modal-3"></div>
+          <div class="new-review">
+            <%= render "new_review" %>
+          </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
 </div>
 <!-- Event reviews -->
-<h1>Reviews</h1>
-<div id="review-form-errors">
-  <%= render "review_errors" %>
-</div>
+<div class="reviews-wrapper">
+  <h1>Reviews</h1>
+  <div id="review-form-errors">
+    <%= render "review_errors" %>
+  </div>
 
-<div class="new-review">
-  <%= render "new_review" %>
-</div>
+  <div class="new-review">
+    <%= render "new_review" %>
+  </div>
 
-<div class="reviews">
-  <%= render "review" %>
+  <div class="reviews">
+    <%= render "review" %>
+  </div>
 </div>

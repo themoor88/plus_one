@@ -15,15 +15,20 @@
 // }
 
 .event-header-container {
-  position: relative;
+  text-align: center;
   width: 100%;
+  img {
+    margin: 0 auto;
+  }
 }
 
 .event-details {
   position: absolute;
   left: 0;
-  top: 0;
-  background-color: rgba(0, 0, 0, 0.2)
+  top: 12%;
+  background-color: rgba(0, 0, 0, 0.2);
+  width: 100%;
+
 }
 
 ////////// Lightbox Popup from Refills ///////////
@@ -151,8 +156,8 @@
     .modal-intro {
       font-weight: 800;
       text-align: center;
-      margin-top: 4rem;
-    }
+      margin-top: 2rem;
+     }
 
     .modal-content {
       color: $base-font-color;
@@ -202,14 +207,38 @@
 
 .profile-pic-modal {
   @include media($mobile-screen-only) {
-    width: 20%;
-    height: 20%;
+    width: rem(50);
+    height: rem(50);
     margin-left: 0;
     margin-right: 0;
     display: inline-block;
-    border-radius:10%;
-    background-color:black;
+    border-radius: 10%;
+    background-color: black;
   }
+}
+
+.popup-pic {
+  width: rem(50);
+  height: rem(50);
+  border-radius: 10%;
+}
+
+.popup-buttons-wrapper {
+  @include span-columns(4);
+  text-align: center;
+  width: 100%;
+}
+
+.request-to-join-button {
+  text-align: center;
+}
+
+.map-button {
+  text-align: center;
+}
+
+.review-button {
+  text-align: center;
 }
 
 .request-button {
@@ -227,8 +256,9 @@
     input {
       height: rem(70);
     }
-
   }
 }
 
-// Based on code by Kasper Mikiewicz
+.map-container {
+  padding-top: 30px;
+}

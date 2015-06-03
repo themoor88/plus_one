@@ -7,7 +7,7 @@ class RsvpsController < ApplicationController
     @rsvp.status = "Pending"
 
     if @rsvp.save
-      redirect_to root_url
+      redirect_to @event
     else
       render '/events/new'
     end

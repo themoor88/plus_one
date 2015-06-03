@@ -14,60 +14,62 @@
 </head>
 <body class="<%= controller_name %> <%= action_name %>">
 
-    <div id="nav">
-    <ul class="nav-links">
+    <div class="nav">
 
       <%= link_to root_path class: "home-link" do %>
-        <li class="nav-icons"><%= image_tag("home.png") %></li>
+        <%= image_tag("home.png") %>
       <% end %>
 
       <% if current_user %>
 
         <%= link_to events_path do %>
-          <li class="nav-icons location-link"><%= image_tag("location.png") %></li>
+          <%= image_tag("location.png") %>
         <% end %>
 
         <%= link_to new_event_path do %>
-          <li class="nav-icons new-event-link"><%= image_tag("plus.png") %></li>
+          <%= image_tag("plus.png") %>
         <% end %>
 
         <%= link_to :logout, method: :post do %>
-          <li class="nav-icons logout-link"><%= image_tag("x.png") %></li>
+          <%= image_tag("x.png") %>
         <% end %>
 
         <%= link_to user_path(current_user.id) do %>
-          <li class="nav-icons profile-link"><%= image_tag("gear.png") %></li>
+          <%= image_tag("gear.png") %>
         <% end %>
 
-        <button type="button" class="js-menu-trigger sliding-panel-button">
-          <img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/menu-white.png" alt="Menu Icon">
-        </button>
 
-        <nav class="js-menu sliding-panel-content">
-          <ul class="notifications-menu">
-            <br><li><h1>Notifications</h1></li><hr>
-            <li><div class="profile-pic-notifications"><%= image_tag (current_user.avatar_url(:mobile)), class: "notification-pic" %></div>James followed you</li><hr>
-            <li><div class="profile-pic-notifications"><%= image_tag (current_user.avatar_url(:mobile)), class: "notification-pic" %></div>New Request: createdevents.rsvpstatus pending</li><hr>
-            <li><div class="profile-pic-notifications"><%= image_tag (current_user.avatar_url(:mobile)), class: "notification-pic" %></div>New message: </li><hr>
-            <li><div class="profile-pic-notifications"><%= image_tag (current_user.avatar_url(:mobile)), class: "notification-pic" %></div>Sorry you weren't chosen </li><hr>
-            <li><div class="profile-pic-notifications"><%= image_tag (current_user.avatar_url(:mobile)), class: "notification-pic" %></div>Accepted, user.rsvps.each.status = accepted: </li><hr>
-          </ul>
-        </nav>
+        <span class="js-menu-trigger sliding-panel-button notification-button">
+          <%= image_tag("notifications.png") %>
+        <span>
+          <div class="slider">
+            <nav class="js-menu sliding-panel-content">
+            <ul class="notifications-menu">
+              <br><li><h1>Notifications</h1></li><hr>
+              <li><div class="profile-pic-notifications"><%= image_tag (current_user.avatar_url(:mobile)), class: "notification-pic" %></div>James followed you</li><hr>
+              <li><div class="profile-pic-notifications"><%= image_tag (current_user.avatar_url(:mobile)), class: "notification-pic" %></div>New Request: createdevents.rsvpstatus pending</li><hr>
+              <li><div class="profile-pic-notifications"><%= image_tag (current_user.avatar_url(:mobile)), class: "notification-pic" %></div>New message: </li><hr>
+              <li><div class="profile-pic-notifications"><%= image_tag (current_user.avatar_url(:mobile)), class: "notification-pic" %></div>Sorry you weren't chosen </li><hr>
+              <li><div class="profile-pic-notifications"><%= image_tag (current_user.avatar_url(:mobile)), class: "notification-pic" %></div>Accepted, user.rsvps.each.status = accepted: </li><hr>
+            </ul>
+          </nav>
+        </div>
 
         <div class="js-menu-screen sliding-panel-fade-screen"></div>
+
+
 
       <% else %>
 
         <%= link_to new_user_path do %>
-          <li class="nav-icons signup-link"><%= image_tag("signup.png") %></li>
+          <%= image_tag("signup.png") %>
         <% end %>
 
         <%= link_to :login do %>
-          <li class="nav-icons login-link"><%= image_tag("login.png") %></li>
+          <%= image_tag("login.png") %>
         <% end %>
 
       <% end %>
-      </ul>
     </div>
 
     <div class="container">
