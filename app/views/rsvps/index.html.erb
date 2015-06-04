@@ -1,0 +1,3 @@
+<% @rsvps.each do |rsvp| %>
+  <%= rsvp.event.event_name %>, <%= rsvp.status %>, <%= rsvp.event.user.username %>
+<% end %>

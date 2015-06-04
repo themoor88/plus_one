@@ -17,8 +17,8 @@ class RsvpsController < ApplicationController
     end
   end
 
-  def update
-
+  def index
+    @rsvps = Rsvp.where(user_id: current_user.id)
   end
 end
 

@@ -11,6 +11,9 @@ Rails.application.routes.draw do
     resources :reviews
   end
 
+  resources :rsvps, only: [:index]
+
+
   resources :user_sessions, only: [:new, :create, :destroy]
 
   get 'login' => 'user_sessions#new', :as => :login
