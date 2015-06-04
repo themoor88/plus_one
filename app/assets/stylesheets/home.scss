@@ -15,6 +15,8 @@
     text-align: center;
     font-size: 3.0em;
     margin: 0;
+    font-family: 'Lobster', cursive;
+    font-size: 5rem;
 }
 
 .welcome-text2 {
@@ -237,17 +239,14 @@
   -ms-transform: translate3d(0, 0, 0);
   -webkit-transform: translate3d(0, 0, 0);
   transform: translate3d(0, 0, 0);
-  position: relative;
-  top: 100%;
-  left: 50%;
-  margin-left: -28px;
+  margin: 0 auto;
   margin-top: 30px;
+  left: 50%;
   display: block;
-  width: 50px;
-  height: 50px;
-  line-height: 50px;
+  width: 60px;
+  height: 60px;
+  line-height: 60px;
   padding-bottom: 8px;
-  font-size: 1.3em;
   font-weight: bold;
   color: #fff;
   border: none;
@@ -258,7 +257,7 @@
   cursor: pointer;
   transform: translate3d(0, 0, 0);
   animation: pulse 1.25s infinite cubic-bezier(0.66, 0.33, 0, 1);
-  font-size:2rem;
+  font-size:2.5rem;
   text-align:center;
 }
 
@@ -294,4 +293,5 @@
 
 .typed{
   text-align:center;
+  font-size:1.5rem;
 }
