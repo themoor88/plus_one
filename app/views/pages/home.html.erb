@@ -14,10 +14,23 @@
         <p class="welcome-text">PlusOne</p><br>
         <p class="welcome-text2">Meet like-minded people around<br>your area.</p>
       </div>
-
-      <div class="home-logo">
-        <%= image_tag "logo.png" %>
+      <div class="typed">
+      <span class="element">Let's </span>
       </div>
+      <script>
+        $(function(){
+            $(".element").typed({
+              strings: ["chit chat.", "play soccer.", "have coffee.", "play games", "share experiences.",],
+              typeSpeed: 100,
+              backSpeed: 100,
+              backDelay: 1000
+            });
+        });
+      </script>
+
+
+      <a href="/users/new"><div class="pulse-button">+</div></a>
+
     <style>
     #nav {
       display: none;
@@ -28,6 +41,7 @@
     </style>
 
     <div id="home-buttons">
+
       <a href="/users/new"><button class="sign-up-buttons">CREATE AN ACCOUNT</button></a>
       <a href="/login"><p class="sub-line">Already Have an Account?</p></a>
     </div>
