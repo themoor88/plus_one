@@ -21,8 +21,8 @@
   </div>
 
 
-  <% if current_user %>
-    <div class="friend">
+  <% if @user == current_user %>
+    <div class="edit">
       <form method="link" action="<%= edit_user_path(current_user) %>">
         <input type="submit" value="Edit Profile">
       </form>

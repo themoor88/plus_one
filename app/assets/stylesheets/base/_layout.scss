@@ -1,5 +1,7 @@
 ///////////// Preliminary /////////////
-
+html {
+    height: 100%;
+}
 
 body {
   background-color: $grey-black;
@@ -19,28 +21,54 @@ body {
 
 ///////////// Navigation /////////////
 .nav {
-  position: fixed;
-  height: $nav-height;
-  background: black;
-  bottom: 0;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  img {
+    position: fixed;
     height: $nav-height;
-    align-self: center;
-    margin: 0 auto;
+    background: $barney-purple;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+
+  @include media($mobile-screen-only) {
+    border-top: solid 1px $lighter-grey-black;
+    bottom: 0;
+    img {
+      height: $nav-height;
+      align-self: center;
+      margin: 0 auto;
+    }
+    a {
+      margin-right: 3%;
+    }
+    a:hover {
+      background-color: rgba(48, 2, 255, 0.5);
+    }
+    button {
+      height: $nav-height;
+      float: right;
+      margin: 0 auto;
+    }
   }
-  a {
-    margin-right: 3%;
-  }
-  a:hover {
-    background-color: rgba(48, 2, 255, 0.5);
-  }
-  button {
-    height: $nav-height;
-    float: right;
-    margin: 0 auto;
+
+  @include media($large-screen-only) {
+  border-bottom: solid rem(1) $lighter-grey-black;
+  top: 0;
+
+    img {
+        height: $nav-height;
+        align-self: center;
+        margin: 0 auto;
+      }
+      a {
+        margin-right: 3%;
+      }
+      a:hover {
+        background-color: rgba(48, 2, 255, 0.5);
+      }
+      button {
+        height: $nav-height;
+        float: right;
+        margin: 0 auto;
+      }
   }
 }
 

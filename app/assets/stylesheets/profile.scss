@@ -2,14 +2,22 @@
   text-align:center;
   @include media($mobile-screen-only) {
     width: 100%;
+    margin-top: rem(50);
   }
-}
+  @include media($large-screen-only) {
+    margin-top: $nav-height + 10;
+  }
+ }
 
 .name {
   @include media($mobile-screen-only) {
     font-size: 1.5rem;
     margin-top: 0;
     margin-bottom: 0.2rem;
+  }
+  @include media($large-screen-only) {
+    font-size: 2rem;
+    margin-top: rem(10);
   }
 }
 
@@ -29,18 +37,20 @@
 
 .profile-pic {
   top: 30%;
+  margin: 0 auto;
+
   @include media($mobile-screen-only) {
     background-repeat: no-repeat;
     background-position: 50%;
     // margin-top: 500px;
     width: 150px;
     height: 150px;
-    margin: 0 auto;
     border-radius: 150px;
   }
   @include media($large-screen-only) {
-    @include span-columns(2);
-    margin: 0;
+    width: 300px;
+    height: 300px;
+    border-radius:  150px;
   }
 }
 

@@ -13,15 +13,20 @@
 
 .welcome-text {
     text-align: center;
-    font-size: 3.0em;
     margin: 0;
     font-family: 'Lobster', cursive;
     font-size: 5rem;
+    @include media($large-screen-only) {
+      font-size: 10.0em;
+    }
 }
 
 .welcome-text2 {
   text-align: center;
   font-size: 1.0em;
+  @include media($large-screen-only) {
+    font-size: 2.0em;
+  }
 }
 
 .sign-up-buttons {
@@ -57,12 +62,6 @@
     @include justify-content(space-between);
     height: 100%;
   }
-  @include media($medium-screen-only) {
-    @include display(flex);
-    @include flex-wrap(wrap);
-    @include justify-content(space-between);
-    padding-top: $nav-height;
-  }
   @include media($large-screen-only) {
     @include display(flex);
     @include flex-wrap(wrap);
@@ -83,18 +82,6 @@
     cursor: pointer;
     position: relative;
     // height:300p;
-  }
-
-  @include media($medium-screen-only) {
-    @include flex-basis(15em);
-    @include flex-grow(0.5);
-    @include transition (all 0.2s ease-in-out);
-    animation: swipeleft 1000ms linear both;
-    background-color: $grey-black;
-    box-shadow: 0 2px 4px darken($base-background-color, 10%);
-    cursor: pointer;
-    margin: 0 $card-margin $base-spacing $card-margin;
-    position: relative;
   }
 
   @include media($large-screen-only) {
@@ -294,4 +281,7 @@
 .typed{
   text-align:center;
   font-size:1.5rem;
+  @include media($large-screen-only) {
+    font-size: 2.0em;
+  }
 }

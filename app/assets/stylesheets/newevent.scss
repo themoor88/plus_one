@@ -4,10 +4,6 @@
       margin-bottom: $nav-height + 10;
       width: 100%;
     }
-    @include media($medium-screen-only) {
-      width: 100%;
-      margin-bottom: rem(12);
-    }
   }
 }
 .event-form-wrapper {

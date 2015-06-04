@@ -1,4 +1,4 @@
-<div class="header-background">
+<div class="header-background signup-heading-text">
   <h1 class="heading-text">Signup</h1>
 </div>
 <div class="signup">
@@ -63,18 +63,15 @@
     <div class="field">
       <%= f.label :password_confirmation, "Confirm Pass" %>
       <%= f.password_field :password_confirmation %>
-    </div><br>
+    </div>
 
     <div class="imageupload">
-<!--       <div class="imagefield"> -->
-        <%= f.label :avatar %>
-        <%= f.file_field :avatar %>
-          <button class="upload" disabled>Upload a Profile Picture</button>
-      </div>
+      <%= f.label :avatar %>
+      <%= f.file_field :avatar %>
     </div>
 
     <div class="signup-button">
-      <%= f.submit %><br>
+      <%= f.submit "Sign Up" %><br>
     </div>
   <% end %>
 </div>

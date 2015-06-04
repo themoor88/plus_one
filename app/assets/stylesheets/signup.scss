@@ -1,6 +1,47 @@
 .signup {
-  text-align: justify;
-  padding: 10px;
+  @include media($mobile-screen-only) {
+
+  }
+
+  @include media($large-screen-only) {
+    margin-top: $nav-height;
+    padding: 10px;
+  }
+  form {
+    width: 50%;
+    margin: 0 auto;
+  }
+}
+
+
+.field {
+  @include media($mobile-screen-only) {
+    width: 100%;
+  }
+  label {
+    margin: 0;
+    padding: 0;
+  }
+  input {
+    margin-bottom: 0;
+    height: 25px;
+  }
+  @include media($large-screen-only) {
+    margin: 0 auto;
+    width: 75%;
+    padding: 0 rem(10) 0 0;
+    input {
+    margin: 0 auto;
+    height: rem(28);
+    }
+  }
+}
+
+.imageupload {
+  @include media($large-screen-only) {
+    margin: 0 auto;
+    width: 75%;
+  }
 }
 
 .signup-button {
@@ -13,37 +54,18 @@
         margin-bottom: $nav-height + 10;
       }
   }
-}
-
-.field {
-  @include media($mobile-screen-only) {
-    @include span-columns(4);
-    @include omega(2n);
-  }
-  label {
-    margin: 0;
-    padding: 0;
-  }
-  input {
-    height: 15px;
-  }
-}
-
-.imagefield {
-  @include media($mobile-screen-only) {
-    @include span-columns(4);
-    background: #000;
+  @include media($large-screen-only) {
     width: 100%;
+    text-align: center;
     input {
-      filter: alpha(opacity=0);
-      opacity: 0;
-      display: none;
-    }
-    button {
-      width: 100%;
-    }
-    label {
-      display: none;
+    width: 30%;
     }
   }
 }
+
+.signup-heading-text {
+  @include media($large-screen-only) {
+    display: none;
+  }
+}
+
