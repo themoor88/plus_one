@@ -5,14 +5,14 @@
     margin-top: rem(50);
   }
   @include media($large-screen-only) {
-    margin-top: $nav-height + 10;
+    margin-top: $nav-height + 50;
   }
  }
 
 .name {
   @include media($mobile-screen-only) {
     font-size: 1.5rem;
-    margin-top: 0;
+    margin-top: rem(16);
     margin-bottom: 0.2rem;
   }
   @include media($large-screen-only) {
@@ -23,10 +23,29 @@
 
 .event-counter {
   @include media($mobile-screen-only) {
-    font-size: 0.8rem;
+    font-size: 1.0rem;
     padding: 0;
 
   }
+}
+
+.bio-text {
+  width: 40%;
+  margin: 0 auto;
+  border-top: 1px solid $grey;
+  padding-top: rem(10);
+
+  @include media($mobile-screen-only) {
+    width: 70%;
+  }
+}
+
+.interest-text {
+  margin-top: rem(10);
+  border-bottom: 1px solid $grey;
+  width: 30%;
+  margin: 0 auto;
+  padding-bottom: rem(10);
 }
 
 
@@ -48,17 +67,26 @@
     border-radius: 150px;
   }
   @include media($large-screen-only) {
-    width: 300px;
-    height: 300px;
+    width: 200px;
+    height: 200px;
     border-radius:  150px;
   }
 }
 
 .user-ratings {
+    margin-top: rem(10);
+    font-size: rem(16);
   @include media($mobile-screen-only) {
     p {
-      font-size: rem(12);
       text-align: center;
+    }
+  }
+  @include media($large-screen-only) {
+    p {
+      margin: 0;
+    }
+    .posneg {
+      padding-bottom: rem(12);
     }
   }
 }

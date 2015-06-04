@@ -5,9 +5,32 @@
       width: 100%;
     }
   }
+  @include media($large-screen-only) {
+    width: 100%;
+    text-align: center;
+    input {
+      width: 30%;
+    }
+  }
 }
 .event-form-wrapper {
   @include media($mobile-screen-only) {
     margin: 10px;
+    padding-top: 50px;
+  }
+
+
+  @include media($large-screen-only) {
+    .event-field {
+      width: 50%;
+      margin: 0 auto;
+      padding: 0;
+    }
+    label {
+      margin: 0;
+    }
+    input {
+      height: rem(26);
+    }
   }
 }

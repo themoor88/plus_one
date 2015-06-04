@@ -16,10 +16,49 @@
 
 <body class="<%= controller_name %> <%= action_name %>">
 
+
+<!-- SLIDING NOTIFICATION MENU -->
+ <div class="slider">
+    <nav class="js-menu sliding-panel-content">
+      <ul class="notifications-menu">
+        <%= link_to root_path do %>
+          <%= image_tag "home2.png", class: "notification-bar-logo" %>
+        <% end %><hr>
+
+        <% if current_user %>
+          <li><% current_user.rsvps.each do |rsvp| %>
+            <% if rsvp.status = "pending" %>
+              <li>You have been accepted into <%= rsvp.event.event_name %><hr></li>
+            <% else %>
+              <p>No notifications for you.</p>
+            <% end  %>
+          <% end %>
+          </li>
+
+          <li><% current_user.created_events.each do |event| %>
+            <% event.rsvps.each do |rsvp| %>
+              <% if rsvp.status = "pending" %>
+                <li><%= rsvp.user.username %> wants to join your event <%= rsvp.event.event_name %><br>
+                  <button>Accept</button>
+                  <button>Decline</button>
+                <hr></li>
+              <% else %>
+                <p>You currently don't have any notifications</p>
+              <% end  %>
+            <% end %>
+            <% end %>
+          <% end %>
+        </li>
+      </ul>
+    </nav>
+  </div>
+  <div class="js-menu-screen sliding-panel-fade-screen"></div>
+
+<!-- MOBILE NAV -->
 <div class="nav">
 
   <%= link_to root_path class: "home-link" do %>
-    <%= image_tag("home.png") %>
+    <%= image_tag("home2.png") %>
   <% end %>
 
   <% if current_user %>
@@ -45,37 +84,7 @@
    <%= image_tag("notifications.png") %>
   <span>
 
-  <div class="slider">
-    <nav class="js-menu sliding-panel-content">
-      <ul class="notifications-menu">
-        <br><li><h1>Notifications</h1></li><hr>
 
-        <li><% current_user.rsvps.each do |rsvp| %>
-          <% if rsvp.status = "pending" %>
-            <li>You have been accepted into <%= rsvp.event.event_name %><hr></li>
-          <% else %>
-            <p>No notifications for you.</p>
-          <% end  %>
-        <% end %>
-        </li>
-
-        <li><% current_user.created_events.each do |event| %>
-          <% event.rsvps.each do |rsvp| %>
-            <% if rsvp.status = "pending" %>
-              <li><%= rsvp.user.username %> wants to join your event <%= rsvp.event.event_name %><br>
-                <button>Accept</button>
-                <button>Decline</button>
-              <hr></li>
-            <% else %>
-              <p>No notifications for you.</p>
-            <% end  %>
-          <% end %>
-          <% end %>
-        </li>
-      </ul>
-    </nav>
-  </div>
-  <div class="js-menu-screen sliding-panel-fade-screen"></div>
 
   <% else %>
 
@@ -90,6 +99,50 @@
   <% end %>
 
 </div>
+
+
+<!-- FULLSCREEN NAV -->
+<header class="navigation" role="banner">
+  <div class="navigation-wrapper">
+    <a href="/" class="logo">
+      <%= image_tag("home2.png") %>
+    </a>
+    <a href="javascript:void(0)" class="navigation-menu-button" id="js-mobile-menu">MENU</a>
+    <nav role="navigation">
+      <ul id="js-navigation-menu" class="navigation-menu show">
+        <% if current_user %>
+          <li class="nav-link"><a href="/events">Events</a></li>
+          <li class="nav-link"><a href="/events/new">Start an Event</a></li>
+          <li class="nav-link"><a href="<%= user_path(current_user.id) %>">Profile</a></li>
+          <li class="nav-link"><%= link_to :logout, method: :post do %>
+            Logout
+            <% end %>
+          </li>
+        <% else %>
+
+      </ul>
+    </nav>
+        <ul>
+        <div class="logged-out-links">
+          <li class="nav-link"><a href="/users/new"><strong>Sign Up</strong></a></li>
+          <li class="nav-link"><a href="/login">Login</a></li>
+        </div>
+        </ul>
+        <% end %>
+    <% if current_user %>
+    <div class="navigation-tools">
+      <span class="js-menu-trigger sliding-panel-button notification-button">
+        <a href="javascript:void(0)" class="sign-up">Notifications</a>
+      </span>
+    </div>
+    <% end %>
+  </div>
+</header>
+
+
+
+
+
 
 
 

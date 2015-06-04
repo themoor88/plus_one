@@ -1,55 +1,52 @@
-<div class="header-background">
-  <h1 class="heading-text">Create an Event</h1>
-</div>
 <div class="event-form-wrapper">
   <%= form_for @event do |f| %>
     <div class="event-field">
-      <%= f.label :event_name %><br>
+      <%= f.label :event_name %>
       <%= f.text_field :event_name %>
     </div>
 
     <div class="event-field">
-      <%= f.label :image %><br>
+      <%= f.label :image %>
       <%= f.file_field :image %>
     </div>
 
     <div class="event-field">
-      <%= f.label :address_1 %><br>
+      <%= f.label :address_1 %>
       <%= f.text_field :address_1 %>
     </div>
 
     <div class="event-field">
-      <%= f.label :address_2 %><br>
+      <%= f.label :address_2 %>
       <%= f.text_field :address_2 %>
     </div>
 
     <div class="event-field">
-      <%= f.label :city %><br>
+      <%= f.label :city %>
       <%= f.text_field :city %>
     </div>
 
     <div class="event-field">
-      <%= f.label :country %><br>
+      <%= f.label :country %>
       <%= f.text_field :country %>
     </div>
 
     <div class="event-field">
-      <%= f.label :z_post_code, "Postal/Zip Code" %><br>
+      <%= f.label :z_post_code, "Postal/Zip Code" %>
       <%= f.text_field :z_post_code %>
     </div>
 
     <div class="event-field">
-      <%= f.label :number_of_attendees %><br>
+      <%= f.label :number_of_attendees %>
       <%= f.text_field :number_of_attendees %>
     </div>
 
     <div class="event-field">
-      <%= f.label :description %><br>
+      <%= f.label :description %>
       <%= f.text_field :description %>
     </div>
 
     <div class="submit-field">
-      <%= f.submit %><br>
+      <%= f.submit %>
     </div>
   <% end %>
 </div>

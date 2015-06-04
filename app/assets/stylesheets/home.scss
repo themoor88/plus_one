@@ -8,7 +8,10 @@
 }
 
 .welcome-text-box {
-  margin-top: 4rem;
+  margin-top: 1rem;
+  @include media($mobile-screen-only) {
+    margin-top: rem(70);
+  }
 }
 
 .welcome-text {
@@ -256,7 +259,7 @@
 }
 
 
-.typed-cursor{
+.typed-cursor {
     opacity: 1;
     -webkit-animation: blink 0.7s infinite;
     -moz-animation: blink 0.7s infinite;
@@ -278,7 +281,7 @@
     100% { opacity:1; }
 }
 
-.typed{
+.typed {
   text-align:center;
   font-size:1.5rem;
   @include media($large-screen-only) {

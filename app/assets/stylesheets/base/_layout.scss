@@ -21,6 +21,9 @@ body {
 
 ///////////// Navigation /////////////
 .nav {
+  @include media($large-screen-only) {
+    display: none;
+  }
     position: fixed;
     height: $nav-height;
     background: $barney-purple;
@@ -123,13 +126,12 @@ body {
 
 ////////// SLIDING MENU //////////
 .sliding-panel-content {
-
   @include position(fixed, 0px auto 0px 0px);
   @include size(220px 100%);
   @include transform(translateX(-220px));
   @include transition(all 0.25s linear);
   background: $eggshell-white;
-  z-index: 999999;
+  z-index: 99999999999;
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
   // border-radius: 0 rem(10) rem(10) 0;
@@ -202,6 +204,12 @@ body {
 .notifications-menu {
   text-align:left;
   color: white;
+}
+
+.notification-bar-logo {
+  width: 50%;
+  padding: 0;
+  margin: 0;
 }
 
 .profile-pic-notifications{

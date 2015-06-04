@@ -5,18 +5,17 @@
   <h1 class="name"><%= "#{@user.first_name.capitalize}" %></h1>
 
 
-  <h2 class="event-counter"><%= @user.created_events.length %> Events</h2>
-  <h2>Personality</h2><br>
-  <p><%= @user.bio %></p>
-  <p><%= @user.interests %></p>
+  <h2 class="event-counter"><%= @user.created_events.length %> Events Created</h2>
+  <p class="bio-text"><%= @user.bio %></p>
+  <p class="interest-text"><%= @user.interests %></p>
 
   <div class="user-ratings">
   <ul>
     <% socialrating = @user.social_factor %>
-    <li><p> Social Factor: <%= socialrating %> </p></li>
+    <li><p class="social-factor"> Social Factor: <%= socialrating %> </p></li>
 
     <% posnegrating = @user.positivenegative %>
-    <li><p> Positive Experience Rating: <%= posnegrating %></p></li>
+    <li><p class="posneg"> Positive Experience Rating: <%= posnegrating %></p></li>
   </ul>
   </div>
 

@@ -1,20 +1,17 @@
 <div class="registration-wrapper">
-  <div class="header-background">
-    <h1 class="heading-text">Login</h1>
-  </div>
 
   <div class="login">
     <%= form_tag user_sessions_path, method: :post do %>
       <div class="field">
-        <%= label_tag :email %><br>
+        <%= label_tag :email %>
         <%= text_field_tag :email %>
       </div>
       <div class="field">
-        <%= label_tag :password %><br>
+        <%= label_tag :password %>
         <%= password_field_tag :password %>
       </div>
       <div class="login-button">
-        <%= submit_tag 'Submit' %><br>
+        <%= submit_tag 'Submit' %>
       </div>
     <% end %>
   </div>

@@ -1,6 +1,3 @@
-<div class="header-background signup-heading-text">
-  <h1 class="heading-text">Signup</h1>
-</div>
 <div class="signup">
   <%= form_for @user do |f|%>
     <% if @user.errors.any? %>
@@ -71,7 +68,7 @@
     </div>
 
     <div class="signup-button">
-      <%= f.submit "Sign Up" %><br>
+      <%= f.submit %><br>
     </div>
   <% end %>
 </div>

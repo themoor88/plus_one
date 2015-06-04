@@ -1,32 +1,44 @@
- .login {
+.login {
   @include media($mobile-screen-only) {
     padding: 10px;
-    width: 100%;
-    text-align: center;
+    width: 70%;
+    margin: 0 auto;
+    margin-top: rem(50);
+    .field {
+      margin-bottom: rem(20);
+    }
   }
 
   @include media($large-screen-only) {
     width: 50%;
     margin: 0 auto;
-    margin-top: rem(40px);
+    margin-top: $nav-height + 50;
     .login-button {
       width: 100%;
+    }
+    input {
+      margin-bottom: rem(20);
     }
   }
 }
 
 .login-button {
-  left: 50%;
-  padding: 0;
-  width: 100%;
-  @include media($mobile-screen-only) {
-    padding-top: rem(20);
+left: 50%;
+padding: 0;
+width: 100%;
+text-align: center;
+@include media($mobile-screen-only) {
+  padding-top: rem(10);
+  input {
+    width: 40%;
+    margin-bottom: rem(20);
   }
+}
 
-  @include media($large-screen-only) {
-    text-align: center;
-    input {
-      width: 30%;
-    }
+@include media($large-screen-only) {
+  text-align: center;
+  input {
+    width: 30%;
   }
+}
 }
