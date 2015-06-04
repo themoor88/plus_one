@@ -7,7 +7,7 @@ $(function() {
     }
   });
 
-  $(".modal-fade-screen, .modal-close").on("click", function() {
+  $(".modal-fade-screen, .modal-close, .pop-up-submit, .request-button").on("click", function() {
     $(".modal-state:checked").prop("checked", false).change();
   });
 
