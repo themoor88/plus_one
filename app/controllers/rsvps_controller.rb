@@ -6,10 +6,14 @@ class RsvpsController < ApplicationController
     @rsvp.user = current_user
     @rsvp.status = "Pending"
 
-    if @rsvp.save
-      redirect_to @event
-    else
-      render '/events/new'
+    respond_to do |format|
+      if @rsvp.save
+        format.html { redirect_to @event, notice: "Your request has been sent." }
+        format.js {}
+      else
+        format.html { render 'events/show', alert: 'There was an error.'}
+        format.js {}
+      end
     end
   end
 

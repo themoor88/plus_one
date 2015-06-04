@@ -1,0 +1,14 @@
+<p class="modal-intro">Hi, <%= @user.username %>. I'd like to join.</p>
+<p class="modal-content"><%= @event.event_name %></p>
+
+
+
+<%= form_for [@event, @rsvp], remote: true do |f| %>
+  <div class="request-event-field">
+    <%= f.text_area :message, :placeholder => "Send a message (optional)" %>
+  </div>
+
+  <div class="request-button">
+    <%= f.submit "Request to Join" %>
+  </div>
+<% end %>
