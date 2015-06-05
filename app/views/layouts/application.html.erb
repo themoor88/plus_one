@@ -30,7 +30,7 @@
             <% if rsvp.status = "pending" %>
               <li>You have been accepted into <%= rsvp.event.event_name %><hr></li>
             <% else %>
-              <p>No notifications for you.</p>
+              <p>You currently don't have any notifications</p>
             <% end  %>
           <% end %>
           </li>
@@ -87,21 +87,6 @@
 
 
 
-        <li><% current_user.created_events.each do |event| %>
-          <% event.rsvps.each do |rsvp| %>
-            <% if rsvp.status = "pending" %>
-              <li><%= rsvp.user.username %> wants to join your event <%= rsvp.event.event_name %><br>
-                <button>Decline</button>
-              <hr></li>
-            <% else %>
-              <p>No notifications for you.</p>
-            <% end  %>
-          <% end %>
-          <% end %>
-        </li>
-      </ul>
-    </nav>
-  </div>
   <div class="js-menu-screen sliding-panel-fade-screen"></div>
 
 
