@@ -17,6 +17,14 @@ class RsvpsController < ApplicationController
     end
   end
 
+  def accept
+    rsvp.status = "Accepted"
+  end
+
+  def decline
+    rsvp.status = "Declined"
+  end
+
   def index
     @rsvps = Rsvp.where(user_id: current_user.id)
   end

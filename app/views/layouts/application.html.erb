@@ -63,7 +63,9 @@
           <% event.rsvps.each do |rsvp| %>
             <% if rsvp.status = "pending" %>
               <li><%= rsvp.user.username %> wants to join your event <%= rsvp.event.event_name %><br>
-                <button>Accept</button>
+              <% form_for rsvp :method => :put, :status => "Accepted" do |f|%>
+               <%= f.submit, "Accept" %>
+              <% end %>
                 <button>Decline</button>
               <hr></li>
             <% else %>
