@@ -45,10 +45,14 @@ header.navigation {
       max-height: $navigation-height;
       padding: 0.8em 0;
     }
+    img:hover {
+      background-color: rgba(48, 2, 255, 0.2);
+      border-radius: rem(5);
+    }
   }
 
 
-// Mobile view
+// Mobile view (if necessary in the future)
 
   .navigation-menu-button {
     color: $navigation-color;
@@ -149,7 +153,7 @@ header.navigation {
   }
 
 
-// Sub menus
+// Sub menus (if necessary in the future)
 
   li.more.nav-link {
     padding-right: 0;
@@ -288,12 +292,14 @@ header.navigation {
     float: right;
     font-size: 0.7em;
     margin-top: 1em;
-    padding: 0.75em 1em;
+    z-index: 100000;
+
+    // padding: 0.75em 1em;
     text-transform: uppercase;
   }
 
 
-// Search bar
+// Search bar (if necessary in the future)
 
   .search-bar {
     $search-bar-border-color: $base-border-color;

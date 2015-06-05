@@ -52,51 +52,53 @@
       </ul>
     </nav>
   </div>
+
   <div class="js-menu-screen sliding-panel-fade-screen"></div>
 
 <!-- MOBILE NAV -->
 <div class="nav">
 
   <%= link_to root_path class: "home-link" do %>
-    <%= image_tag("home2.png") %>
+    <span class="home-link"><%= image_tag("home2.png") %></span>
   <% end %>
 
   <% if current_user %>
 
   <%= link_to events_path do %>
-    <%= image_tag("location.png") %>
+    <%= image_tag("location2.png") %>
   <% end %>
 
   <%= link_to new_event_path do %>
-    <%= image_tag("plus.png") %>
+    <%= image_tag("plus2.png") %>
   <% end %>
 
   <%= link_to :logout, method: :post do %>
-    <%= image_tag("x.png") %>
+    <%= image_tag("lock.png") %>
   <% end %>
 
   <%= link_to user_path(current_user.id) do %>
-    <%= image_tag("gear.png") %>
+    <%= image_tag("user.png") %>
   <% end %>
 
 
   <span class="js-menu-trigger sliding-panel-button notification-button">
-   <%= image_tag("notifications.png") %>
+   <%= image_tag("bubble.png") %>
   <span>
 
 
 
   <% else %>
 
-  <%= link_to new_user_path do %>
-    <%= image_tag("signup.png") %>
-  <% end %>
+  <div class="logged-out-mobile-icons">
+    <%= link_to new_user_path do %>
+      <%= image_tag("pen.png") %>
+    <% end %>
 
-  <%= link_to :login do %>
-    <%= image_tag("login.png") %>
+    <%= link_to :login do %>
+      <%= image_tag("key.png") %>
+    <% end %>
   <% end %>
-
-  <% end %>
+  </div>
 
 </div>
 
@@ -104,6 +106,13 @@
 <!-- FULLSCREEN NAV -->
 <header class="navigation" role="banner">
   <div class="navigation-wrapper">
+    <% if current_user %>
+    <div class="navigation-tools">
+      <span class="js-menu-trigger sliding-panel-button notification-button">
+        <a href="javascript:void(0)" class="sign-up">Notifications</a>
+      </span>
+    </div>
+    <% end %>
     <a href="/" class="logo">
       <%= image_tag("home2.png") %>
     </a>
@@ -129,13 +138,6 @@
         </div>
         </ul>
         <% end %>
-    <% if current_user %>
-    <div class="navigation-tools">
-      <span class="js-menu-trigger sliding-panel-button notification-button">
-        <a href="javascript:void(0)" class="sign-up">Notifications</a>
-      </span>
-    </div>
-    <% end %>
   </div>
 </header>
 
