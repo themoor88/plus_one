@@ -80,4 +80,8 @@ class User < ActiveRecord::Base
       else
       end
   end
+
+  def pending_rsvps
+    created_events.map(&:pending_rsvps).flatten
+  end
 end

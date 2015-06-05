@@ -7,16 +7,17 @@ Rails.application.routes.draw do
   end
 
   resources :events do
-    resources :rsvps, only: [:new, :create,:index]
+    resources :rsvps, only: [:new, :create, :index] do
+      member do
+        post "accept"
+        post "decline"
+      end
+    end
+
     resources :reviews
   end
 
-  resources :rsvps, only: [:update] do
-    member do
-      put "accept"
-      put "decline"
-    end
-  end
+  resources :rsvps, only: [:update]
 
   resources :user_sessions, only: [:new, :create, :destroy]
 
