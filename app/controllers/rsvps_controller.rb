@@ -1,4 +1,4 @@
-class RsvpsController < ApplicationController
+  class RsvpsController < ApplicationController
 
   def create
     @event = Event.find(params[:event_id])
@@ -21,7 +21,7 @@ class RsvpsController < ApplicationController
     if @rsvp.save
       redirect_to root_path
     else
-      raise "I'm scared"
+      render event
     end
   end
 

@@ -1,9 +1,14 @@
 Rails.application.routes.draw do
-  resources :friendships
 
   root "pages#home"
   resources :users do
     resources :reputations
+    resources :friendships, only: [:new, :create, :index] do
+      member do
+        post "accept"
+        post "decline"
+      end
+    end
   end
 
   resources :events do
@@ -16,8 +21,6 @@ Rails.application.routes.draw do
 
     resources :reviews
   end
-
-  resources :rsvps, only: [:update]
 
   resources :user_sessions, only: [:new, :create, :destroy]
 

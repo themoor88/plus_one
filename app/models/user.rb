@@ -84,4 +84,9 @@ class User < ActiveRecord::Base
   def pending_rsvps
     created_events.map(&:pending_rsvps).flatten
   end
+
+
+  def pending_friends
+    friendships.where(confirmed: "Pending")
+  end
 end

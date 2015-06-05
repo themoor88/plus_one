@@ -26,11 +26,12 @@
         <% end %><hr>
 
         <% if current_user %>
+
           <li><% current_user.rsvps.each do |rsvp| %>
-            <% if rsvp.status == "Pending" %>
+            <% if rsvp.status == "Accepted" %>
               <li>You have been accepted into <%= rsvp.event.event_name %><hr></li>
             <% else %>
-              <p>You currently don't have any notifications</p>
+
             <% end  %>
           <% end %>
           </li>
@@ -39,14 +40,15 @@
 
             <% current_user.pending_rsvps.each do |rsvp| %>
                 <li><%= rsvp.user.username %> wants to join your event <%= rsvp.event.event_name %><br>
-                  <%= button_to "Accept", accept_event_rsvp_path(rsvp.event, rsvp), remote: true %>
-                  <button>Decline</button>
-                <hr></li>
+                  <%= button_to "Accept", accept_event_rsvp_path(rsvp.event, rsvp), class: "notification-accept-decline", remote: true %>
+                  <%= button_to "Decline", decline_event_rsvp_path(rsvp.event, rsvp), class: "notification-accept-decline", remote: true %>
+                  <hr>
+                </li>
             <% end %>
           <% else %>
-            <p>No notifications.</p>
           <% end  %>
-          <% end %>
+        <% end %>
+
         </li>
       </ul>
     </nav>

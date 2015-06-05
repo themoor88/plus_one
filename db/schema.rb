@@ -59,12 +59,17 @@ ActiveRecord::Schema.define(version: 20150602134936) do
     t.integer  "event_id"
   end
 
+  add_index "reviews", ["event_id"], name: "index_users_on_event_id", unique: true
+
+
   create_table "rsvps", force: :cascade do |t|
     t.integer "event_id"
     t.integer "user_id"
     t.string  "status"
     t.text    "message"
   end
+
+  add_index "users", ["event_id"], name: "index_users_on_event_id", unique: true
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                                                    null: false
