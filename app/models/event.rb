@@ -1,7 +1,6 @@
 class Event < ActiveRecord::Base
   belongs_to :user
   has_many :rsvps
-  belongs_to :category
 
   has_many :reviews
 

@@ -1,4 +1,4 @@
 <% current_user.created_events.each do |event| %>
-<%= event.event_name %>
-<%= event.time %><hr><br>
+  <a href="<%= event_path(event) %>" ><%= event.event_name %></a>
+  <%= event.time %><hr><br>
 <% end  %>
