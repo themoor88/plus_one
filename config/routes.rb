@@ -23,7 +23,9 @@ Rails.application.routes.draw do
   get 'login' => 'user_sessions#new', :as => :login
   post 'logout' => 'user_sessions#destroy', :as => :logout
 
-  get 'created_events' => 'events#created'
+  get 'my_events' => 'events#my_events'
+  get 'my_friends' => 'friendships#my_friends'
+
 
 
   # The priority is based upon order of creation: first created -> highest priority.
