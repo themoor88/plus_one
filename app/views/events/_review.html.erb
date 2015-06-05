@@ -3,6 +3,8 @@
   <% @event.reviews.each do |review| %>
     <hr>
     <h4>
+      <%= review.star_rating %></br>
+
       <%= review.comment %></br>
 
       <% if review.user != nil %>
