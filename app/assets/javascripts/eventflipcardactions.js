@@ -1,11 +1,5 @@
 $(document).on('ready page:load', function () {
 
-  // $(function() {
-  //   $('.front').on('touchstart', function() {
-  //       this.classList.toggle('hover');
-  //   });
-  // });
-
   $(function() {
     var animationClasses = 'animated alternate iteration zoomOut';
     var animationEnd = 'webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend';
