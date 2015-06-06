@@ -22,7 +22,7 @@ User.create!(
 
 20.times do
   Event.create!(
-    event_name: Faker::Company.catch_phrase,
+    event_name: ["Big Balloons","King Ballers","Painting","Sweet Street"][rand(0..3)],
     address_1: rand(100..500),
     address_2: ["Front Street","King Street","John Street","Adelaide Street"][rand(0..3)],
     city: ["Toronto","Mississauga","Hamilton","Etobicoke"][rand(0..3)],
