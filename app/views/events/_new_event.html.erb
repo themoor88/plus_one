@@ -6,18 +6,19 @@
     </div>
 
     <div class="event-field">
-      <%= f.label :image %>
-      <%= f.file_field :image %>
+      <%= f.label :description %>
+      <%= f.text_field :description %>
     </div>
 
     <div class="event-field">
-      <%= f.label :address_1 %>
+      <%= f.label :time %>
+      <%= f.datetime_select :time, :ampm => true, :discard_year => true, :minute_step => 15 %>
+    </div>
+
+
+    <div class="event-field">
+      <%= f.label :address %>
       <%= f.text_field :address_1 %>
-    </div>
-
-    <div class="event-field">
-      <%= f.label :address_2 %>
-      <%= f.text_field :address_2 %>
     </div>
 
     <div class="event-field">
@@ -26,23 +27,13 @@
     </div>
 
     <div class="event-field">
-      <%= f.label :country %>
-      <%= f.text_field :country %>
-    </div>
-
-    <div class="event-field">
-      <%= f.label :z_post_code, "Postal/Zip Code" %>
-      <%= f.text_field :z_post_code %>
-    </div>
-
-    <div class="event-field">
       <%= f.label :number_of_attendees %>
       <%= f.text_field :number_of_attendees %>
     </div>
 
     <div class="event-field">
-      <%= f.label :description %>
-      <%= f.text_field :description %>
+      <%= f.label :image %>
+      <%= f.file_field :image %>
     </div>
 
     <div class="submit-field">

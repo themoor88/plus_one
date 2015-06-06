@@ -6,6 +6,7 @@ class PagesController < ApplicationController
       @nearby_events = Event.near([current_user.latitude, current_user.longitude], 5000)
       @nearby_users = @user.nearbys(5000)
       @randomevent = Event.order("RANDOM()").near([current_user.latitude, current_user.longitude], 50).first
+      @eventtime = @randomevent.time.strftime("%b %-d, %-l:%M%P")
     else
     end
 

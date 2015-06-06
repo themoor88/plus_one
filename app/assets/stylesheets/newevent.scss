@@ -19,9 +19,17 @@
   }
 }
 .event-form-wrapper {
+  .event-field {
+    select {
+      margin: 0;
+      display: inline-block;
+      margin-bottom: rem(12);
+    }
+  }
   @include media($mobile-screen-only) {
     margin-left: rem(20);
     margin-right: rem(20);
+    margin-top: rem(30);
     input {
       height: rem(25);
     }
@@ -29,8 +37,9 @@
 
 
   @include media($large-screen-only) {
+    margin-top: rem(40);
     .event-field {
-      width: 50%;
+      width: 40%;
       margin: 0 auto;
       padding: 0;
     }

@@ -94,17 +94,22 @@
 
 
 ///////// LARGE SCREEN HOME PAGE ///////////
-.home-event-wrapper {
-  @include outer-container;
-  display: none;
-  @include media($large-screen-only) {
-    @include span-columns(12);
-    display: inline;
-  }
-}
+// .home-event-wrapper {
+//   @include outer-container;
+//   display: none;
+//   @include media($large-screen-only) {
+//     @include span-columns(12);
+//     display: inline;
+//   }
+// }
 
 .home-event {
-  @include omega(2n);
+  .event-wrapper {
+    @include span-columns(3);
+    @include omega(4n);
+  }
+  .home-event-image-background {
+  }
 }
 
 
@@ -243,7 +248,7 @@
 .flip-container {
   perspective: 1000;
   margin: 0 auto;
-  margin-top: rem(50);
+  margin-top: rem(100);
   padding: 0;
   width: 400px;
   @include media($large-screen-only) {
@@ -270,6 +275,8 @@
 
 ////////// hide back of pane during swap //////////
 .front, .back {
+  border: 6px solid black;
+  border-radius: rem(7);
   backface-visibility: hidden;
   position: absolute;
   top: 0;
@@ -290,7 +297,22 @@
   transform: rotateY(180deg);
   height: 100%;
   text-align: center;
-  border: 1px solid $grey;
+  background-color: $eggshell-white;
+  ul {
+    margin-top: rem(15);
+    li {
+      color: black;
+    }
+  }
+  .spots-left {
+    font-size: rem(15);
+  }
+  .card-title {
+    font-size: rem(20);
+  }
+  button {
+    font-size: rem(12);
+  }
 }
 
 .animate-target {
@@ -305,5 +327,79 @@
 .animate-trigger {
   @include media($large-screen-only) {
     display: none;
+  }
+}
+
+
+
+////////// FULLSCREEN SHOW ALL EVENTS //////////
+
+.flip-container-large {
+  perspective: 1000;
+  margin: 0 auto;
+  margin-top: rem(100);
+  padding: 0;
+  width: 400px;
+  @include media($large-screen-only) {
+    display: none;
+  }
+}
+  ////////// flip the pane when hovered //////////
+  .flip-container-large:hover .flipper-large, .flip-container-large.hover .flipper-large {
+    transform: rotateY(180deg);
+  }
+
+.front-large, .back-large {
+  width: 400px;
+  height: 200px;
+}
+
+////////// flip speed goes here //////////
+.flipper-large {
+  transition: 0.6s;
+  transform-style: preserve-3d;
+
+  position: relative;
+}
+
+////////// hide back of pane during swap //////////
+.front-large, .back-large {
+  border: 6px solid black;
+  border-radius: rem(7);
+  backface-visibility: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+////////// Front pane, placed above back //////////
+.front-large {
+  z-index: 2;
+  /* for firefox 31 */
+  transform: rotateY(0deg);
+  height: 100%;
+  border: 1px solid $grey;
+}
+
+////////// Back, initially hidden pane //////////
+.back-large {
+  transform: rotateY(180deg);
+  height: 100%;
+  text-align: center;
+  background-color: $eggshell-white;
+  ul {
+    margin-top: rem(15);
+    li {
+      color: black;
+    }
+  }
+  .spots-left-large {
+    font-size: rem(15);
+  }
+  .card-title-large {
+    font-size: rem(20);
+  }
+  button {
+    font-size: rem(12);
   }
 }

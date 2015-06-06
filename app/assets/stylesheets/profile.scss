@@ -131,14 +131,14 @@
   $tooltip-distance-from-item: 3.5em;
   $tooltip-arrow-distance-from-box: -1.3em;
 
-  background: $tooltip-background;
+  background: $grey-black;
   border-radius: $base-border-radius;
-  border: 1px solid $base-border-color;
+
   display: inline-block;
   padding: 0.5em 1em;
   position: relative;
   text-align: center;
-  color: $grey;
+  color: $eggshell-white;
 
   p {
     margin: 0;
