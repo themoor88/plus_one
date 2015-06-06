@@ -1,5 +1,7 @@
 <div class="profile">
-  <div class="profile-pic"><%= image_tag (@user.avatar_url(:desktop)), class: "profile-pic" %></div>
+  <div class="profile-pic">
+    <%= image_tag (@user.avatar_url(:desktop)), class: "profile-pic" %>
+  </div>
 
 
   <h1 class="name"><%= "#{@user.first_name.capitalize}" %></h1>
@@ -10,14 +12,29 @@
   <p class="interest-text"><%= @user.interests %></p>
 
   <div class="user-ratings">
-  <ul>
-    <% socialrating = @user.social_factor %>
-    <li><p class="social-factor"> Social Factor: <%= socialrating %> </p></li>
+    <ul>
+      <% socialrating = @user.social_factor %>
+      <li>
+        <div class="tooltip-item">
+          <p class="social-factor"> Social Factor: <%= socialrating %> <% if @user.social_factor == nil %> (Unrated) <% end %> </p>
+          <div class="tooltip">
+            <p>Social Factor is a calculated rating system based on how users have perceived your sociability.</p>
+          </div>
+        </div>
+      </li>
 
-    <% posnegrating = @user.positivenegative %>
-    <li><p class="posneg"> Positive Experience Rating: <%= posnegrating %></p></li>
-  </ul>
-  </div>
+
+    <div class="posneg-wrapper">
+      <% posnegrating = @user.positivenegative %>
+      <li>
+      <div class="tooltip-item">
+        <p class="posneg"> Positive Experience Rating: <%= posnegrating %> <% if @user.social_factor == nil %> (Unrated) <% end %> </p>
+          <div class="tooltip">
+            <p>Positive Experience Rating is a 5-star rating system based on how many positive hangout experiences you have had.</p>
+          </div>
+        </div>
+      </li>
+    </div>
 
 
   <% if @user == current_user %>

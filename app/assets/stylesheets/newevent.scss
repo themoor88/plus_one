@@ -3,6 +3,9 @@
     @include media($mobile-screen-only) {
       margin-bottom: $nav-height + 10;
       width: 100%;
+      padding-bottom: rem(25);
+      input {
+      }
     }
   }
   @include media($large-screen-only) {
@@ -10,13 +13,18 @@
     text-align: center;
     input {
       width: 30%;
+      margin: 0 auto;
+      padding-bottom: rem(27);
     }
   }
 }
 .event-form-wrapper {
   @include media($mobile-screen-only) {
-    margin: 10px;
-    padding-top: 50px;
+    margin-left: rem(20);
+    margin-right: rem(20);
+    input {
+      height: rem(25);
+    }
   }
 
 

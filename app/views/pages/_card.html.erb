@@ -1,0 +1,28 @@
+<div class="front">
+  <%= image_tag (@randomevent.image_url(:mobile)) %>
+  <h1><%= @randomevent.event_name %></h1>
+</div>
+
+<div class="back">
+  <ul>
+    <% if @randomevent.address_1 %>
+      <li><h1><%= @randomevent.address_1 %></h1></li>
+    <% end %>
+
+    <% if @randomevent.address_2 %>
+      <li><h1><%= @randomevent.address_2 %></h1></li>
+    <% end %>
+
+    <% if @randomevent.city %>
+    <li><h1><%= @randomevent.city %></h1></li>
+    <% end %>
+
+    <% if @randomevent.time %>
+      <li><h1><%= @randomevent.time %></h1></li>
+    <% end %>
+  </ul>
+
+  <a href="<%= event_path(@randomevent) %>">
+    <button>More Information</button>
+  </a>
+</div>

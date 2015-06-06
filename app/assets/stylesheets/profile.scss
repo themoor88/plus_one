@@ -5,7 +5,7 @@
     margin-top: rem(50);
   }
   @include media($large-screen-only) {
-    margin-top: $nav-height + 50;
+    margin-top: $nav-height;
   }
  }
 
@@ -85,9 +85,6 @@
     p {
       margin: 0;
     }
-    .posneg {
-      padding-bottom: rem(12);
-    }
   }
 }
 
@@ -122,3 +119,77 @@
 //     margin-right: rem(10);
 //   }
 // }
+
+////////// TOOLTIP //////////
+
+.tooltip-item {
+  $tooltip-background: white;
+  $tooltip-color: $base-font-color;
+  $tooltip-max-width: 16em;
+  $tooltip-arrow-width: 8px;
+  $tooltip-shadow: 0 2px 2px silver;
+  $tooltip-distance-from-item: 3.5em;
+  $tooltip-arrow-distance-from-box: -1.3em;
+
+  background: $tooltip-background;
+  border-radius: $base-border-radius;
+  border: 1px solid $base-border-color;
+  display: inline-block;
+  padding: 0.5em 1em;
+  position: relative;
+  text-align: center;
+  color: $grey;
+
+  p {
+    margin: 0;
+  }
+
+  &:focus,
+  &:hover .tooltip {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .tooltip {
+    @include position(absolute, null 0 $tooltip-distance-from-item 0);
+    @include transition (all 0.2s ease-in-out);
+    background-color: $tooltip-background;
+    background: $grey-black;
+    border-radius: $base-border-radius;
+    border: 1px solid white;
+    color: $tooltip-color;
+    font-size: 0.9em;
+    line-height: 1.5em;
+    margin: 0 auto;
+    max-width: $tooltip-max-width;
+    align-self: center;
+    opacity: 0;
+    padding: 1em;
+    text-align: center;
+    visibility: hidden;
+    z-index: 10;
+
+    p {
+      color: $eggshell-white;
+      line-height: $base-line-height;
+      margin: 0;
+    }
+
+    &:after {
+      @include position(absolute, null 0 null 0);
+      border: $tooltip-arrow-width solid transparent;
+      bottom: $tooltip-arrow-distance-from-box;
+      color: black;
+      content: '▼';
+      font-size: 1.4em;
+      margin-left: -$tooltip-arrow-width;
+      text-align: center;
+      text-shadow: $tooltip-shadow;
+    }
+  }
+}
+
+.posneg-wrapper {
+  margin-top: rem(6);
+  margin-bottom: rem(16);
+}
