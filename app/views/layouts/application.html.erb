@@ -31,7 +31,6 @@
             <% if rsvp.status == "Accepted" %>
               <li>You have been accepted into <%= rsvp.event.event_name %><hr></li>
             <% else %>
-
             <% end  %>
           <% end %>
           </li>
@@ -48,13 +47,9 @@
           <% else %>
           <% end  %>
 
-          <li><% current_user.rsvps.each do |rsvp| %>
-            <% if rsvp.status == "Accepted" %>
-              <li>You have been accepted into <%= rsvp.event.event_name %><hr></li>
-            <% else %>
-
-            <% end  %>
-          <% end %>
+          <li><% current_user.confirmed_friendees.each do |friendee| %>
+            <li><%= friendee.friendee.username %> has accepted your friend request.<hr></li>
+          <% end  %>
           </li>
 
           <% if current_user.requests.any? %>
@@ -69,6 +64,7 @@
 
 
         <% else %>
+          <h1>Keep Calm and PlusOne</h1>
         <% end %>
 
         </li>

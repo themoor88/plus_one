@@ -52,8 +52,8 @@ class User < ActiveRecord::Base
     created_events.map(&:pending_rsvps).flatten
   end
 
-  def unconfirmed_friendees
-    friendees.where(confirmed: false)
+  def confirmed_friendees
+    friendees.where(confirmed: true)
   end
 
   def requests
