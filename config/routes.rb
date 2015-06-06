@@ -1,29 +1,36 @@
 Rails.application.routes.draw do
-  resources :friendships
-
   root "pages#home"
   resources :users do
     resources :reputations
   end
 
   resources :events do
-    resources :rsvps, only: [:new, :create,:index]
+    resources :rsvps, only: [:create, :index] do
+      member do
+        post "accept"
+        post "decline"
+      end
+    end
     resources :reviews
   end
 
-  resources :rsvps, only: [:update] do
+  resources :friendships, only: [:new, :create, :index] do
     member do
-      put "accept"
-      put "decline"
+      post "accept"
+      post "decline"
     end
   end
+
+  resources :notifications
 
   resources :user_sessions, only: [:new, :create, :destroy]
 
   get 'login' => 'user_sessions#new', :as => :login
   post 'logout' => 'user_sessions#destroy', :as => :logout
 
-  get 'created_events' => 'events#created'
+  get 'my_events' => 'events#my_events'
+  get 'my_friends' => 'friendships#my_friends'
+
 
 
   # The priority is based upon order of creation: first created -> highest priority.

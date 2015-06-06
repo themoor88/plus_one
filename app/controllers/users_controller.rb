@@ -11,8 +11,8 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @reputation = @user.reputations.build
-    @friendship = Friendship.new(friender_id: current_user.id)
+    @reputation = @user.reputations.new
+    @friendee = current_user.friendees.new
     city = request.location.city
     country = request.location.country_code
 

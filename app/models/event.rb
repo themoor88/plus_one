@@ -30,4 +30,8 @@ class Event < ActiveRecord::Base
   def random_event
     self.Event.order("RANDOM()").first
   end
+
+  def pending_rsvps
+    rsvps.where(status: "Pending")
+  end
 end

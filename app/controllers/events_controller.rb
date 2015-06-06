@@ -52,7 +52,7 @@ class EventsController < ApplicationController
     redirect_to root_url
   end
 
-  def created
+  def my_events
     @user = current_user
   end
 

@@ -28,10 +28,13 @@
     </div>
 
    <% else %>
-    <%= form_for @friendship do |f| %>
-      <div class="friend">
-        <%= f.submit "Add Friend" %>
-      </div>
+
+    <%= form_for @friendee do |f| %>
+      <%= f.submit "Add as Friend" %>
+      <%= hidden_field_tag :user_id, @user.id %>
     <% end %>
+
   <% end %>
+</div>
+
 </div>

@@ -3,6 +3,10 @@ class User < ActiveRecord::Base
   geocoded_by :city
   before_validation :geocode
 
+  geocoded_by :full_address
+  after_validation :geocode
+  mount_uploader :avatar, AvatarUploader
+
   validates :first_name, presence: true
   validates :last_name, presence: true
   validates :username, presence: true
@@ -11,26 +15,14 @@ class User < ActiveRecord::Base
   validates :password, confirmation: true
   validates :password_confirmation, presence: true
 
-
   has_many :rsvps
   has_many :created_events, class_name: "Event"
   has_many :reviews
   has_many :reputations, foreign_key: :reviewed_user_id
   has_many :created_reputations, foreign_key: :reviewer_id, class_name: "Reputation"
 
-
-  # has_many :friendships
-  # has_many :friends, :through => :friendships
-
-  # has_many :pending_friends,
-  #        :through => :friendships,
-  #        :source => :friend,
-  #        :conditions => "confirmed = 0"
-
-  geocoded_by :full_address
-  after_validation :geocode
-  mount_uploader :avatar, AvatarUploader
-
+  has_many :friendees, :foreign_key => "friender_id", :class_name => "Friendship"
+  has_many :frienders, :foreign_key => "friendee_id", :class_name => "Friendship"
 
   def full_address
     [city, country].join(', ')
@@ -40,37 +32,12 @@ class User < ActiveRecord::Base
     "#{first_name} #{last_name}"
   end
 
-  def total_friends
-    friendees.length + frienders.length
-  end
-
   def social_factor
   social = self.reputations.pluck(:introvertextrovert)
     if social != []
       (social.reduce(:+).to_f / social.size)
     else
     end
-
-    ########## RANKED IMAGE FORMAT EXAMPLE FOR LATER IF NECESSARY ##########
-    # intext = reputations.pluck(:introvertextrovert)
-    # if intext != []
-    #   average = (intext.reduce(:+) / intext.size)
-    #     if (average >= -5 && average <= -3)
-    #       return @user.avatar_url(:mobile)
-    #     elsif (average >= -3 && average <= 0)
-    #       return @user.avatar_url(:mobile)
-    #     elsif (average >=0 && average <= 3)
-    #       return @user.avatar_url(:mobile)
-    #     elsif (average >=3 && average <=5)
-    #       return @user.avatar_url(:mobile)
-    #     else
-    #       nil
-    #     end
-    # else
-    #   return "fallback/profile-pic.png"
-    # end
-
-
   end
 
   def positivenegative
@@ -80,4 +47,21 @@ class User < ActiveRecord::Base
       else
       end
   end
+
+  def pending_rsvps
+    created_events.map(&:pending_rsvps).flatten
+  end
+
+  def confirmed_friendees
+    friendees.where(confirmed: true)
+  end
+
+  def requests
+    frienders.where(confirmed: false)
+  end
+
+  def confirmed_friends
+    friendees.where(confirmed: true) + frienders.where(confirmed:true)
+  end
+
 end
