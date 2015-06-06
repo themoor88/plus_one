@@ -1,26 +1,27 @@
 Rails.application.routes.draw do
-
   root "pages#home"
   resources :users do
     resources :reputations
-    resources :friendships, only: [:new, :create, :index] do
-      member do
-        post "accept"
-        post "decline"
-      end
-    end
   end
 
   resources :events do
-    resources :rsvps, only: [:new, :create, :index] do
+    resources :rsvps, only: [:create, :index] do
       member do
         post "accept"
         post "decline"
       end
     end
-
     resources :reviews
   end
+
+  resources :friendships, only: [:new, :create, :index] do
+    member do
+      post "accept"
+      post "decline"
+    end
+  end
+
+  resources :notifications
 
   resources :user_sessions, only: [:new, :create, :destroy]
 

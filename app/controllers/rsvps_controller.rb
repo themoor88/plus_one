@@ -1,4 +1,8 @@
-  class RsvpsController < ApplicationController
+class RsvpsController < ApplicationController
+
+  def index
+    @rsvps = Rsvp.where(user_id: current_user.id)
+  end
 
   def create
     @event = Event.find(params[:event_id])
@@ -29,11 +33,13 @@
     @rsvp = Rsvp.find(params[:id])
     @event = Event.find(params[:event_id])
     @rsvp.status = "Declined"
+    if @rsvp.save
+      redirect_to root_path
+    else
+      render event
+    end
   end
 
-  def index
-    @rsvps = Rsvp.where(user_id: current_user.id)
-  end
 
   # private
   # def rsvp_params
