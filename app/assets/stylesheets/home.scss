@@ -56,122 +56,6 @@
   border-radius: rem(10);
 }
 
-////////// CARD /////////
-// .swipe-card-wrapper {
-//   text-align: center;
-//   color: $eggshell-white;
-//   background-color: #212121;
-//   @include media($mobile-screen-only) {
-//     @include display(flex);
-//     @include flex-wrap(wrap);
-//     @include justify-content(space-between);
-//     height: 100%;
-//   }
-//   @include media($large-screen-only) {
-//     @include display(flex);
-//     @include flex-wrap(wrap);
-//     @include justify-content(space-between);
-//     padding-top: $nav-height;
-//     max-width: 50%;
-//     margin: 0 auto;
-//   }
-// }
-
-// .event-card {
-//   @include media($mobile-screen-only) {
-//     @include flex-basis(15em);
-//     @include flex-grow(1);
-//     @include transition (all 0.2s ease-in-out);
-//     animation: swipeleft 1000ms linear both;
-//     background-color: #424242;
-//     cursor: pointer;
-//     position: relative;
-//     // height:300p;
-//   }
-
-//   @include media($large-screen-only) {
-//     animation: swipeleft 1000ms linear both;
-//   }
-
-//   .event-card-image {
-//     overflow: hidden;
-//     width: 100%;
-
-//     img {
-//       @include transition (all 0.2s ease-in-out);
-//       background: $card-image-background;
-//       border-top-left-radius: $base-border-radius;
-//       border-top-right-radius: $base-border-radius;
-//       width: 100%;
-//     }
-//     @include media($mobile-screen-only) {
-
-//     }
-//   }
-
-//   .event-card-title {
-//     @include transition (all 0.2s ease-in-out);
-//     border-radius: $base-border-radius $base-border-radius 0 0;
-//     font-weight: bold;
-//     line-height: 1.5em;
-//     padding: ($base-spacing / 3) ($base-spacing / 2);
-//   }
-
-//   &:focus,
-//   &:hover {
-//     background-color: $black;
-
-//     .event-card-image img {
-//       background: $card-image-hover-background;
-//     }
-
-//     .event-card-header {
-//       background-color: $grey-black;
-//     }
-//   }
-
-//   &:active {
-//     background-color: $grey-black;
-
-//     .event-card-header {
-//       background-color: $grey-black;
-//     }
-//   }
-// }
-
-// #load {
-//   display: none;
-//   position: absolute;
-//   right: 10px;
-//   top: 10px;
-//   background: url(https://www.adevole.com/clients/vdigital/images/loading.gif);
-//   width: 43px;
-//   height: 11px;
-//   text-indent: -9999em;
-// }
-
-
-// @keyframes swipeleft {
-//   0% { transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 3000, 0, 0, 1); }
-//   2.6% { transform: matrix3d(0.795, 0.607, 0, 0, -0.607, 0.795, 0, 0, 0, 0, 1, 0, 2270.31, 0, 0, 1); }
-//   3.6% { transform: matrix3d(0.731, 0.682, 0, 0, -0.682, 0.731, 0, 0, 0, 0, 1, 0, 2016.286, 0, 0, 1); }
-//   5.11% { transform: matrix3d(0.699, 0.716, 0, 0, -0.716, 0.699, 0, 0, 0, 0, 1, 0, 1666.247, 0, 0, 1); }
-//   7.21% { transform: matrix3d(0.741, 0.672, 0, 0, -0.672, 0.741, 0, 0, 0, 0, 1, 0, 1240.513, 0, 0, 1); }
-//   10.81% { transform: matrix3d(0.878, 0.479, 0, 0, -0.479, 0.878, 0, 0, 0, 0, 1, 0, 679.667, 0, 0, 1); }
-//   11.41% { transform: matrix3d(0.897, 0.442, 0, 0, -0.442, 0.897, 0, 0, 0, 0, 1, 0, 605.408, 0, 0, 1); }
-//   14.31% { transform: matrix3d(0.962, 0.273, 0, 0, -0.273, 0.962, 0, 0, 0, 0, 1, 0, 314.063, 0, 0, 1); }
-//   17.62% { transform: matrix3d(0.992, 0.13, 0, 0, -0.13, 0.992, 0, 0, 0, 0, 1, 0, 97.547, 0, 0, 1); }
-//   21.42% { transform: matrix3d(0.999, 0.037, 0, 0, -0.037, 0.999, 0, 0, 0, 0, 1, 0, -40.088, 0, 0, 1); }
-//   23.92% { transform: matrix3d(1, 0.008, 0, 0, -0.008, 1, 0, 0, 0, 0, 1, 0, -85.197, 0, 0, 1); }
-//   28.53% { transform: matrix3d(1, -0.011, 0, 0, 0.011, 1, 0, 0, 0, 0, 1, 0, -110.54, 0, 0, 1); }
-//   30.13% { transform: matrix3d(1, -0.012, 0, 0, 0.012, 1, 0, 0, 0, 0, 1, 0, -108.53, 0, 0, 1); }
-//   48.55% { transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -19.209, 0, 0, 1); }
-//   55.16% { transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -4.738, 0, 0, 1); }
-//   68.57% { transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 2.107, 0, 0, 1); }
-//   80.18% { transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 1.071, 0, 0, 1); }
-//   100% { transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }
-// }
-
 @keyframes swiperight {
   0% { transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -3000, 0, 0, 1); }
   2.6% { transform: matrix3d(0.795, -0.607, 0, 0, 0.607, 0.795, 0, 0, 0, 0, 1, 0, -1807.785, 0, 0, 1); }
@@ -292,40 +176,6 @@
   }
 }
 
-
-// #card {
-//   height: 250px;
-//   @include media($large-screen-only) {
-//     display: none;
-//   }
-// }
-
-// .front {
-//   margin: 0 auto;
-//   height: 50px;
-//   h1 {
-//     text-align: center;
-//   }
-//   img {
-//     height: 200px;
-//   }
-// }
-
-// .back {
-//   margin: 0 auto;
-
-//   text-align: center;
-//   ul {
-//     margin-top: rem(40);
-//   }
-//   h1 {
-//     font-size: rem(20);
-//   }
-// }
-
-// .card-wrapper {
-// }
-
 ////////// RANDOM EVENT BUTTON ///////////
 
 .animated {
@@ -392,18 +242,22 @@
 ////////// entire container, keeps perspective //////////
 .flip-container {
   perspective: 1000;
-  height: 100%;
-  margin: 0;
+  margin: 0 auto;
+  margin-top: rem(50);
   padding: 0;
+  width: 400px;
+  @include media($large-screen-only) {
+    display: none;
+  }
 }
   ////////// flip the pane when hovered //////////
   .flip-container:hover .flipper, .flip-container.hover .flipper {
     transform: rotateY(180deg);
   }
 
-.flip-container, .front, .back {
-  width: 320px;
-  height: 480px;
+.front, .back {
+  width: 400px;
+  height: 200px;
 }
 
 ////////// flip speed goes here //////////
@@ -417,7 +271,6 @@
 ////////// hide back of pane during swap //////////
 .front, .back {
   backface-visibility: hidden;
-
   position: absolute;
   top: 0;
   left: 0;
@@ -428,13 +281,29 @@
   z-index: 2;
   /* for firefox 31 */
   transform: rotateY(0deg);
+  height: 100%;
+  border: 1px solid $grey;
 }
 
 ////////// Back, initially hidden pane //////////
 .back {
   transform: rotateY(180deg);
+  height: 100%;
+  text-align: center;
+  border: 1px solid $grey;
 }
 
 .animate-target {
   height: 300px;
+}
+
+.random-button {
+  width: 100%;
+  text-align: center;
+  margin-top: rem(50);
+}
+.animate-trigger {
+  @include media($large-screen-only) {
+    display: none;
+  }
 }

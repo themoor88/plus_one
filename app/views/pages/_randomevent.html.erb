@@ -1,7 +1,6 @@
 <% if @randomevent %>
-
-  <div class="flip-container" ontouchstart="this.classList.toggle('hover');">
-    <div class="flipper">
+    <div class="flip-container" ontouchstart="this.classList.toggle('hover');">
+    <div class="flipper animate-target">
 
       <div class="front">
         <%= image_tag (@randomevent.image_url(:mobile)) %>
@@ -33,7 +32,8 @@
       </div>
 
     </div>
-  </div>
+    </div>
+
 
  <% else %>
 

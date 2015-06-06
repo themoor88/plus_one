@@ -2,10 +2,9 @@
 
   <!-- Swipe Card for Logged In User -->
 
-    <% if @randomevent %>
-      <div class="animate-target">
-        <%= render "randomevent" %>
-      </div>
+  <% if @randomevent %>
+    <%= render "randomevent" %>
+    <div class="random-button">
       <button class="animate-trigger">FIND A RANDOM EVENT NEAR YOU</button>
     </div>
 

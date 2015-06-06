@@ -1,31 +1,24 @@
-// $(function($) {
-  // $("#card").flip();
-  // var fliped = false;
+$(document).on('ready page:load', function () {
 
-  // $("#card").click(function(){
-  //   if (fliped) {
-  //     $(".front").css({transform: "rotateY(0deg)"})
-  //     $(".back").css({transform: "rotateY(180deg)"})
-  //   } else {
-  //     $(".front").css({transform: "rotateY(180deg)"})
-  //     $(".back").css({transform: "rotateY(0deg)"})
-  //   }
+  // $(function() {
+  //   $('.front').on('touchstart', function() {
+  //       this.classList.toggle('hover');
+  //   });
+  // });
 
-  //   fliped = !fliped;
-  // })
+  $(function() {
+    var animationClasses = 'animated alternate iteration zoomOut';
+    var animationEnd = 'webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend';
 
-// });
+    $('.animate-trigger').on('click',function() {
 
-////////// RANDOM EVENT BUTTON ///////////
+      setTimeout(function() {  // Add delay to AJAX so that card load is seamless (50% of animation time)
+        $.getScript('/');
+      }, 200);
 
-$(function() {
-  var animationClasses = 'animated alternate iteration zoomOut';
-  var animationEnd = 'webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend';
-
-  $('.animate-trigger').on('click',function() {
-      $.getScript('/');
-    $('.animate-target').addClass(animationClasses).one(animationEnd,function() {
-      $(this).removeClass(animationClasses);
+      $('.animate-target').addClass(animationClasses).one(animationEnd,function() {
+        $(this).removeClass(animationClasses);
+      });
     });
   });
 });
