@@ -14,6 +14,25 @@
   }
 }
 
+.front, .back {
+  height:​ 250px;
+  width:​ 504px;
+  -webkit-transform-style:​ preserve-3d;
+  position:​ absolute;
+  transition:​ all 0.5s ease-out;
+  -webkit-transition:​ all 0.5s ease-out;
+  -webkit-backface-visibility:​ hidden;
+  -webkit-transform:​ rotateY(0deg);
+}
+
+.front {
+  transform: rotateY(0deg);
+}
+
+.back {
+  transform: rotateY(0deg);
+}
+
 .welcome-text {
     text-align: center;
     margin: 0;
@@ -290,4 +309,144 @@
   @include media($large-screen-only) {
     font-size: 2.0em;
   }
+}
+
+
+// #card {
+//   height: 250px;
+//   @include media($large-screen-only) {
+//     display: none;
+//   }
+// }
+
+// .front {
+//   margin: 0 auto;
+//   height: 50px;
+//   h1 {
+//     text-align: center;
+//   }
+//   img {
+//     height: 200px;
+//   }
+// }
+
+// .back {
+//   margin: 0 auto;
+
+//   text-align: center;
+//   ul {
+//     margin-top: rem(40);
+//   }
+//   h1 {
+//     font-size: rem(20);
+//   }
+// }
+
+// .card-wrapper {
+// }
+
+////////// RANDOM EVENT BUTTON ///////////
+
+.animated {
+  @include animation-duration(1s);
+  @include animation-fill-mode(both);
+
+  &.infinite {
+    @include animation-iteration-count(infinite);
+  }
+
+  &.alternate {
+    @include animation-direction(alternate);
+  }
+
+  &.iteration {
+    @include animation-iteration-count(2);
+  }
+}
+
+// Tweak the keyframes below. Or swap them with another animation pattern at
+// https://github.com/daneden/animate.css/tree/master/source
+
+@-webkit-keyframes zoomOut {
+  0% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0;
+    -webkit-transform: scale3d(0.3, 0.3, 0.3);
+            transform: scale3d(0.3, 0.3, 0.3);
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes zoomOut {
+  0% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0;
+    -webkit-transform: scale3d(0.3, 0.3, 0.3);
+            transform: scale3d(0.3, 0.3, 0.3);
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+.zoomOut {
+  -webkit-animation-name: zoomOut;
+          animation-name: zoomOut;
+}
+
+/////////////////////////////////////////////////////////////
+
+
+
+/* entire container, keeps perspective */
+.flip-container {
+  perspective: 1000;
+}
+  /* flip the pane when hovered */
+  .flip-container:hover .flipper, .flip-container.hover .flipper {
+    transform: rotateY(180deg);
+  }
+
+.flip-container, .front, .back {
+  width: 320px;
+  height: 480px;
+}
+
+/* flip speed goes here */
+.flipper {
+  transition: 0.6s;
+  transform-style: preserve-3d;
+
+  position: relative;
+}
+
+/* hide back of pane during swap */
+.front, .back {
+  backface-visibility: hidden;
+
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+/* front pane, placed above back */
+.front {
+  z-index: 2;
+  /* for firefox 31 */
+  transform: rotateY(0deg);
+}
+
+/* back, initially hidden pane */
+.back {
+  transform: rotateY(180deg);
 }

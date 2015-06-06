@@ -1,12 +1,13 @@
 <div class="main">
 
-
-
   <!-- Swipe Card for Logged In User -->
-  <% if @randomevent %>
-  <div class="swipe-card-wrapper">
-    <%= render "randomevent" %>
-  </div>
+
+    <% if @randomevent %>
+      <div class="flip-container">
+        <%= render "randomevent" %>
+      </div>
+      <button class="animate-trigger">FIND A RANDOM EVENT NEAR YOU</button>
+    </div>
 
   <% else %>
   <!-- Clear nav on landing page alone -->
