@@ -323,6 +323,9 @@
   width: 100%;
   text-align: center;
   margin-top: rem(50);
+  @include media($large-screen-only) {
+    display: none;
+  }
 }
 .animate-trigger {
   @include media($large-screen-only) {
@@ -334,72 +337,58 @@
 
 ////////// FULLSCREEN SHOW ALL EVENTS //////////
 
-.flip-container-large {
-  perspective: 1000;
-  margin: 0 auto;
-  margin-top: rem(100);
-  padding: 0;
-  width: 400px;
-  @include media($large-screen-only) {
+#f1_container {
+  position: block;
+  margin-bottom: rem(30);
+  margin-right: 0;
+  width: 200px;
+  height: 200px;
+  z-index: 1;
+  img {
+    height: 100%;
+    width: 100%;
+  }
+
+  @include media($mobile-screen-only) {
     display: none;
   }
-}
-  ////////// flip the pane when hovered //////////
-  .flip-container-large:hover .flipper-large, .flip-container-large.hover .flipper-large {
-    transform: rotateY(180deg);
-  }
 
-.front-large, .back-large {
-  width: 400px;
-  height: 200px;
+  perspective: 1000;
+  @include span-columns(2.5);
 }
 
-////////// flip speed goes here //////////
-.flipper-large {
-  transition: 0.6s;
+#f1_card {
+  width: 100%;
+  height: 100%;
   transform-style: preserve-3d;
-
-  position: relative;
+  transition: all 0.3s linear;
 }
 
-////////// hide back of pane during swap //////////
-.front-large, .back-large {
-  border: 6px solid black;
-  border-radius: rem(7);
-  backface-visibility: hidden;
-  position: absolute;
-  top: 0;
-  left: 0;
-}
-
-////////// Front pane, placed above back //////////
-.front-large {
-  z-index: 2;
-  /* for firefox 31 */
-  transform: rotateY(0deg);
-  height: 100%;
-  border: 1px solid $grey;
-}
-
-////////// Back, initially hidden pane //////////
-.back-large {
+#f1_container:hover #f1_card {
   transform: rotateY(180deg);
+  box-shadow: -5px 5px 5px #aaa;
+}
+
+.face {
+  position: absolute;
+  width: 100%;
   height: 100%;
+  backface-visibility: hidden;
+}
+
+.face.back {
+  display: block;
+  transform: rotateY(180deg);
+  box-sizing: border-box;
+  padding: 10px;
+  color: white;
   text-align: center;
-  background-color: $eggshell-white;
-  ul {
-    margin-top: rem(15);
-    li {
-      color: black;
-    }
-  }
-  .spots-left-large {
-    font-size: rem(15);
-  }
-  .card-title-large {
-    font-size: rem(20);
-  }
-  button {
-    font-size: rem(12);
-  }
+  background-color: #aaa;
+}
+
+.outer-container {
+  padding-top: $nav-height;
+  margin-left: rem(110);
+  @include span-columns(12);
+  height: 100%;
 }
