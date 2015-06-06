@@ -4,6 +4,7 @@ html {
 }
 
 body {
+  background-image: url(background.png);
   background-color: $grey-black;
   font-family: $main-font $base-font-family;
   // @include outer-container;
@@ -196,3 +197,8 @@ body {
   height:10%;
   background-position:50%;
 }
+
+.home-modal-trigger {
+    // @include button(flat, $action-color);
+    padding: 0.8em 1em;
+  }
