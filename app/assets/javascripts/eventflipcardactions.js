@@ -1,4 +1,4 @@
-$(function($) {
+// $(function($) {
   // $("#card").flip();
   // var fliped = false;
 
@@ -14,7 +14,7 @@ $(function($) {
   //   fliped = !fliped;
   // })
 
-});
+// });
 
 ////////// RANDOM EVENT BUTTON ///////////
 
@@ -23,9 +23,9 @@ $(function() {
   var animationEnd = 'webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend';
 
   $('.animate-trigger').on('click',function() {
+      $.getScript('/');
     $('.animate-target').addClass(animationClasses).one(animationEnd,function() {
       $(this).removeClass(animationClasses);
-      $.getScript('/');
     });
   });
 });

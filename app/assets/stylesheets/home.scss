@@ -14,25 +14,6 @@
   }
 }
 
-.front, .back {
-  height:​ 250px;
-  width:​ 504px;
-  -webkit-transform-style:​ preserve-3d;
-  position:​ absolute;
-  transition:​ all 0.5s ease-out;
-  -webkit-transition:​ all 0.5s ease-out;
-  -webkit-backface-visibility:​ hidden;
-  -webkit-transform:​ rotateY(0deg);
-}
-
-.front {
-  transform: rotateY(0deg);
-}
-
-.back {
-  transform: rotateY(0deg);
-}
-
 .welcome-text {
     text-align: center;
     margin: 0;
@@ -76,98 +57,98 @@
 }
 
 ////////// CARD /////////
-.swipe-card-wrapper {
-  text-align: center;
-  color: $eggshell-white;
-  background-color: #212121;
-  @include media($mobile-screen-only) {
-    @include display(flex);
-    @include flex-wrap(wrap);
-    @include justify-content(space-between);
-    height: 100%;
-  }
-  @include media($large-screen-only) {
-    @include display(flex);
-    @include flex-wrap(wrap);
-    @include justify-content(space-between);
-    padding-top: $nav-height;
-    max-width: 50%;
-    margin: 0 auto;
-  }
-}
+// .swipe-card-wrapper {
+//   text-align: center;
+//   color: $eggshell-white;
+//   background-color: #212121;
+//   @include media($mobile-screen-only) {
+//     @include display(flex);
+//     @include flex-wrap(wrap);
+//     @include justify-content(space-between);
+//     height: 100%;
+//   }
+//   @include media($large-screen-only) {
+//     @include display(flex);
+//     @include flex-wrap(wrap);
+//     @include justify-content(space-between);
+//     padding-top: $nav-height;
+//     max-width: 50%;
+//     margin: 0 auto;
+//   }
+// }
 
-.event-card {
-  @include media($mobile-screen-only) {
-    @include flex-basis(15em);
-    @include flex-grow(1);
-    @include transition (all 0.2s ease-in-out);
-    animation: swipeleft 1000ms linear both;
-    background-color: #424242;
-    cursor: pointer;
-    position: relative;
-    // height:300p;
-  }
+// .event-card {
+//   @include media($mobile-screen-only) {
+//     @include flex-basis(15em);
+//     @include flex-grow(1);
+//     @include transition (all 0.2s ease-in-out);
+//     animation: swipeleft 1000ms linear both;
+//     background-color: #424242;
+//     cursor: pointer;
+//     position: relative;
+//     // height:300p;
+//   }
 
-  @include media($large-screen-only) {
-    animation: swipeleft 1000ms linear both;
-  }
+//   @include media($large-screen-only) {
+//     animation: swipeleft 1000ms linear both;
+//   }
 
-  .event-card-image {
-    overflow: hidden;
-    width: 100%;
+//   .event-card-image {
+//     overflow: hidden;
+//     width: 100%;
 
-    img {
-      @include transition (all 0.2s ease-in-out);
-      background: $card-image-background;
-      border-top-left-radius: $base-border-radius;
-      border-top-right-radius: $base-border-radius;
-      width: 100%;
-    }
-    @include media($mobile-screen-only) {
+//     img {
+//       @include transition (all 0.2s ease-in-out);
+//       background: $card-image-background;
+//       border-top-left-radius: $base-border-radius;
+//       border-top-right-radius: $base-border-radius;
+//       width: 100%;
+//     }
+//     @include media($mobile-screen-only) {
 
-    }
-  }
+//     }
+//   }
 
-  .event-card-title {
-    @include transition (all 0.2s ease-in-out);
-    border-radius: $base-border-radius $base-border-radius 0 0;
-    font-weight: bold;
-    line-height: 1.5em;
-    padding: ($base-spacing / 3) ($base-spacing / 2);
-  }
+//   .event-card-title {
+//     @include transition (all 0.2s ease-in-out);
+//     border-radius: $base-border-radius $base-border-radius 0 0;
+//     font-weight: bold;
+//     line-height: 1.5em;
+//     padding: ($base-spacing / 3) ($base-spacing / 2);
+//   }
 
-  &:focus,
-  &:hover {
-    background-color: $black;
+//   &:focus,
+//   &:hover {
+//     background-color: $black;
 
-    .event-card-image img {
-      background: $card-image-hover-background;
-    }
+//     .event-card-image img {
+//       background: $card-image-hover-background;
+//     }
 
-    .event-card-header {
-      background-color: $grey-black;
-    }
-  }
+//     .event-card-header {
+//       background-color: $grey-black;
+//     }
+//   }
 
-  &:active {
-    background-color: $grey-black;
+//   &:active {
+//     background-color: $grey-black;
 
-    .event-card-header {
-      background-color: $grey-black;
-    }
-  }
-}
+//     .event-card-header {
+//       background-color: $grey-black;
+//     }
+//   }
+// }
 
-#load {
-  display: none;
-  position: absolute;
-  right: 10px;
-  top: 10px;
-  background: url(https://www.adevole.com/clients/vdigital/images/loading.gif);
-  width: 43px;
-  height: 11px;
-  text-indent: -9999em;
-}
+// #load {
+//   display: none;
+//   position: absolute;
+//   right: 10px;
+//   top: 10px;
+//   background: url(https://www.adevole.com/clients/vdigital/images/loading.gif);
+//   width: 43px;
+//   height: 11px;
+//   text-indent: -9999em;
+// }
 
 
 // @keyframes swipeleft {
@@ -348,7 +329,7 @@
 ////////// RANDOM EVENT BUTTON ///////////
 
 .animated {
-  @include animation-duration(1s);
+  @include animation-duration(0.4s);
   @include animation-fill-mode(both);
 
   &.infinite {
@@ -408,11 +389,14 @@
 
 
 
-/* entire container, keeps perspective */
+////////// entire container, keeps perspective //////////
 .flip-container {
   perspective: 1000;
+  height: 100%;
+  margin: 0;
+  padding: 0;
 }
-  /* flip the pane when hovered */
+  ////////// flip the pane when hovered //////////
   .flip-container:hover .flipper, .flip-container.hover .flipper {
     transform: rotateY(180deg);
   }
@@ -422,7 +406,7 @@
   height: 480px;
 }
 
-/* flip speed goes here */
+////////// flip speed goes here //////////
 .flipper {
   transition: 0.6s;
   transform-style: preserve-3d;
@@ -430,7 +414,7 @@
   position: relative;
 }
 
-/* hide back of pane during swap */
+////////// hide back of pane during swap //////////
 .front, .back {
   backface-visibility: hidden;
 
@@ -439,14 +423,18 @@
   left: 0;
 }
 
-/* front pane, placed above back */
+////////// Front pane, placed above back //////////
 .front {
   z-index: 2;
   /* for firefox 31 */
   transform: rotateY(0deg);
 }
 
-/* back, initially hidden pane */
+////////// Back, initially hidden pane //////////
 .back {
   transform: rotateY(180deg);
+}
+
+.animate-target {
+  height: 300px;
 }
