@@ -109,7 +109,7 @@ body {
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
   border-radius: 0 rem(10) rem(10) 0;
-  background-color: black;
+  background-color: $grey-black;
   overflow-y: auto;
 
   ul {
@@ -119,6 +119,9 @@ body {
 
   li {
     list-style: none;
+    border-bottom: 1px solid red;
+    color:red;
+    font-size:0.9rem;
   }
 
   li a {
