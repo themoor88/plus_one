@@ -9,25 +9,30 @@
 
       <div class="back">
         <ul>
-          <% if @randomevent.address_1 %>
-            <li><h1><%= @randomevent.address_1 %></h1></li>
-          <% end %>
-
-          <% if @randomevent.address_2 %>
-            <li><h1><%= @randomevent.address_2 %></h1></li>
-          <% end %>
-
-          <% if @randomevent.city %>
-          <li><h1><%= @randomevent.city %></h1></li>
+          <% if @randomevent.event_name %>
+            <li><h1 class="card-title"><%= @randomevent.event_name %></h1></li>
           <% end %>
 
           <% if @randomevent.time %>
-            <li><h1><%= @randomevent.time %></h1></li>
+            <li><h1><%= @eventtime %></h1></li>
           <% end %>
+
+          <% if @randomevent %>
+            <li><p><%= @randomevent.distance.round(2) %> kilometers away</p></li>
+          <% end %>
+
+          <% if @randomevent %>
+            <li><p><%= @randomevent.description %></p></li>
+          <% end %>
+
+          <% if @randomevent %>
+            <li><p class="spots-left"><%= @randomevent.number_of_attendees %> spots left</p></li>
+          <% end %>
+
         </ul>
 
         <a href="<%= event_path(@randomevent) %>">
-          <button>More Information</button>
+          <button>Details</button>
         </a>
       </div>
 

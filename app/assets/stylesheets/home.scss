@@ -94,17 +94,22 @@
 
 
 ///////// LARGE SCREEN HOME PAGE ///////////
-.home-event-wrapper {
-  @include outer-container;
-  display: none;
-  @include media($large-screen-only) {
-    @include span-columns(12);
-    display: inline;
-  }
-}
+// .home-event-wrapper {
+//   @include outer-container;
+//   display: none;
+//   @include media($large-screen-only) {
+//     @include span-columns(12);
+//     display: inline;
+//   }
+// }
 
 .home-event {
-  @include omega(2n);
+  .event-wrapper {
+    @include span-columns(3);
+    @include omega(4n);
+  }
+  .home-event-image-background {
+  }
 }
 
 
@@ -275,7 +280,7 @@
 .flip-container {
   perspective: 1000;
   margin: 0 auto;
-  margin-top: rem(50);
+  margin-top: rem(100);
   padding: 0;
   width: 400px;
   @include media($large-screen-only) {
@@ -302,6 +307,8 @@
 
 ////////// hide back of pane during swap //////////
 .front, .back {
+  border: 1px solid $grey;
+  border-radius: rem(7);
   backface-visibility: hidden;
   position: absolute;
   top: 0;
@@ -315,6 +322,11 @@
   transform: rotateY(0deg);
   height: 100%;
   border: 1px solid $grey;
+  h1 {
+    position: absolute;
+    top: 200px;
+    left: 0;
+  }
 }
 
 ////////// Back, initially hidden pane //////////
@@ -322,7 +334,22 @@
   transform: rotateY(180deg);
   height: 100%;
   text-align: center;
-  border: 1px solid $grey;
+  background-color: $eggshell-white;
+  ul {
+    margin-top: rem(15);
+    li {
+      color: black;
+    }
+  }
+  .spots-left {
+    font-size: rem(15);
+  }
+  .card-title {
+    font-size: rem(20);
+  }
+  button {
+    font-size: rem(12);
+  }
 }
 
 .animate-target {
@@ -333,9 +360,77 @@
   width: 100%;
   text-align: center;
   margin-top: rem(50);
+  @include media($large-screen-only) {
+    display: none;
+  }
 }
 .animate-trigger {
   @include media($large-screen-only) {
     display: none;
   }
+}
+
+
+
+////////// FULLSCREEN SHOW ALL EVENTS //////////
+
+#f1_container {
+  position: relative;
+  margin-bottom: rem(30);
+  margin-right: 0;
+  width: 200px;
+  height: 200px;
+  z-index: 1;
+
+  @include media($mobile-screen-only) {
+    display: none;
+  }
+
+  perspective: 1000;
+  @include span-columns(2.5);
+}
+
+#f1_card {
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: all 0.3s linear;
+}
+
+#f1_container:hover #f1_card {
+  transform: rotateY(180deg);
+}
+
+.face {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  img {
+    position: relative;
+  }
+}
+
+.front, .face {
+  img {
+    position: relative;
+  }
+}
+
+
+.face.back {
+  display: block;
+  transform: rotateY(180deg);
+  box-sizing: border-box;
+  padding: 10px;
+  color: black;
+  text-align: center;
+  background-color: $eggshell-white;
+}
+
+.outer-container {
+  padding-top: $nav-height;
+  margin-left: rem(110);
+  @include span-columns(12);
+  height: 100%;
 }

@@ -4,10 +4,10 @@ class Event < ActiveRecord::Base
 
   has_many :reviews
 
-  validates :event_name, :address_1, :city, :country, :number_of_attendees, :description, presence: true
-  validates :event_name, length: { minimum: 2,
+  validates :event_name, :address_1, :city, :number_of_attendees, :description, presence: true
+  validates :event_name, length: { minimum: 5,
     too_short: "%{count} characters are the minimum allowed." }
-  validates :event_name, length: { maximum: 255,
+  validates :event_name, length: { maximum: 30,
     too_long: "%{count} characters are the maximum allowed." }
 
   geocoded_by :full_street_address
