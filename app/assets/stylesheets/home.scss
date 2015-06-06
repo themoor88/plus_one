@@ -290,6 +290,11 @@
   transform: rotateY(0deg);
   height: 100%;
   border: 1px solid $grey;
+  h1 {
+    position: absolute;
+    top: 200px;
+    left: 0;
+  }
 }
 
 ////////// Back, initially hidden pane //////////
@@ -338,16 +343,12 @@
 ////////// FULLSCREEN SHOW ALL EVENTS //////////
 
 #f1_container {
-  position: block;
+  position: relative;
   margin-bottom: rem(30);
   margin-right: 0;
   width: 200px;
   height: 200px;
   z-index: 1;
-  img {
-    height: 100%;
-    width: 100%;
-  }
 
   @include media($mobile-screen-only) {
     display: none;
@@ -366,7 +367,6 @@
 
 #f1_container:hover #f1_card {
   transform: rotateY(180deg);
-  box-shadow: -5px 5px 5px #aaa;
 }
 
 .face {
@@ -374,16 +374,26 @@
   width: 100%;
   height: 100%;
   backface-visibility: hidden;
+  img {
+    position: relative;
+  }
 }
+
+.front, .face {
+  img {
+    position: relative;
+  }
+}
+
 
 .face.back {
   display: block;
   transform: rotateY(180deg);
   box-sizing: border-box;
   padding: 10px;
-  color: white;
+  color: black;
   text-align: center;
-  background-color: #aaa;
+  background-color: $eggshell-white;
 }
 
 .outer-container {

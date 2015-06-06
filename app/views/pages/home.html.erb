@@ -49,10 +49,10 @@
   <div id="f1_container">
     <div id="f1_card">
       <div class="front face">
+        <h1><%= event.event_name %></h1>
         <%= image_tag (event.image_url(:mobile)) %>
       </div>
       <div class="back face center">
-        <%= event.event_name %></br>
         <%= event.full_street_address %>
       </div>
     </div>
