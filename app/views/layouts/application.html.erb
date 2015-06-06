@@ -48,7 +48,7 @@
           <% end  %>
 
           <li><% current_user.confirmed_friendees.each do |friendee| %>
-            <li><%= friendee.friendee.username %> has accepted your friend request.<hr></li>
+            <li><%= friendee.friendee.full_name %> has accepted your friend request.<hr></li>
           <% end  %>
           </li>
 
@@ -64,7 +64,6 @@
 
 
         <% else %>
-          <h1>Keep Calm and PlusOne</h1>
         <% end %>
 
         </li>

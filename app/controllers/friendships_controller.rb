@@ -1,5 +1,5 @@
 class FriendshipsController < ApplicationController
-  def index
+  def my_friends
     @friendships = current_user.confirmed_friends
   end
 
@@ -47,5 +47,9 @@ class FriendshipsController < ApplicationController
     else
       render 'show'
     end
+  end
+
+  def my_freinds
+
   end
 end
