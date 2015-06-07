@@ -15,6 +15,7 @@ class EventsController < ApplicationController
     @rsvp = @event.rsvps.build
     @review = @event.reviews.build
     @user = @event.user
+
   end
 
   def new
