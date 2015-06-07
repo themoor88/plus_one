@@ -168,6 +168,66 @@
   </div>
 
 
+<!-- POP UP FORM BUTTON FOR NEW EVENT -->
+
+  <% if current_user %>
+  <div class="modal">
+        <label for="modal-4">
+          <div class="home-modal-trigger"><div class="home-pulse-button">+</div></div>
+        </label>
+        <input class="modal-state" id="modal-4" type="checkbox" />
+        <div class="modal-fade-screen">
+          <div class="modal-inner">
+            <div class="modal-close" for="modal-4"></div>
+
+              <div class="event-form-wrapper">
+                <%= form_for Event.new do |f| %>
+                  <div class="event-field">
+                    <%= f.label :event_name %>
+                    <%= f.text_field :event_name %>
+                  </div>
+
+                  <div class="event-field">
+                    <%= f.label :description %>
+                    <%= f.text_field :description %>
+                  </div>
+
+                  <div class="event-field">
+                    <%= f.label :time %>
+                    <%= f.datetime_select :time, :ampm => true, :discard_year => true, :minute_step => 15 %>
+                  </div>
+
+
+                  <div class="event-field">
+                    <%= f.label :address %>
+                    <%= f.text_field :address_1 %>
+                  </div>
+
+                  <div class="event-field">
+                    <%= f.label :city %>
+                    <%= f.text_field :city %>
+                  </div>
+
+                  <div class="event-field">
+                    <%= f.label :number_of_attendees %>
+                    <%= f.text_field :number_of_attendees %>
+                  </div>
+
+                  <div class="event-field">
+                    <%= f.label :image %>
+                    <%= f.file_field :image %>
+                  </div>
+
+                  <div class="submit-field">
+                    <%= f.submit %>
+                  </div>
+                <% end %>
+              </div>
+
+            </div>
+          </div>
+        </div>
+  <% end  %>
 
   <div class="yield">
     <%= yield %>

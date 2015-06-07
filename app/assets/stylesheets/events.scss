@@ -81,7 +81,7 @@
     z-index: 99999999999;
 
     @include media($large-screen) {
-      padding-top: 10em;
+      padding-top: 3em;
     }
 
     .modal-bg {
@@ -129,6 +129,14 @@
     position: relative;
     width: 95%;
     border: 1px solid white;
+    form {
+      label {
+        color: black;
+      }
+      h4 {
+        color: black;
+      }
+    }
 
     @include media($large-screen) {
       width: 50%;
@@ -213,22 +221,33 @@
 }
 
 .popup-buttons-wrapper {
-  @include span-columns(4);
-  text-align: center;
+  @include media($mobile-screen-only) {
+    @include span-columns(4);
+  }
+
+  @include media($large-screen-only) {
+    @include span-columns(12);
+  }
   width: 100%;
+
+  .modal-trigger {
+
+    text-align: center;
+  }
 }
 
 .request-to-join-button {
-  text-align: center;
+  margin: 0;
 }
 
 .map-button {
-  text-align: center;
+  margin: 0;
 }
 
 .review-button {
-  text-align: center;
+  margin: 0;
 }
+
 
 .request-button {
   @include media($mobile-screen-only) {
@@ -257,4 +276,34 @@
   @include media($mobile-screen-only) {
     margin-bottom: $nav-height;
   }
+}
+
+.event-header-container {
+  height: 100%;
+  text-align: center;
+  position: relative;
+
+  img {
+    position: relative;
+    width: 100%;
+    height: rem(320);
+  }
+}
+
+.event-header-text {
+  position: absolute;
+  z-index: 100;
+  width: 100%;
+  margin-top: rem(40);
+  text-align: center;
+  ul {
+      background: rgba(34,34,34,0.9);
+  }
+
+
+  text-shadow:
+  -1px -1px 0 rgba(0, 0, 0, 0.2),
+  1px -1px 0 rgba(0, 0, 0, 0.2),
+  -1px 1px 0 rgba(0, 0, 0, 0.2),
+  1px 1px 0 rgba(0, 0, 0, 0.2);
 }

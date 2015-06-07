@@ -4,20 +4,35 @@
     <%= link_to "Edit", edit_event_path %>
   <% end %>
 
+    <div class="event-header-text">
+      <ul>
+        <% if @event.event_name %>
+          <li><h1 class="card-title"><%= @event.event_name %></h1></li>
+        <% end %>
+
+        <% if @event.time %>
+          <li><h1><%= @eventtime %></h1></li>
+        <% end %>
+
+
+        <% if @event %>
+          <li><p><%= @event.description %></p></li>
+        <% end %>
+
+        <% if @event %>
+          <li><p class="spots-left"><%= @event.number_of_attendees %> spots left</p></li>
+        <% end %>
+
+      </ul>
+    </div>
   <div class="event-header-container">
     <%= image_tag (@event.image_url(:mobile)) %>
 
-    <div class="event-details">
-      <% @event.method_names.each do |method| %>
-        <h2><%= method %></h2>
-      <% end %>
-    </div>
   </div>
 
 
-  <div class="popup-buttons-wrapper">
     <!-- Request To Join (POPUP) -->
-    <div class="request-to-join-button">
+  <div class="popup-buttons-wrapper">
       <div class="modal">
         <label for="modal-1">
           <div class="modal-trigger">Request to Join</div>
@@ -33,54 +48,44 @@
               <%= render 'request' %>
           </div>
         </div>
-      </div>
     </div>
 
 
 
     <!-- Map (POPUP) -->
-    <div class="map-button">
-      <div class="modal">
-        <label for="modal-2">
-          <div class="modal-trigger">View Map</div>
-        </label>
-        <input class="modal-state" id="modal-2" type="checkbox" />
-        <div class="modal-fade-screen">
-          <div class="modal-inner">
-            <div class="modal-close" for="modal-2"></div>
-              <div class="map-container">
-                <div class="map">
-                  <div class="event-map-canvas" data-latitude="<%= @event.latitude.to_f %>" data-longitude="<%= @event.longitude.to_f %>">
-                  </div>
+    <div class="modal">
+      <label for="modal-2">
+        <div class="modal-trigger">View Map</div>
+      </label>
+      <input class="modal-state" id="modal-2" type="checkbox" />
+      <div class="modal-fade-screen">
+        <div class="modal-inner">
+          <div class="modal-close" for="modal-2"></div>
+            <div class="map-container">
+              <div class="map">
+                <div class="event-map-canvas" data-latitude="<%= @event.latitude.to_f %>" data-longitude="<%= @event.longitude.to_f %>">
                 </div>
               </div>
             </div>
-          </div>
         </div>
       </div>
     </div>
 
   <!-- Add A Review (POPUP) -->
-    <div class="review-button">
-      <div class="modal">
-        <label for="modal-3">
-          <div class="modal-trigger">Add a Review</div>
-        </label>
-        <input class="modal-state" id="modal-3" type="checkbox" />
-        <div class="modal-fade-screen">
-          <div class="modal-inner">
-            <div class="modal-close" for="modal-3"></div>
-            <div class="new-review">
-              <%= render "new_review" %>
-            </div>
-            </div>
+    <div class="modal">
+      <label for="modal-3">
+        <div class="modal-trigger">Add a Review</div>
+      </label>
+      <input class="modal-state" id="modal-3" type="checkbox" />
+      <div class="modal-fade-screen">
+        <div class="modal-inner">
+          <div class="modal-close" for="modal-3"></div>
+          <div class="new-review">
+            <%= render "new_review" %>
           </div>
         </div>
       </div>
     </div>
-
-
-
   </div>
   <!-- Event reviews -->
 
