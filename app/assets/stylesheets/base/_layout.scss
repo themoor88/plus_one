@@ -41,7 +41,7 @@ body {
     border-top: solid 1px $lighter-grey-black;
     bottom: 0;
     img {
-      height: $nav-height - 10;
+      height: $nav-height - 15;
       // align-self: center;
       margin: 0 auto;
     }
@@ -165,12 +165,9 @@ body {
   }
   img {
     right: 0;
-    height: 1.3em;
+    height: $nav-height - 15;
     // display: inline-block;
     outline: none;
-    width: rem(30);
-    height: rem(30);
-    align-self: right;
     // margin-left: auto;
     // margin-right: auto;
   }

@@ -296,6 +296,7 @@
 }
 
 .event-header-container {
+
   height: 100%;
   text-align: center;
   position: relative;
@@ -322,7 +323,7 @@
   margin-top: rem(40);
   text-align: center;
   ul {
-      background: rgba(34,34,34,0.9);
+      background: rgba(34,34,34,0.5);
   }
   @include media($large-screen-only) {
     width: 60%;
