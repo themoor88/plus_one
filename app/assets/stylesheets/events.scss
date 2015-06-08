@@ -49,6 +49,13 @@
   $modal-image-height: 135px;
   $modal-image-width: $modal-image-height;
   $modal-trigger-image-width: 300px;
+  text-align: center;
+  margin-bottom: rem(20);
+  @include media($large-screen-only) {
+    margin: 0 auto;
+    width: 40%;
+    margin-top: rem(10);
+  }
 
   label {
     cursor: pointer;
@@ -67,7 +74,14 @@
 
   .modal-trigger {
     @include button(flat, $action-color);
+    text-align: center;
     padding: 0.8em 1em;
+    @include media($mobile-screen-only) {
+      width: 50%;
+    }
+    @include media($large-screen-only) {
+      width: 40%;
+    }
   }
 
   .modal-fade-screen { // overlay
@@ -81,7 +95,7 @@
     z-index: 99999999999;
 
     @include media($large-screen) {
-      padding-top: 10em;
+      padding-top: 3em;
     }
 
     .modal-bg {
@@ -129,6 +143,15 @@
     position: relative;
     width: 95%;
     border: 1px solid white;
+    form {
+      label {
+        color: black;
+
+      }
+      h4 {
+        color: black;
+      }
+    }
 
     @include media($large-screen) {
       width: 50%;
@@ -189,20 +212,29 @@
   overflow: hidden;
 }
 
+
 .avatars{
   margin-top: rem(2);
   text-align:center;
 }
 
 .profile-pic-modal {
-  @include media($mobile-screen-only) {
-    width: rem(50);
-    height: rem(50);
     margin-left: 0;
     margin-right: 0;
     display: inline-block;
     border-radius: 10%;
     background-color: black;
+  @include media($mobile-screen-only) {
+    width: rem(50);
+    height: rem(50);
+  }
+  @include media($large-screen-only) {
+    width: rem(100);
+    height: rem(100);
+    img {
+      width: rem(100);
+      height: rem(100);
+    }
   }
 }
 
@@ -213,22 +245,34 @@
 }
 
 .popup-buttons-wrapper {
-  @include span-columns(4);
+  @include media($mobile-screen-only) {
+    @include span-columns(4);
+  }
+
+  @include media($large-screen-only) {
+    @include span-columns(12);
+  }
+  width: 100%;
+
+  .modal-trigger {
+
+    text-align: center;
+  }
+}
+
+.pop-up-submit {
   text-align: center;
   width: 100%;
 }
 
-.request-to-join-button {
-  text-align: center;
-}
-
 .map-button {
-  text-align: center;
+  width: 100%;
 }
 
 .review-button {
-  text-align: center;
+  width: 100%;
 }
+
 
 .request-button {
   @include media($mobile-screen-only) {
@@ -257,4 +301,135 @@
   @include media($mobile-screen-only) {
     margin-bottom: $nav-height;
   }
+}
+
+.event-header-container {
+
+  height: 100%;
+  text-align: center;
+  position: relative;
+
+  img {
+      position: relative;
+    @include media($mobile-screen-only) {
+      width: 100%;
+      height: rem(320);
+    }
+    @include media($large-screen-only) {
+      width: 50%;
+      height: rem(300);
+      border-radius: rem(10);
+      margin-top: rem(10);
+    }
+  }
+}
+
+.modal .modal-trigger {
+  @include media($mobile-screen-only) {
+    margin-top: rem(10);
+  }
+  width: 20%;
+  background-color: #555CC2;
+}
+
+.modal .modal-trigger:hover:not(:disabled) {
+  background-color: #0c80df;
+}
+
+.event-header-text {
+  position: absolute;
+  z-index: 100;
+  width: 100%;
+  margin-top: rem(40);
+  text-align: center;
+  ul {
+    margin: 0 auto;
+      background: rgba(34,34,34,0.5);
+      width: 83.5%;
+  }
+  @include media($large-screen-only) {
+    width: 60%;
+    left: 20%;
+    h1 {
+      font-size: rem(30);
+    }
+    p {
+      font-size: rem(20);
+    }
+  }
+
+  @include media($mobile-screen-only) {
+    ul {
+      width: 100%;
+    }
+    h1 {
+      font-size: rem(30);
+    }
+    p {
+      font-size: rem(20);
+    }
+  }
+
+  .event-alert {
+    color: #BB0A00;
+    text-shadow:
+    -1px -1px 0 rgb(0, 0, 0),
+    1px -1px 0 rgb(0, 0, 0),
+    -1px 1px 0 rgb(0, 0, 0),
+    1px 1px 0 rgb(0, 0, 0);
+  }
+
+  text-shadow:
+  -1px -1px 0 rgba(0, 0, 0, 0.2),
+  1px -1px 0 rgba(0, 0, 0, 0.2),
+  -1px 1px 0 rgba(0, 0, 0, 0.2),
+  1px 1px 0 rgba(0, 0, 0, 0.2);
+}
+
+.modal .modal-trigger {
+    padding: rem(5.5);
+}
+
+.modal-1, .modal-2, .modal-3 {
+  margin: 0 auto;
+}
+
+.modal-trigger.request-to-join {
+  width: 30%;
+}
+
+.countdown-wrapper {
+  text-align: center;
+}
+.countdown {
+  margin: 0 auto;
+  width: rem(500);
+  height: rem(120);
+}
+.modal .modal-trigger {
+    width: 40%;
+  @include media($mobile-screen-only) {
+    margin: 0;
+  }
+}
+
+.event-alert {
+  text-align: center;
+}
+.countdown-passed {
+  margin: 0 auto;
+  width: rem(500);
+  height: rem(120);
+}
+
+////////// MAP //////////
+.location-button {
+  text-align: center;
+  margin: 0 auto;
+  margin-bottom: rem(10);
+}
+
+////////// FULL RSVP //////////
+.full-event {
+  text-align: center;
 }

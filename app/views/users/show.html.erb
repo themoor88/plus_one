@@ -16,19 +16,18 @@
       <% socialrating = @user.social_factor %>
       <li>
         <div class="tooltip-item">
-          <p class="social-factor"> Social Factor: <%= socialrating %> <% if @user.social_factor == nil %> (Unrated) <% end %> </p>
+          <p class="social-factor"> Social Factor: <%= socialrating.round(2) %> <% if @user.social_factor == nil %> (Unrated) <% end %> </p>
           <div class="tooltip">
             <p>A calculated rating system based on how users have perceived your sociability.</p>
           </div>
         </div>
       </li>
 
-
     <div class="posneg-wrapper">
       <% posnegrating = @user.positivenegative %>
       <li>
       <div class="tooltip-item">
-        <p class="posneg"> Positive Experience Rating: <%= posnegrating %> <% if @user.social_factor == nil %> (Unrated) <% end %> </p>
+        <p class="posneg"> Positive Experience Rating: <%= posnegrating.round(2) %> <% if @user.social_factor == nil %> (Unrated) <% end %> </p>
           <div class="tooltip">
             <p>A 5-star rating system based on how many positive hangout experiences you have had.</p>
           </div>
@@ -44,12 +43,51 @@
       </form>
     </div>
 
+
+    <div class="modal">
+
+      <label for="modal-9">
+        <div class="modal-trigger">View Map</div>
+      </label>
+      <input class="modal-state" id="modal-9" type="checkbox" />
+      <div class="modal-fade-screen">
+        <div class="modal-inner">
+          <div class="modal-close" for="modal-9"></div>
+            <div class="map-container">
+               <div class="location-button">
+    <button id="get_location" class="button">Find Events Near You</button>
+  </div>
+      <div class="map">
+        <div class="user-map-canvas" data-latitude="<%= @user.latitude.to_f %>" data-longitude="<%= @user.longitude.to_f %>"></div>
+      </div>
+              </div>
+            </div>
+        </div>
+      </div>
+    </div>
+
    <% else %>
 
     <%= form_for @friendee do |f| %>
       <%= f.submit "Add as Friend" %>
       <%= hidden_field_tag :user_id, @user.id %>
     <% end %>
+
+        <div class="modal">
+      <label for="modal-3">
+        <div class="modal-trigger">Add a Review</div>
+      </label>
+      <input class="modal-state" id="modal-3" type="checkbox" />
+      <div class="modal-fade-screen">
+        <div class="modal-inner">
+          <div class="modal-close" for="modal-3"></div>
+          <div class="new-review">
+            <%= render 'reputations/new' %>
+          </div>
+        </div>
+      </div>
+    </div>
+
 
   <% end %>
 </div>

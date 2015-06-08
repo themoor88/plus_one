@@ -1,8 +1,1 @@
-<h1>Your Friends</h1>
-<% @friendships.each do |friendship| %>
-  <% if friendship.friender == current_user %>
-    <%= friendship.friendee.full_name %>
-  <% else %>
-    <%= friendship.friender.full_name %>
-  <% end %>
-<% end %>
+<%= render 'my_friends' %>

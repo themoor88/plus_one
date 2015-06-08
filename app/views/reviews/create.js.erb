@@ -2,3 +2,9 @@ $(".reviews").html("<%= j(render 'events/review') %>");
 $('#notice').delay(1).fadeOut(200,function() {
     $(this).html('Thank you for your review.').fadeIn(200);
 });
+
+<% if @review.errors.present? %>
+  $(".container").fadeOut(200, function () {
+    $(this).html("<%= j(render(:partial => '/events/review_errors')) %>").fadeIn(1000);
+  })
+<% end %>

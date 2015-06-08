@@ -1,0 +1,12 @@
+<br>
+<h1>Upcoming Joined Events</h1>
+<% current_user.rsvps.each do |rsvp| %>
+  <a href="<%= event_path(rsvp.event) %>" ><%= rsvp.event.event_name %></a>
+  <%= rsvp.status %><hr><br>
+<% end  %>
+
+<h1>My Created Events</h1>
+<% current_user.created_events.each do |event| %>
+  <a href="<%= event_path(event) %>" ><%= event.event_name %></a>
+  <%= event.time %><hr><br>
+<% end %>

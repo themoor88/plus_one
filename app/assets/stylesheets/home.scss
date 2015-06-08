@@ -56,40 +56,6 @@
   border-radius: rem(10);
 }
 
-@keyframes swiperight {
-  0% { transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -3000, 0, 0, 1); }
-  2.6% { transform: matrix3d(0.795, -0.607, 0, 0, 0.607, 0.795, 0, 0, 0, 0, 1, 0, -1807.785, 0, 0, 1); }
-  4.1% { transform: matrix3d(0.713, -0.702, 0, 0, 0.702, 0.713, 0, 0, 0, 0, 1, 0, -1259.123, 0, 0, 1); }
-  5.11% { transform: matrix3d(0.699, -0.716, 0, 0, 0.716, 0.699, 0, 0, 0, 0, 1, 0, -955.203, 0, 0, 1); }
-  8.11% { transform: matrix3d(0.774, -0.633, 0, 0, 0.633, 0.774, 0, 0, 0, 0, 1, 0, -316.472, 0, 0, 1); }
-  11.41% { transform: matrix3d(0.897, -0.442, 0, 0, 0.442, 0.897, 0, 0, 0, 0, 1, 0, 18.72, 0, 0, 1); }
-  12.11% { transform: matrix3d(0.917, -0.399, 0, 0, 0.399, 0.917, 0, 0, 0, 0, 1, 0, 55.303, 0, 0, 1); }
-  16.12% { transform: matrix3d(0.982, -0.187, 0, 0, 0.187, 0.982, 0, 0, 0, 0, 1, 0, 130.068, 0, 0, 1); }
-  17.62% { transform: matrix3d(0.992, -0.13, 0, 0, 0.13, 0.992, 0, 0, 0, 0, 1, 0, 123.696, 0, 0, 1); }
-  23.92% { transform: matrix3d(1, -0.008, 0, 0, 0.008, 1, 0, 0, 0, 0, 1, 0, 52.349, 0, 0, 1); }
-  27.23% { transform: matrix3d(1, 0.009, 0, 0, -0.009, 1, 0, 0, 0, 0, 1, 0, 23.516, 0, 0, 1); }
-  30.13% { transform: matrix3d(1, 0.012, 0, 0, -0.012, 1, 0, 0, 0, 0, 1, 0, 8.313, 0, 0, 1); }
-  38.34% { transform: matrix3d(1, 0.005, 0, 0, -0.005, 1, 0, 0, 0, 0, 1, 0, -3.11, 0, 0, 1); }
-  55.16% { transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.016, 0, 0, 1); }
-  60.56% { transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0.074, 0, 0, 1); }
-  80.18% { transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.001, 0, 0, 1); }
-  82.78% { transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.002, 0, 0, 1); }
-  100% { transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }
-}
-
-@keyframes swipeleft {
-  0% { transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 1000, 0, 0, 1); }
-  4.1% { transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 419.708, 0, 0, 1); }
-  8.11% { transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 105.491, 0, 0, 1); }
-  12.11% { transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -18.434, 0, 0, 1); }
-  16.12% { transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -43.356, 0, 0, 1); }
-  27.23% { transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -7.839, 0, 0, 1); }
-  38.34% { transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 1.037, 0, 0, 1); }
-  60.56% { transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.025, 0, 0, 1); }
-  82.78% { transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0.001, 0, 0, 1); }
-  100% { transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }
-}
-
 
 
 
@@ -117,9 +83,6 @@
 
 
 .pulse-button {
-  -moz-transform: translate3d(0, 0, 0);
-  -ms-transform: translate3d(0, 0, 0);
-  -webkit-transform: translate3d(0, 0, 0);
   transform: translate3d(0, 0, 0);
   margin: 0 auto;
   margin-top: 30px;
@@ -145,9 +108,6 @@
 
 
 .home-pulse-button {
-  -moz-transform: translate3d(0, 0, 0);
-  -ms-transform: translate3d(0, 0, 0);
-  -webkit-transform: translate3d(0, 0, 0);
   transform: translate3d(0, 0, 0);
   position: fixed;
   display: block;
@@ -163,15 +123,20 @@
   background: #555CC2;
   cursor: pointer;
   transform: translate3d(0, 0, 0);
-  animation: pulse 30s infinite cubic-bezier(0.66, 0.33, 0, 1);
   font-size:2rem;
   text-align:center;
-  @include media($mobile-screen-only) {
-  display:none;
+  &:hover {
+    border: 2px solid rgba(0, 0, 0, 0.4);
   }
+
+  @include media($mobile-screen-only) {
+    display:none;
+  }
+
   @include media($large-screen-only) {
-  top: 89%;
-  left:94%;
+    top: 89%;
+    left:94%;
+    z-index: 1000000;
   }
 }
 
@@ -182,6 +147,12 @@
   }
 }
 
+@keyframes pulsehome {
+0%  { box-shadow: 0 0 0 12px transparent, 0 0 0 24px rgba(90, 153, 212, 0); }
+100% { box-shadow: 0 0 0 12px transparent, 0 0 0 24px rgba(90, 153, 212, 0); opacity:0;}
+}
+
+
 
 .typed-cursor {
     opacity: 1;
@@ -190,16 +161,6 @@
     animation: blink 0.7s infinite;
 }
 @keyframes blink{
-    0% { opacity:1; }
-    50% { opacity:0; }
-    100% { opacity:1; }
-}
-@-webkit-keyframes blink{
-    0% { opacity:1; }
-    50% { opacity:0; }
-    100% { opacity:1; }
-}
-@-moz-keyframes blink{
     0% { opacity:1; }
     50% { opacity:0; }
     100% { opacity:1; }
@@ -232,8 +193,6 @@
   }
 }
 
-// Tweak the keyframes below. Or swap them with another animation pattern at
-// https://github.com/daneden/animate.css/tree/master/source
 
 @-webkit-keyframes zoomOut {
   0% {
@@ -301,7 +260,6 @@
 .flipper {
   transition: 0.6s;
   transform-style: preserve-3d;
-
   position: relative;
 }
 
@@ -316,16 +274,31 @@
 }
 
 ////////// Front pane, placed above back //////////
+
+.flip-container .front h1 {
+  text-align: center;
+  font-size: rem(30);
+}
 .front {
+  border: 0;
   z-index: 2;
   /* for firefox 31 */
   transform: rotateY(0deg);
-  height: 100%;
-  border: 1px solid $grey;
+
   h1 {
     position: absolute;
-    top: 200px;
-    left: 0;
+    text-align: center;
+    top: rem(10);
+    left: rem(10);
+    text-shadow:
+    -1px -1px 0 rgba(0, 0, 0, 0.2),
+    1px -1px 0 rgba(0, 0, 0, 0.2),
+    -1px 1px 0 rgba(0, 0, 0, 0.2),
+    1px 1px 0 rgba(0, 0, 0, 0.2);
+  }
+  img {
+    border-radius: rem(7);
+    border: 1px solid $grey;
   }
 }
 
@@ -353,7 +326,8 @@
 }
 
 .animate-target {
-  height: 300px;
+  height: rem(270);
+
 }
 
 .random-button {
@@ -374,18 +348,18 @@
 
 ////////// FULLSCREEN SHOW ALL EVENTS //////////
 
+
 #f1_container {
   position: relative;
   margin-bottom: rem(30);
   margin-right: 0;
-  width: 200px;
-  height: 200px;
+  max-width: 100%;
+  height: 165px;
   z-index: 1;
 
   @include media($mobile-screen-only) {
     display: none;
   }
-
   perspective: 1000;
   @include span-columns(2.5);
 }
@@ -395,6 +369,12 @@
   height: 100%;
   transform-style: preserve-3d;
   transition: all 0.3s linear;
+  .back {
+    h1 {
+      position: relative;
+      font-size: rem(12);
+    }
+  }
 }
 
 #f1_container:hover #f1_card {
@@ -412,8 +392,14 @@
 }
 
 .front, .face {
+    text-align: center;
   img {
     position: relative;
+  }
+  h1 {
+    position: absolute;
+    z-index: 9999999;
+    font-size: rem(20);
   }
 }
 
@@ -428,9 +414,59 @@
   background-color: $eggshell-white;
 }
 
+
 .outer-container {
   padding-top: $nav-height;
-  margin-left: rem(110);
+  padding-left: rem(110);
   @include span-columns(12);
   height: 100%;
+  @include media ($mobile-screen-only) {
+    display: none;
+  }
 }
+
+////////// STATS //////////
+.stats {
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.2);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  position: relative;
+  $stats-color: lighten($action-color, 10%);
+  padding: $base-spacing / 2;
+
+  ul {
+    display: inline-block;
+    padding: 0;
+    width: 100%;
+    height: rem(42);
+  }
+
+  li {
+    margin: 0 auto;
+    border-right: 1px solid transparentize($base-font-color, 0.8);
+    color: $stats-color;
+    display: inline-block;
+    font-size: 1.2em;
+    font-weight: 800;
+    line-height: 1.1em;
+    padding: 0 0.7em;
+
+    &:first-child {
+      // padding-left: 0;
+      margin: 0 auto;
+    }
+
+    &:last-child {
+      border-right: 0;
+      margin: 0 auto;
+    }
+  }
+
+  span {
+    color: $base-font-color;
+    display: block;
+    font-size: 0.7em;
+    font-weight: normal;
+  }
+}
+
