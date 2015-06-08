@@ -1,4 +1,5 @@
 <div class="main-wrapper">
+
   <!-- Event details -->
   <% if current_user == @event_user %>
     <%= link_to "Edit", edit_event_path %>
@@ -25,6 +26,7 @@
 
       </ul>
 
+  <!-- COUNTDOWN -->
       <% if @event.time >= DateTime.now %>
         <div class="countdown-wrapper">
           <h1>Time Until Event Begins:</h1><div class="countdown" data-date='<%= @event.time.strftime("%Y-%m-%d %H:%M:%S") %>'=> </div>
@@ -35,16 +37,14 @@
         </div>
 
       <% end %>
-
-
     </div>
+
   <div class="event-header-container">
     <%= image_tag (@event.image_url(:mobile)) %>
-
   </div>
 
 
-    <!-- Request To Join (POPUP) -->
+  <!-- Request To Join (POPUP) -->
 
       <div class="modal">
         <label for="modal-1">
@@ -65,7 +65,7 @@
 
 
 
-    <!-- Map (POPUP) -->
+  <!-- Map (POPUP) -->
     <div class="modal">
 
       <label for="modal-2">
