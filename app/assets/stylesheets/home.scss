@@ -360,7 +360,6 @@
   @include media($mobile-screen-only) {
     display: none;
   }
-
   perspective: 1000;
   @include span-columns(2.5);
 }

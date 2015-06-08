@@ -10,6 +10,7 @@
   <%= javascript_include_tag "https://maps.googleapis.com/maps/api/js?v=3?key=#{Figaro.env.google_maps_api}" %>
   <%= javascript_include_tag "https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js" %>
   <script src="http://www.mattboldt.com/demos/typed-js/js/typed.custom.js"></script>
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
   <link href='http://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
   <%= csrf_meta_tags %>
 </head>
@@ -26,6 +27,20 @@
         <% end %><hr>
 
         <% if current_user %>
+
+        <!-- MY FRIENDS MODAL -->
+
+
+
+
+
+
+
+
+
+
+
+
 
           <li><% current_user.rsvps.each do |rsvp| %>
             <% if rsvp.status == "Accepted" %>
@@ -78,33 +93,43 @@
 
 <div class="nav">
 
-  <%= link_to root_path class: "home-link" do %>
-    <span class="home-link"><%= image_tag("home2.png") %></span>
-  <% end %>
-
   <% if current_user %>
 
-  <%= link_to events_path do %>
-    <%= image_tag("location2.png") %>
-  <% end %>
+  <div class="nav-hov">
+    <%= link_to root_path do %>
+      <i class="fa fa-home fa-2x"></i>
+    <% end %>
+  </div>
 
-  <%= link_to new_event_path do %>
-    <%= image_tag("plus2.png") %>
-  <% end %>
+  <div class="nav-hov">
+    <%= link_to events_path do %>
+      <i class="fa fa-map-marker fa-2x"></i>
+    <% end %>
+  </div>
 
-  <%= link_to :logout, method: :post do %>
-    <%= image_tag("lock.png") %>
-  <% end %>
+  <div class="nav-hov">
+    <%= link_to new_event_path do %>
+      <i class="fa fa-plus fa-2x"></i>
+    <% end %>
+  </div>
 
-  <%= link_to user_path(current_user.id) do %>
-    <%= image_tag("user.png") %>
-  <% end %>
+  <div class="nav-hov">
+    <%= link_to :logout, method: :post do %>
+      <i class="fa fa-lock fa-2x"></i>
+    <% end %>
+  </div>
 
+  <div class="nav-hov">
+    <%= link_to user_path(current_user.id) do %>
+      <i class="fa fa-user fa-2x"></i>
+    <% end %>
+  </div>
 
-  <span class="js-menu-trigger sliding-panel-button notification-button">
-   <%= image_tag("bubble.png") %>
-  <span>
-
+  <div class="nav-hov">
+    <span class="js-menu-trigger sliding-panel-button notification-button">
+      <i class="fa fa-bars fa-2x"></i>
+    <span>
+  </div>
 
 
   <div class="js-menu-screen sliding-panel-fade-screen"></div>

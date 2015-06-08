@@ -32,11 +32,30 @@ body {
     width: 100%;
     display: flex;
 
+      div.nav-hov:hover {
+        background-color: #3A45A8;
+        transition-property: background-color;
+        transition-duration: 0.2s;
+        transition-timing-function: linear;
+      }
+    .nav-hov {
+      margin: auto 0;
+      margin-top: 0;
+      margin-bottom: 0;
+      width: 100%;
+      text-align: center;
+      a {
+        color: $eggshell-white;
+      }
+      i {
+        padding-top: rem(2.5);
+      }
+    }
+
 
   @include media($mobile-screen-only) {
     span {
-      float: right;
-      text-align: right;
+      display: inline-block;
     }
     border-top: solid 1px $lighter-grey-black;
     bottom: 0;
@@ -60,10 +79,6 @@ body {
       align-self: right;
       margin-top: rem(10);
       margin-left: rem(10);
-    }
-    img:hover {
-      background-color: rgba(48, 2, 255, 0.5);
-      border-radius: rem(5);
     }
   }
   .logged-out-mobile-icons {
@@ -172,9 +187,9 @@ body {
     // margin-right: auto;
   }
 
-  img:hover {
-    background-color: white;
+  i:hover {
     height: 100%;
+    cursor: pointer;
   }
 }
 
