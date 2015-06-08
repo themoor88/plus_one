@@ -49,6 +49,8 @@
   $modal-image-height: 135px;
   $modal-image-width: $modal-image-height;
   $modal-trigger-image-width: 300px;
+  text-align: center;
+  margin-bottom: rem(20);
 
   label {
     cursor: pointer;
@@ -67,7 +69,14 @@
 
   .modal-trigger {
     @include button(flat, $action-color);
+    text-align: center;
     padding: 0.8em 1em;
+    @include media($mobile-screen-only) {
+      width: 70%;
+    }
+    @include media($large-screen-only) {
+      width: 30%;
+    }
   }
 
   .modal-fade-screen { // overlay
@@ -203,14 +212,22 @@
 }
 
 .profile-pic-modal {
-  @include media($mobile-screen-only) {
-    width: rem(50);
-    height: rem(50);
     margin-left: 0;
     margin-right: 0;
     display: inline-block;
     border-radius: 10%;
     background-color: black;
+  @include media($mobile-screen-only) {
+    width: rem(50);
+    height: rem(50);
+  }
+  @include media($large-screen-only) {
+    width: rem(100);
+    height: rem(100);
+    img {
+      width: rem(100);
+      height: rem(100);
+    }
   }
 }
 
@@ -237,15 +254,15 @@
 }
 
 .request-to-join-button {
-  margin: 0;
+
 }
 
 .map-button {
-  margin: 0;
+  width: 100%;
 }
 
 .review-button {
-  margin: 0;
+  width: 100%;
 }
 
 
@@ -284,9 +301,17 @@
   position: relative;
 
   img {
-    position: relative;
-    width: 100%;
-    height: rem(320);
+      position: relative;
+    @include media($mobile-screen-only) {
+      width: 100%;
+      height: rem(320);
+    }
+    @include media($large-screen-only) {
+      width: 60%;
+      height: rem(400);
+      border-radius: rem(10);
+      margin-top: rem(10);
+    }
   }
 }
 
@@ -299,6 +324,10 @@
   ul {
       background: rgba(34,34,34,0.9);
   }
+  @include media($large-screen-only) {
+    width: 60%;
+    left: 20%;
+  }
 
 
   text-shadow:
@@ -306,4 +335,8 @@
   1px -1px 0 rgba(0, 0, 0, 0.2),
   -1px 1px 0 rgba(0, 0, 0, 0.2),
   1px 1px 0 rgba(0, 0, 0, 0.2);
+}
+
+.modal-1, .modal-2, .modal-3 {
+  margin: 0 auto;
 }

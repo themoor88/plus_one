@@ -199,6 +199,37 @@ body {
 }
 
 .home-modal-trigger {
-    // @include button(flat, $action-color);
-    padding: 0.8em 1em;
+  // @include button(flat, $action-color);
+  padding: 0.8em 1em;
+}
+
+////////// POP UP + MODULE FULL SCREEN NEW EVENT BUTTON //////////
+
+
+.modal .event-form-wrapper {
+  width: 100%;
+  label {
+    color: black;
   }
+  .event-field {
+  width: 75%;
+    margin: rem(30) auto;
+  }
+}
+
+.home-modal-trigger {
+  @include media($mobile-screen-only) {
+    display: none;
+  }
+}
+
+
+////////// NOTICE & ALERTS //////////
+
+#notice {
+ margin-left: rem(20);
+}
+
+#alert {
+  margin-left: rem(20);
+}

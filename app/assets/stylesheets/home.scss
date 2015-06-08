@@ -462,24 +462,3 @@
   }
 }
 
-
-////////// POP UP + MODULE FULL SCREEN NEW EVENT BUTTON //////////
-
-
-.modal .event-form-wrapper {
-  width: 100%;
-  label {
-    color: black;
-  }
-  .event-field {
-  width: 75%;
-    margin: rem(30) auto;
-  }
-}
-
-.home-modal-trigger {
-  @include media($mobile-screen-only) {
-    display: none;
-  }
-}
-

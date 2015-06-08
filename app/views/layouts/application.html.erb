@@ -168,8 +168,12 @@
   </div>
 
 
-<!-- POP UP FORM BUTTON FOR NEW EVENT -->
 
+  <div class="yield">
+    <%= yield %>
+  </div>
+
+<!-- POP UP FORM BUTTON FOR NEW EVENT -->
   <% if current_user %>
   <div class="modal">
         <label for="modal-4">
@@ -228,10 +232,6 @@
           </div>
         </div>
   <% end  %>
-
-  <div class="yield">
-    <%= yield %>
-  </div>
 
 </body>
 </html>
