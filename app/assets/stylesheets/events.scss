@@ -51,6 +51,11 @@
   $modal-trigger-image-width: 300px;
   text-align: center;
   margin-bottom: rem(20);
+  @include media($large-screen-only) {
+    margin: 0 auto;
+    width: 40%;
+    margin-top: rem(10);
+  }
 
   label {
     cursor: pointer;
@@ -72,10 +77,10 @@
     text-align: center;
     padding: 0.8em 1em;
     @include media($mobile-screen-only) {
-      width: 70%;
+      width: 50%;
     }
     @include media($large-screen-only) {
-      width: 30%;
+      width: 40%;
     }
   }
 
@@ -309,8 +314,8 @@
       height: rem(320);
     }
     @include media($large-screen-only) {
-      width: 60%;
-      height: rem(400);
+      width: 50%;
+      height: rem(300);
       border-radius: rem(10);
       margin-top: rem(10);
     }
@@ -324,12 +329,33 @@
   margin-top: rem(40);
   text-align: center;
   ul {
+    margin: 0 auto;
       background: rgba(34,34,34,0.5);
+      width: 83.5%;
   }
   @include media($large-screen-only) {
     width: 60%;
     left: 20%;
+    h1 {
+      font-size: rem(30);
+    }
+    p {
+      font-size: rem(20);
+    }
   }
+
+  @include media($mobile-screen-only) {
+    ul {
+      width: 100%;
+    }
+    h1 {
+      font-size: rem(30);
+    }
+    p {
+      font-size: rem(20);
+    }
+  }
+
   .event-alert {
     color: #BB0A00;
     text-shadow:
@@ -339,7 +365,6 @@
     1px 1px 0 rgb(0, 0, 0);
   }
 
-
   text-shadow:
   -1px -1px 0 rgba(0, 0, 0, 0.2),
   1px -1px 0 rgba(0, 0, 0, 0.2),
@@ -347,6 +372,19 @@
   1px 1px 0 rgba(0, 0, 0, 0.2);
 }
 
+.modal .modal-trigger {
+    padding: rem(5.5);
+}
+
 .modal-1, .modal-2, .modal-3 {
   margin: 0 auto;
+}
+
+.countdown-wrapper {
+  text-align: center;
+}
+.countdown {
+  margin: 0 auto;
+  width: rem(500);
+  height: rem(120);
 }

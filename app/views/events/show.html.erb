@@ -25,8 +25,14 @@
         <% end %>
 
       </ul>
-
+    </div>
   <!-- COUNTDOWN -->
+
+  <div class="event-header-container">
+    <%= image_tag (@event.image_url(:mobile)) %>
+  </div>
+
+
       <% if @event.time >= DateTime.now %>
         <div class="countdown-wrapper">
           <h1>Time Until Event Begins:</h1><div class="countdown" data-date='<%= @event.time.strftime("%Y-%m-%d %H:%M:%S") %>'=> </div>
@@ -37,11 +43,6 @@
         </div>
 
       <% end %>
-    </div>
-
-  <div class="event-header-container">
-    <%= image_tag (@event.image_url(:mobile)) %>
-  </div>
 
 
   <!-- Request To Join (POPUP) -->
@@ -102,7 +103,6 @@
         </div>
       </div>
     </div>
-  <% end %>
 
   <!-- Event reviews -->
 
@@ -116,6 +116,7 @@
       <%= render "review" %>
     </div>
   </div>
+  <% end %>
 
 </div>
 
