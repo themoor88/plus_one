@@ -13,5 +13,4 @@ $(document).ready(function(){
   $("notification-accept-decline").click(function(e) {
     e.preventDefault();
   });
-
 });

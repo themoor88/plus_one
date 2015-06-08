@@ -20,6 +20,8 @@ body {
 }
 
 ///////////// Mobile Navigation /////////////
+
+//DISPLAY INLINE, FLOAT LEFT
 .nav {
   @include media($large-screen-only) {
     display: none;
@@ -30,16 +32,35 @@ body {
     width: 100%;
     display: flex;
 
+      div.nav-hov:hover {
+        background-color: #3A45A8;
+        transition-property: background-color;
+        transition-duration: 0.2s;
+        transition-timing-function: linear;
+      }
+    .nav-hov {
+      margin: auto 0;
+      margin-top: 0;
+      margin-bottom: 0;
+      width: 100%;
+      text-align: center;
+      a {
+        color: $eggshell-white;
+      }
+      i {
+        padding-top: rem(2.5);
+      }
+    }
+
 
   @include media($mobile-screen-only) {
     span {
-      float: right;
-      text-align: right;
+      display: inline-block;
     }
     border-top: solid 1px $lighter-grey-black;
     bottom: 0;
     img {
-      height: $nav-height;
+      height: $nav-height - 15;
       // align-self: center;
       margin: 0 auto;
     }
@@ -59,10 +80,6 @@ body {
       margin-top: rem(10);
       margin-left: rem(10);
     }
-    img:hover {
-      background-color: rgba(48, 2, 255, 0.5);
-      border-radius: rem(5);
-    }
   }
   .logged-out-mobile-icons {
     width: 100%;
@@ -78,8 +95,20 @@ body {
       border-radius: rem(5);
     }
   }
+  .nav-hov {
+    margin: auto 0;
+    margin-top: 0;
+    margin-bottom: 0;
+    width: 100%;
+    text-align: center;
+    a {
+      color: $eggshell-white;
+    }
+    i {
+      padding-top: rem(2.5);
+    }
+  }
 }
-
 
 
 
@@ -163,23 +192,19 @@ body {
 
 .sliding-panel-button {
   @include media($mobile-screen-only) {
-    // right: 100%;
   }
   img {
-    height: 1.3em;
-  display: inline-block;
-  outline: none;
-  width: rem(30);
-  height: rem(30);
-  float: right;
-  // margin-left: auto;
-  // margin-right: auto;
-  margin-top: rem(5);
-  margin-left: rem(10%);
+    right: 0;
+    height: $nav-height - 15;
+    // display: inline-block;
+    outline: none;
+    // margin-left: auto;
+    // margin-right: auto;
   }
-  img:hover {
-    background-color: red;
+
+  i:hover {
     height: 100%;
+    cursor: pointer;
   }
 }
 
@@ -188,10 +213,35 @@ body {
   color: white;
 }
 
+
+.modal-6 {
+  @include media($large-screen-only) {
+    display: none;
+  }
+}
+
+.modal-7 {
+    @include media($large-screen-only) {
+    display: none;
+  }
+}
+
+.button_to {
+  text-align: center;
+}
 .notification-bar-logo {
   width: 50%;
   padding: 0;
   margin: 0;
+}
+
+.click-to-remove {
+  width: 100%;
+  .notification-accept-decline {
+    margin: 0 auto;
+    width: 60%;
+    margin-bottom: rem(10);
+  }
 }
 
 .profile-pic-notifications{
@@ -202,6 +252,37 @@ body {
 }
 
 .home-modal-trigger {
-    // @include button(flat, $action-color);
-    padding: 0.8em 1em;
+  // @include button(flat, $action-color);
+  padding: 0.8em 1em;
+}
+
+////////// POP UP + MODULE FULL SCREEN NEW EVENT BUTTON //////////
+
+
+.modal .event-form-wrapper {
+  width: 100%;
+  label {
+    color: black;
   }
+  .event-field {
+  width: 75%;
+    margin: rem(30) auto;
+  }
+}
+
+.home-modal-trigger {
+  @include media($mobile-screen-only) {
+    display: none;
+  }
+}
+
+
+////////// NOTICE & ALERTS //////////
+
+#notice {
+ margin-left: rem(20);
+}
+
+#alert {
+  margin-left: rem(20);
+}

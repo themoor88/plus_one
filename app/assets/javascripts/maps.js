@@ -23,7 +23,8 @@ Map.prototype.addMarker = function(latitude, longitude, title) {  // Can pass th
     position: {lat: latitude, lng: longitude},
     icon: 'http://maps.google.com/mapfiles/ms/icons/blue-dot.png',
     map: this.canvas,
-    title: title
+    title: title,
+    animation: google.maps.Animation.DROP,
   };
     var myMarker = new google.maps.Marker(options);
     this.markers.push(myMarker);

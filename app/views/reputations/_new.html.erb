@@ -1,0 +1,25 @@
+<%= form_for [@user, @reputation], remote: true do |f| %>
+    <div class="intro-extro">
+      <h4><%= f.label :introvertextrovert, 'Social Factor' %></h4>
+      <p>1 <%= f.radio_button :introvertextrovert, 1 %></p>
+      <p>2 <%= f.radio_button :introvertextrovert, 2 %></p>
+      <p>3 <%= f.radio_button :introvertextrovert, 3 %></p>
+      <p>4 <%= f.radio_button :introvertextrovert, 4 %></p>
+      <p>5 <%= f.radio_button :introvertextrovert, 5 %></p>
+    </div><br>
+
+    <h4 class="experience-header">How was your experience?</h4>
+    <p><i class="fa fa-star"></i> <%= f.radio_button :positivenegative, 1 %></p>
+
+    <p><i class="fa fa-star"></i><i class="fa fa-star"></i> <%= f.radio_button :positivenegative, 2 %></p>
+
+    <p><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i> <%= f.radio_button :positivenegative, 3, checked: true %></p>
+
+    <p><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i> <%= f.radio_button :positivenegative, 4 %></p>
+
+    <p><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i> <%= f.radio_button :positivenegative, 5 %></p>
+
+    <p class="pop-up-submit">
+      <%= f.submit "Submit" %>
+    </p>
+  <% end %>
