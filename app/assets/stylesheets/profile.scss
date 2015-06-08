@@ -131,7 +131,7 @@
   $tooltip-distance-from-item: 3.5em;
   $tooltip-arrow-distance-from-box: -1.3em;
 
-  background: $grey-black;
+  background: rgba(33, 33, 33, 0.5);
   border-radius: $base-border-radius;
 
   display: inline-block;

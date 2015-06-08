@@ -95,8 +95,20 @@ body {
       border-radius: rem(5);
     }
   }
+  .nav-hov {
+    margin: auto 0;
+    margin-top: 0;
+    margin-bottom: 0;
+    width: 100%;
+    text-align: center;
+    a {
+      color: $eggshell-white;
+    }
+    i {
+      padding-top: rem(2.5);
+    }
+  }
 }
-
 
 
 
@@ -198,10 +210,35 @@ body {
   color: white;
 }
 
+
+.modal-6 {
+  @include media($large-screen-only) {
+    display: none;
+  }
+}
+
+.modal-7 {
+    @include media($large-screen-only) {
+    display: none;
+  }
+}
+
+.button_to {
+  text-align: center;
+}
 .notification-bar-logo {
   width: 50%;
   padding: 0;
   margin: 0;
+}
+
+.click-to-remove {
+  width: 100%;
+  .notification-accept-decline {
+    margin: 0 auto;
+    width: 60%;
+    margin-bottom: rem(10);
+  }
 }
 
 .profile-pic-notifications{

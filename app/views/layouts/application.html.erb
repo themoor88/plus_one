@@ -30,17 +30,38 @@
 
         <!-- MY FRIENDS MODAL -->
 
+        <div class="modal modal-6">
+        <label for="modal-6">
+          <div class="modal-trigger">My Friends</div>
+        </label>
+        <input class="modal-state" id="modal-6" type="checkbox"/>
+        <div class="modal-fade-screen">
+          <div class="modal-inner modal-6">
+            <div class="modal-close" for="modal-6"></div>
+              <div class="friends">
+              </div>
+            <%= render 'friendships/my_friends' %>
+          </div>
+        </div>
+    </div>
 
 
+        <!-- MY EVENTS MODAL -->
 
-
-
-
-
-
-
-
-
+        <div class="modal modal-7">
+        <label for="modal-7">
+          <div class="modal-trigger">My EVENTS</div>
+        </label>
+        <input class="modal-state" id="modal-7" type="checkbox"/>
+        <div class="modal-fade-screen">
+          <div class="modal-inner modal-7">
+            <div class="modal-close" for="modal-7"></div>
+              <div class="friends">
+              </div>
+            <%= render 'events/my_events' %>
+          </div>
+        </div>
+    </div>
 
           <li><% current_user.rsvps.each do |rsvp| %>
             <% if rsvp.status == "Accepted" %>
@@ -114,14 +135,14 @@
   </div>
 
   <div class="nav-hov">
-    <%= link_to :logout, method: :post do %>
-      <i class="fa fa-lock fa-2x"></i>
+    <%= link_to user_path(current_user.id) do %>
+      <i class="fa fa-user fa-2x"></i>
     <% end %>
   </div>
 
   <div class="nav-hov">
-    <%= link_to user_path(current_user.id) do %>
-      <i class="fa fa-user fa-2x"></i>
+    <%= link_to :logout, method: :post do %>
+      <i class="fa fa-sign-out fa-2x"></i>
     <% end %>
   </div>
 
@@ -137,17 +158,28 @@
 
   <% else %>
 
-  <div class="logged-out-mobile-icons">
-    <%= link_to new_user_path do %>
-      <%= image_tag("pen.png") %>
-    <% end %>
 
-    <%= link_to :login do %>
-      <%= image_tag("key.png") %>
-    <% end %>
+
+    <div class="nav-hov">
+      <%= link_to root_path do %>
+        <i class="fa fa-home fa-2x"></i>
+      <% end %>
+    </div>
+
+    <div class="nav-hov">
+      <%= link_to new_user_path do %>
+        <i class="fa fa-user-plus fa-2x"></i>
+      <% end %>
+    </div>
+
+      <div class="nav-hov">
+        <%= link_to :login do %>
+          <i class="fa fa-sign-in fa-2x"></i>
+        <% end %>
+      </div>
+
+
   <% end %>
-  </div>
-
 </div>
 
 

@@ -46,22 +46,22 @@
 
   <!-- Request To Join (POPUP) -->
 
-      <div class="modal">
-        <label for="modal-1">
-          <div class="modal-trigger">Request to Join</div>
-        </label>
-        <input class="modal-state" id="modal-1" type="checkbox" />
-        <div class="modal-fade-screen">
-          <div class="modal-inner">
-            <div class="modal-close" for="modal-1"></div>
-              <div class="avatars">
-                <div class="profile-pic-modal"><%= image_tag (current_user.avatar_url(:mobile)), class: "popup-pic" %></div>
-                <div class="profile-pic-modal"><%= image_tag (@user.avatar_url(:mobile)), class: "popup-pic" %></div>
-              </div>
-              <%= render 'request' %>
-          </div>
+    <div class="modal">
+      <label for="modal-1">
+        <div class="modal-trigger">Request to Join</div>
+      </label>
+      <input class="modal-state" id="modal-1" type="checkbox" />
+      <div class="modal-fade-screen">
+        <div class="modal-inner">
+          <div class="modal-close" for="modal-1"></div>
+            <div class="avatars">
+              <div class="profile-pic-modal"><%= image_tag (current_user.avatar_url(:mobile)), class: "popup-pic" %></div>
+              <div class="profile-pic-modal"><%= image_tag (@user.avatar_url(:mobile)), class: "popup-pic" %></div>
+            </div>
+            <%= render 'request' %>
         </div>
-    </div>
+      </div>
+  </div>
 
 
 

@@ -1,24 +1,17 @@
 <div class="main">
 
   <!-- STATS -->
-  <div class="stats">
-    <ul>
-      <% if current_user %>
-      <li><%= Event.all.count %> <span>Global Events</span></li>
-      <li><%= Event.near([current_user.latitude, current_user.longitude], 5).flatten.count %><span>Events Near You</span></li>
-      <li><%= User.all.count %><span>Global Users</span></li>
-      <li><%= User.near([current_user.latitude, current_user.longitude], 5).flatten.count %><span>Users Near You</span></li>
+  <% if current_user %>
+    <div class="stats">
+      <ul>
+        <li><%= Event.all.count %> <span>Global Events</span></li>
+        <li><%= Event.near([current_user.latitude, current_user.longitude], 5).flatten.count %><span>Events Near You</span></li>
+        <li><%= User.all.count %><span>Global Users</span></li>
+        <li><%= User.near([current_user.latitude, current_user.longitude], 5).flatten.count %><span>Users Near You</span></li>
 
-      <% else %>
-      <li><%= Event.all.count %> <span>Global Events</span></li>
-      <li><%= Event.near([request.location.latitude, request.location.longitude], 5).flatten.count %><span>Events Near You</span></li>
-      <li><%= User.all.count %><span>Global Users</span></li>
-      <li><%= User.near([request.location.latitude, request.location.longitude], 5).flatten.count %><span>Users Near You</span></li>
-
-      <% end %>
-
-    </ul>
-  </div>
+      </ul>
+    </div>
+  <% end %>
 
   <!-- Swipe Card for Logged In User -->
   <% if @randomevent %>
