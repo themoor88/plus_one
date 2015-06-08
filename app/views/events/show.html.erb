@@ -24,6 +24,19 @@
         <% end %>
 
       </ul>
+
+      <% if @event.time >= DateTime.now %>
+        <div class="countdown-wrapper">
+          <h1>Time Until Event Begins:</h1><div class="countdown" data-date='<%= @event.time.strftime("%Y-%m-%d %H:%M:%S") %>'=> </div>
+        </div>
+
+      <% else %>
+          <h1 class="event-alert">This event has already passed.</h1><div class="countdown-passed" data-date='<%= @event.time.strftime("%Y-%m-%d %H:%M:%S") %>'=> </div>
+        </div>
+
+      <% end %>
+
+
     </div>
   <div class="event-header-container">
     <%= image_tag (@event.image_url(:mobile)) %>
@@ -73,6 +86,8 @@
     </div>
 
   <!-- Add A Review (POPUP) -->
+
+  <% if @event.time <= (DateTime.now + 1.hour) %>
     <div class="modal">
       <label for="modal-3">
         <div class="modal-trigger">Add a Review</div>
@@ -87,6 +102,7 @@
         </div>
       </div>
     </div>
+  <% end %>
 
   <!-- Event reviews -->
 
