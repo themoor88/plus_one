@@ -1,13 +1,13 @@
 <h1>Your Friends</h1>
-  <% @friendships = current_user.confirmed_friends %>
+
 
 
 <% if @friendships %>
   <% @friendships.each do |friendship| %>
     <% if friendship.friender == current_user %>
-      <%= friendship.friendee.full_name %>
+      <a href="<%= user_path(friendship.friendee.id) %>"><p><%= friendship.friendee.full_name %></p></a>
     <% else %>
-    <%= friendship.friender.full_name %>
+    <a href="<%= user_path(friendship.friendee.id) %>"><p><%= friendship.friender.full_name %></p></a>
     <% end %>
   <% end %>
 
