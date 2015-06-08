@@ -48,8 +48,4 @@ class FriendshipsController < ApplicationController
       render 'show'
     end
   end
-
-  def my_freinds
-
-  end
 end
