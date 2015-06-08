@@ -207,3 +207,13 @@
     margin-top: rem(20);
     margin-bottom: 0;
   }
+
+////////// EDIT ///////////
+
+.edit {
+  @include media($mobile-screen-only) {
+    input {
+      margin-bottom: rem(10);
+    }
+  }
+}
