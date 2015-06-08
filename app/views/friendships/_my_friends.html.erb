@@ -1,14 +1,17 @@
 <h1>Your Friends</h1>
+  <% @friendships = current_user.confirmed_friends %>
+
 
 <% if @friendships %>
   <% @friendships.each do |friendship| %>
     <% if friendship.friender == current_user %>
       <%= friendship.friendee.full_name %>
     <% else %>
-      <%= friendship.friender.full_name %>
+    <%= friendship.friender.full_name %>
     <% end %>
   <% end %>
 
-  <% else %>
+<% else %>
     <p> You currently don't have any friends.</p>
-  <% end %>
+
+<% end %>
