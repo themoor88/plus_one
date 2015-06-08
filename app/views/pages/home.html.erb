@@ -1,12 +1,22 @@
 <div class="main">
 
-  <!-- Swipe Card for Logged In User -->
+  <!-- STATS -->
+  <div class="stats">
+    <ul>
+      <li><%= Event.all.count %> <span>Global Events</span></li>
+      <li><%= Event.near([current_user.latitude, current_user.longitude], 5).flatten.count %><span>Events Near You</span></li>
+      <li><%= User.all.count %><span>Global Users</span></li>
+      <li><%= User.near([current_user.latitude, current_user.longitude], 5).flatten.count %><span>Users Near You</span></li>
+    </ul>
+  </div>
 
+  <!-- Swipe Card for Logged In User -->
   <% if @randomevent %>
     <%= render "randomevent" %>
     <div class="random-button">
       <button class="animate-trigger">RANDOM EVENT</button>
     </div>
+
 
   <% else %>
   <!-- Clear nav on landing page alone -->

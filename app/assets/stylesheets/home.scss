@@ -462,3 +462,48 @@
   }
 }
 
+////////// STATS //////////
+.stats {
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.2);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  position: relative;
+  $stats-color: lighten($action-color, 10%);
+  padding: $base-spacing / 2;
+
+  ul {
+    display: inline-block;
+    padding: 0;
+    width: 100%;
+    height: rem(42);
+  }
+
+  li {
+    margin: 0 auto;
+    border-right: 1px solid transparentize($base-font-color, 0.8);
+    color: $stats-color;
+    display: inline-block;
+    font-size: 1.2em;
+    font-weight: 800;
+    line-height: 1.1em;
+    padding: 0 0.7em;
+
+    &:first-child {
+      // padding-left: 0;
+      margin: 0 auto;
+    }
+
+    &:last-child {
+      border-right: 0;
+      margin: 0 auto;
+    }
+  }
+
+  span {
+    color: $base-font-color;
+    display: block;
+    font-size: 0.7em;
+    font-weight: normal;
+  }
+}
+
