@@ -16,7 +16,7 @@
       <% socialrating = @user.social_factor %>
       <li>
         <div class="tooltip-item">
-          <p class="social-factor"> Social Factor: <%= socialrating %> <% if @user.social_factor == nil %> (Unrated) <% end %> </p>
+          <p class="social-factor"> Social Factor: <%= socialrating.round(2) %> <% if @user.social_factor == nil %> (Unrated) <% end %> </p>
           <div class="tooltip">
             <p>A calculated rating system based on how users have perceived your sociability.</p>
           </div>
@@ -27,7 +27,7 @@
       <% posnegrating = @user.positivenegative %>
       <li>
       <div class="tooltip-item">
-        <p class="posneg"> Positive Experience Rating: <%= posnegrating %> <% if @user.social_factor == nil %> (Unrated) <% end %> </p>
+        <p class="posneg"> Positive Experience Rating: <%= posnegrating.round(2) %> <% if @user.social_factor == nil %> (Unrated) <% end %> </p>
           <div class="tooltip">
             <p>A 5-star rating system based on how many positive hangout experiences you have had.</p>
           </div>
@@ -82,7 +82,7 @@
         <div class="modal-inner">
           <div class="modal-close" for="modal-3"></div>
           <div class="new-review">
-            <%= render "new_review" %>
+            <%= render 'reputations/new' %>
           </div>
         </div>
       </div>

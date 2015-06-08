@@ -20,9 +20,11 @@
           <li><p><%= @event.description %></p></li>
         <% end %>
 
+      <% difference = (@event.number_of_attendees) - (@event.rsvps.where(status: 'Accepted').count) %>
         <% if @event %>
-          <li><p class="spots-left"><%= @event.number_of_attendees %> spots left</p></li>
+          <li><p class="spots-left"><%= difference %> spots left</p></li>
         <% end %>
+
 
       </ul>
     </div>
@@ -47,9 +49,14 @@
 
   <!-- Request To Join (POPUP) -->
 
+
+    <% if difference <= 0 || @event.user == current_user %>
+
+
+  <% else %>
     <div class="modal">
       <label for="modal-1">
-        <div class="modal-trigger">Request to Join</div>
+        <div class="modal-trigger request-to-join">Request to Join</div>
       </label>
       <input class="modal-state" id="modal-1" type="checkbox" />
       <div class="modal-fade-screen">
@@ -63,6 +70,9 @@
         </div>
       </div>
   </div>
+
+
+  <% end %>
 
 
 

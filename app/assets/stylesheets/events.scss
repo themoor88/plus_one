@@ -146,6 +146,7 @@
     form {
       label {
         color: black;
+
       }
       h4 {
         color: black;
@@ -210,6 +211,7 @@
   }
   overflow: hidden;
 }
+
 
 .avatars{
   margin-top: rem(2);
@@ -322,6 +324,18 @@
   }
 }
 
+.modal .modal-trigger {
+  @include media($mobile-screen-only) {
+    margin-top: rem(10);
+  }
+  width: 20%;
+  background-color: #555CC2;
+}
+
+.modal .modal-trigger:hover:not(:disabled) {
+  background-color: #0c80df;
+}
+
 .event-header-text {
   position: absolute;
   z-index: 100;
@@ -380,6 +394,10 @@
   margin: 0 auto;
 }
 
+.modal-trigger.request-to-join {
+  width: 30%;
+}
+
 .countdown-wrapper {
   text-align: center;
 }
@@ -387,4 +405,31 @@
   margin: 0 auto;
   width: rem(500);
   height: rem(120);
+}
+.modal .modal-trigger {
+    width: 40%;
+  @include media($mobile-screen-only) {
+    margin: 0;
+  }
+}
+
+.event-alert {
+  text-align: center;
+}
+.countdown-passed {
+  margin: 0 auto;
+  width: rem(500);
+  height: rem(120);
+}
+
+////////// MAP //////////
+.location-button {
+  text-align: center;
+  margin: 0 auto;
+  margin-bottom: rem(10);
+}
+
+////////// FULL RSVP //////////
+.full-event {
+  text-align: center;
 }
