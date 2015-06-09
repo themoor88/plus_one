@@ -30,13 +30,22 @@ class RsvpsController < ApplicationController
   end
 
   def decline
-    @rsvp = Rsvp.find(params[:id])
-    @event = Event.find(params[:event_id])
+    @rsvp = Event.find(params[:event_id]).rsvps.find(params[:id])
     @rsvp.status = "Declined"
     if @rsvp.save
-      redirect_to root_path
+      redirect_to(:back)
     else
       render event
+    end
+  end
+
+  def seen
+    @rsvp = Event.find(params[:event_id]).rsvps.find(params[:id])
+    @rsvp.seen = true
+    if @rsvp.save
+      redirect_to(:back)
+    else
+      "What a maroon!"
     end
   end
 

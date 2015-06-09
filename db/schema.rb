@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150605205442) do
+ActiveRecord::Schema.define(version: 20150609113322) do
 
   create_table "events", force: :cascade do |t|
     t.string   "event_name"
@@ -39,11 +39,7 @@ ActiveRecord::Schema.define(version: 20150605205442) do
     t.integer  "friender_id"
     t.datetime "created_at",                  null: false
     t.datetime "updated_at",                  null: false
-  end
-
-  create_table "notifications", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.boolean  "seen",        default: false
   end
 
   create_table "reputations", force: :cascade do |t|
@@ -69,6 +65,7 @@ ActiveRecord::Schema.define(version: 20150605205442) do
     t.integer "user_id"
     t.string  "status"
     t.text    "message"
+    t.boolean "seen",     default: false
   end
 
   create_table "users", force: :cascade do |t|

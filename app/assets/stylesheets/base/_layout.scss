@@ -137,20 +137,18 @@ body {
   z-index: 99999;
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
-  border-radius: 0 rem(10) rem(10) 0;
   background-color: $grey-black;
   overflow-y: auto;
 
   ul {
     padding: 5px;
     margin: 0;
+    text-align: center;
   }
 
   li {
     list-style: none;
-    border-bottom: 1px solid red;
-    color:red;
-    font-size:0.9rem;
+    font-size:0.8rem;
   }
 
   li a {
