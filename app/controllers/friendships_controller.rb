@@ -33,7 +33,7 @@ class FriendshipsController < ApplicationController
     @friendship = Friendship.find(params[:id])
     @friendship.confirmed = true
     if @friendship.save
-      redirect_to root_path
+      redirect_to(:back)
     else
       render 'show'
     end
@@ -43,7 +43,17 @@ class FriendshipsController < ApplicationController
     @friendship = Friendship.find(params[:id])
     @friendship.confirmed = false
     if @friendship.save
-      redirect_to root_path
+      redirect_to(:back)
+    else
+      render 'show'
+    end
+  end
+
+  def seen
+    @friendship = Friendship.find(params[:id])
+    @friendship.seen = true
+    if @friendship.save
+      redirect_to(:back)
     else
       render 'show'
     end

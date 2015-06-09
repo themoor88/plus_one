@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -64,8 +65,8 @@
     </div>
 
           <li><% current_user.rsvps.each do |rsvp| %>
-            <% if rsvp.status == "Accepted" %>
-              <li class="click-to-remove">You have been accepted into <%= rsvp.event.event_name %><hr></li>
+            <% if rsvp.status == "Accepted" && rsvp.seen == false %>
+              <%= button_to "Okay", seen_event_rsvp_path(rsvp.event, rsvp), class: "notification-accept-decline" %><li class="click-to-remove">You have been accepted into <%= rsvp.event.event_name %><hr></li>
             <% else %>
             <% end  %>
           <% end %>
@@ -84,14 +85,17 @@
           <% end  %>
 
           <li><% current_user.confirmed_friendees.each do |friendee| %>
-            <li class="click-to-remove"><%= friendee.friendee.full_name %> has accepted your friend request.<hr></li>
-          <% end  %>
+            <% if friendee.confirmed == true && friendee.seen == false  %>
+              <%= button_to "Okay", seen_friendship_path(friendee), class: "notification-accept-decline" %><li class="click-to-remove"><%= friendee.friendee.full_name %> has accepted your friend request.<hr></li>
+            <% else %>
+            <% end %>
+          <% end %>
           </li>
 
           <% if current_user.requests.any? %>
             <% current_user.requests.each do |request| %>
                <li class="click-to-remove"><%= request.friender.username %> wants to be your friend.<br>
-                <%= button_to "Accept", accept_friendship_path(request), class: "notification-accept-decline", remote: true %>
+                <%= button_to "Accept", accept_friendship_path(request), class: "notification-accept-decline" %>
                   <%= button_to "Decline", decline_friendship_path(request), class: "notification-accept-decline", remote: true %>
                <li>
             <% end %>

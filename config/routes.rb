@@ -9,6 +9,7 @@ Rails.application.routes.draw do
       member do
         post "accept"
         post "decline"
+        post "seen"
       end
     end
     resources :reviews
@@ -18,6 +19,7 @@ Rails.application.routes.draw do
     member do
       post "accept"
       post "decline"
+      post "seen"
     end
   end
 
