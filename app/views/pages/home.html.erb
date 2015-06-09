@@ -58,31 +58,36 @@
 
 <!-- FLIP GRID -->
 <div class="outer-container">
-    <% @nearby_events.each do |event| %>
-  <div id="f1_container">
-    <div id="f1_card">
-      <div class="front face">
-        <h1><%= event.event_name %></h1>
-        <%= image_tag (event.image_url(:mobile)) %>
-      </div>
-      <div class="back face center">
-      <ul>
-          <% if event.time %>
-            <li><h1><%= event.time.strftime("%b %-d, %-l:%M%P") %></h1></li>
-          <% end %>
 
-          <% if event %>
-            <li><p><%= event.distance.round(2) %> kilometers away</p></li>
-          <% end %>
 
-          <a href="<%= event_path(event) %>">
-            <button>Details</button>
-          </a>
-        </ul>
+        <% @nearby_events.each do |event| %>
+      <div id="f1_container">
+        <div id="f1_card">
+          <div class="front face">
+            <h1><%= event.event_name %></h1>
+            <%= image_tag (event.image_url(:mobile)) %>
+          </div>
+          <div class="back face center">
+          <ul>
+              <% if event.time %>
+                <li><h1><%= event.time.strftime("%b %-d, %-l:%M%P") %></h1></li>
+              <% end %>
+
+              <% if event %>
+                <li><p><%= event.distance.round(2) %> kilometers away</p></li>
+              <% end %>
+
+              <a href="<%= event_path(event) %>">
+                <button>Details</button>
+              </a>
+            </ul>
+          </div>
+        </div>
       </div>
-    </div>
-  </div>
-<% end %>
+    <% end %>
+
+
+
 
 <% end %>
 </div>
