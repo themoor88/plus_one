@@ -1,12 +1,39 @@
-<br>
-<h1>Upcoming Joined Events</h1>
-<% current_user.rsvps.each do |rsvp| %>
-  <a href="<%= event_path(rsvp.event) %>" ><%= rsvp.event.event_name %></a>
-  <%= rsvp.status %><hr><br>
-<% end  %>
+<div class="my-event-container">
+  <br>
+  <h1 class="upcoming-events">Upcoming Events</h1>
+  <% current_user.rsvps.each do |rsvp| %>
+  <% joined_event = rsvp.event.rsvps %>
+    <div class="my_event">
+      <div class="my-event-image"><%= image_tag rsvp.event.image %></div>
 
-<h1>My Created Events</h1>
-<% current_user.created_events.each do |event| %>
-  <a href="<%= event_path(event) %>" ><%= event.event_name %></a>
-  <%= event.time %><hr><br>
-<% end %>
+      <div class="my-event-details">
+        <a href="<%= event_path(rsvp.event) %>" ><p><%= rsvp.event.event_name %></p></a>
+        <p>Status: <%= rsvp.status %></p><br>
+        <p>People Attending: </p>
+        <% joined_event.each do |rsvp| %>
+          <% if rsvp.status == "Accepted" %>
+            <a href="<%= user_path(rsvp.user) %>"><%= rsvp.user.full_name %></a>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+  <% end  %>
+
+  <hr><br>
+
+
+  <h1>My Created Events</h1>
+  <br><br>
+
+  <% current_user.created_events.each do |event| %>
+    <% if event.time <= DateTime.now %>
+      <h1>My Past Events</h1>
+        <a href="<%= event_path(event) %>"><%= event.event_name %></a>
+
+      <% else %>
+        <h1>My Created Upcoming Events</h1>
+        <a href="<%= event_path(event) %>" ><%= event.event_name %></a>
+    <% end %>
+  <% end %>
+</div>
+

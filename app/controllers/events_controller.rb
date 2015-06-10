@@ -40,7 +40,7 @@ class EventsController < ApplicationController
   def update
     @event = Event.find(params[:id])
 
-    if @event.update_attributes(project_params)
+    if @event.update_attributes(event_params)
       redirect_to event_path(@event)
     else
       render 'edit'

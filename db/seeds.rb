@@ -83,7 +83,7 @@ User.create!(
   city: "Toronto",
   country: "Canada",
   bio: "I live on the Dark Side...of the Moon.",
-  interests: "Lightsabers, ventriloquism, black clothes."
+  interests: "Lightsabers, ventriloquism, black clothes.",
 )
 
 User.create!(
@@ -213,117 +213,116 @@ User.create!(
 
 
 
-Event.create!(
-  event_name: "Destroy Alderaan",
-  address_1: "277-285 Simcoe Street",
-  city: "Toronto",
-  number_of_attendees: 4,
-  time: "Wed, 10 2015 16:00:00",
-  description: "Looking for love in Alderaan places.",
-  image: "image",
-  user_id: 1
-)
+# Event.create!(
+#   event_name: "Destroy Alderaan",
+#   address_1: "277-285 Simcoe Street",
+#   city: "Toronto",
+#   number_of_attendees: 4,
+#   time: "Wed, 10 2015 16:00:00",
+#   description: "Looking for love in Alderaan places.",
+#   image: "image",
+#   user_id: 1
+# )
 
-Event.create!(
-  event_name: "Sorcery Tournament",
-  address_1: "214 College Street",
-  city: "Toronto",
-  number_of_attendees: 3,
-  time: "Tue, 09 2015 15:00:00",
-  description: "Battle it out with different magic tricks.",
-  image: "image",
-  user_id: 2
-)
+# Event.create!(
+#   event_name: "Sorcery Tournament",
+#   address_1: "214 College Street",
+#   city: "Toronto",
+#   number_of_attendees: 3,
+#   time: "Tue, 09 2015 15:00:00",
+#   description: "Battle it out with different magic tricks.",
+#   image: "image",
+#   user_id: 2
+# )
 
-Event.create!(
-  event_name: "Potluck Dinner",
-  address_1: "132 Denison Avenue",
-  city: "Toronto",
-  number_of_attendees: 2,
-  time: "Tue, 09 2015 20:00:00",
-  description: "Bring your own guest to feast for dinner.",
-  image: "image",
-  user_id: 3
-)
+# Event.create!(
+#   event_name: "Potluck Dinner",
+#   address_1: "132 Denison Avenue",
+#   city: "Toronto",
+#   number_of_attendees: 2,
+#   time: "Tue, 09 2015 20:00:00",
+#   description: "Bring your own guest to feast for dinner.",
+#   image: "image",
+#   user_id: 3
+# )
 
-Event.create!(
-  event_name: "Stand Up Comedy Night",
-  address_1: "464 Sherbourne Street",
-  city: "Toronto",
-  number_of_attendees: 9,
-  time: "Wed, 10 2015 13:00:00",
-  description: "Let's put a smile on that face.",
-  image: "image",
-  user_id: 4
-)
+# Event.create!(
+#   event_name: "Stand Up Comedy Night",
+#   address_1: "464 Sherbourne Street",
+#   city: "Toronto",
+#   number_of_attendees: 9,
+#   time: "Wed, 10 2015 13:00:00",
+#   description: "Let's put a smile on that face.",
+#   image: "image",
+#   user_id: 4
+# )
 
-Event.create!(
-  event_name: "Speech Practice",
-  address_1: "175 Spadina Road",
-  city: "Toronto",
-  number_of_attendees: 1,
-  time: "Wed, 10 2015 15:00:00",
-  description: "Need a partner to help me speak in public.",
-  image: "image",
-  user_id: 5
-)
-
-
-
-Event.create!(
-  event_name: "Study the Force",
-  address_1: "89 Oakwood Avenue",
-  city: "Toronto",
-  number_of_attendees: 3,
-  time: "Wed, 10 2015 19:00:00",
-  description: "I need a brush up on my mind tricks.",
-  image: "image",
-  user_id: 6
-)
+# Event.create!(
+#   event_name: "Speech Practice",
+#   address_1: "175 Spadina Road",
+#   city: "Toronto",
+#   number_of_attendees: 1,
+#   time: "Wed, 10 2015 15:00:00",
+#   description: "Need a partner to help me speak in public.",
+#   image: "image",
+#   user_id: 5
+# )
 
 
-Event.create!(
-  event_name: "Boxing Practice",
-  address_1: "170 Delaware Avenue",
-  city: "Toronto",
-  number_of_attendees: 3,
-  time: "Wed, 10 2015 18:15:00",
-  description: "Looking for sparing partners.",
-  image: "image",
-  user_id: 7
-)
 
-Event.create!(
-  event_name: "Bat Watching",
-  address_1: "100 Howard Street",
-  city: "Toronto",
-  number_of_attendees: 4,
-  time: DateTime.now + rand,
-  description: "Let's observe bats in the night.",
-  image: "image",
-  user_id: 8
-)
-
-Event.create!(
-  event_name: "Pick Up Football",
-  address_1: "635 Parliament Street",
-  city: "Toronto",
-  number_of_attendees: 9,
-  time: "Wed, 10 2015 11:30:00",
-  description: "Let's play some football.",
-  image: "image",
-  user_id: 9
-)
+# Event.create!(
+#   event_name: "Study the Force",
+#   address_1: "89 Oakwood Avenue",
+#   city: "Toronto",
+#   number_of_attendees: 3,
+#   time: "Wed, 10 2015 19:00:00",
+#   description: "I need a brush up on my mind tricks.",
+#   image: "image",
+#   user_id: 6
+# )
 
 
-Event.create!(
-  event_name: "Apple Picking",
-  address_1: " 479 Wellington Street West",
-  city: "Toronto",
-  number_of_attendees: 6,
-  time: "Wed, 10 2015 12:15:00",
-  description: "How do you like them apples?",
-  image: "image",
-  user_id: 10
-)
->>>>>>> users
+# Event.create!(
+#   event_name: "Boxing Practice",
+#   address_1: "170 Delaware Avenue",
+#   city: "Toronto",
+#   number_of_attendees: 3,
+#   time: "Wed, 10 2015 18:15:00",
+#   description: "Looking for sparing partners.",
+#   image: "image",
+#   user_id: 7
+# )
+
+# Event.create!(
+#   event_name: "Bat Watching",
+#   address_1: "100 Howard Street",
+#   city: "Toronto",
+#   number_of_attendees: 4,
+#   time: DateTime.now + rand,
+#   description: "Let's observe bats in the night.",
+#   image: "image",
+#   user_id: 8
+# )
+
+# Event.create!(
+#   event_name: "Pick Up Football",
+#   address_1: "635 Parliament Street",
+#   city: "Toronto",
+#   number_of_attendees: 9,
+#   time: "Wed, 10 2015 11:30:00",
+#   description: "Let's play some football.",
+#   image: "image",
+#   user_id: 9
+# )
+
+
+# Event.create!(
+#   event_name: "Apple Picking",
+#   address_1: " 479 Wellington Street West",
+#   city: "Toronto",
+#   number_of_attendees: 6,
+#   time: "Wed, 10 2015 12:15:00",
+#   description: "How do you like them apples?",
+#   image: "image",
+#   user_id: 10
+# )

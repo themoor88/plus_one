@@ -25,48 +25,20 @@
       <ul class="notifications-menu">
         <%= link_to root_path do %>
           <%= image_tag "home2.png", class: "notification-bar-logo" %>
-        <% end %><hr>
-
+        <% end %>
+        <% if current_user %>
+          <p>Signed in as: <a href="<%= user_path(current_user) %>"><%= current_user.full_name %></p>
+        <% end %>
+        <hr>
         <% if current_user %>
 
         <!-- MY FRIENDS MODAL -->
 
-        <div class="modal modal-6">
-        <label for="modal-6">
-          <div class="modal-trigger modal6button">My Friends</div>
-        </label>
-        <input class="modal-state" id="modal-6" type="checkbox"/>
-        <div class="modal-fade-screen">
-          <div class="modal-inner modal-6">
-            <div class="modal-close" for="modal-6"></div>
-              <div class="friends">
-              </div>
-            <%= render 'friendships/my_friends' %>
-          </div>
-        </div>
-    </div>
 
-
-        <!-- MY EVENTS MODAL -->
-
-        <div class="modal modal-7">
-        <label for="modal-7">
-          <div class="modal-trigger">My EVENTS</div>
-        </label>
-        <input class="modal-state" id="modal-7" type="checkbox"/>
-        <div class="modal-fade-screen">
-          <div class="modal-inner modal-7">
-            <div class="modal-close" for="modal-7"></div>
-              <div class="friends">
-              </div>
-            <%= render 'events/my_events' %>
-          </div>
-        </div>
-    </div>
 
           <li><% current_user.rsvps.each do |rsvp| %>
             <% if rsvp.status == "Accepted" && rsvp.seen == false %>
-              <%= button_to "Okay", seen_event_rsvp_path(rsvp.event, rsvp), class: "notification-accept-decline" %><li class="click-to-remove">You have been accepted into <%= rsvp.event.event_name %><hr></li>
+              <li class="click-to-remove">You have been accepted into <%= rsvp.event.event_name %><%= button_to "Okay", seen_event_rsvp_path(rsvp.event, rsvp), class: "notification-accept-decline" %><hr></li>
             <% else %>
             <% end  %>
           <% end %>
@@ -75,10 +47,10 @@
           <% if current_user.pending_rsvps.any? %>
 
             <% current_user.pending_rsvps.each do |rsvp| %>
-                <li class="click-to-remove"><%= rsvp.user.username %> wants to join your event <%= rsvp.event.event_name %><br>
-                  <%= button_to "Accept", accept_event_rsvp_path(rsvp.event, rsvp), class: "notification-accept-decline", remote: true %>
+                <li class="click-to-remove"><a href="<%= user_path(rsvp.user) %>"><%= rsvp.user.full_name %></a> wants to join your event <%= rsvp.event.event_name %><br><br>
+                                  <%= button_to "Accept", accept_event_rsvp_path(rsvp.event, rsvp), class: "notification-accept-decline", remote: true %>
                   <%= button_to "Decline", decline_event_rsvp_path(rsvp.event, rsvp), class: "notification-accept-decline", remote: true %>
-                  <hr>
+
                 </li>
             <% end %>
           <% else %>
@@ -206,6 +178,7 @@
         <% if current_user %>
           <li class="nav-link"><a href="/">Events</a></li>
           <li class="nav-link"><a href="/events/new">Start an Event</a></li>
+          <li class="nav-link"><a href="/my_events">My Events</a></li>
           <li class="nav-link"><a href="<%= user_path(current_user.id) %>">Profile</a></li>
           <li class="nav-link"><%= link_to :logout, method: :post do %>
             Logout

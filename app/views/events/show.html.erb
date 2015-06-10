@@ -1,7 +1,7 @@
 <div class="main-wrapper">
 
   <!-- Event details -->
-  <% if current_user == @event_user %>
+  <% if current_user == @user %>
     <%= link_to "Edit", edit_event_path %>
   <% end %>
 
@@ -22,7 +22,7 @@
 
       <% difference = (@event.number_of_attendees) - (@event.rsvps.where(status: 'Accepted').count) %>
         <% if @event %>
-          <li><p class="spots-left"><%= difference %> spots left</p></li>
+          <li><p class="spots-left"><a href="<%=user_path(@event.user) %>"> <%= @event.user.full_name %></a> is looking for <%= difference %> other people.</p></li>
         <% end %>
 
 

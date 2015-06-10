@@ -38,6 +38,9 @@
   @include media($mobile-screen-only) {
     width: 70%;
   }
+  @include media($large-screen-only) {
+    font-size: rem(20);
+  }
 }
 
 .interest-text {
@@ -46,6 +49,9 @@
   width: 30%;
   margin: 0 auto;
   padding-bottom: rem(10);
+  @include media($large-screen-only) {
+    font-size: rem(20);
+  }
 }
 
 

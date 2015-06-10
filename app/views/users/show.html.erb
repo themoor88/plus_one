@@ -4,12 +4,15 @@
   </div>
 
 
-  <h1 class="name"><%= "#{@user.first_name.capitalize}" %></h1>
+  <h1 class="name"><%= "#{@user.full_name}" %></h1>
 
-
+  <% if @user.created_events.length >= 2 %>
   <h2 class="event-counter"><%= @user.created_events.length %> Events Created</h2>
-  <p class="bio-text"><%= @user.bio %></p>
-  <p class="interest-text"><%= @user.interests %></p>
+  <% else %>
+  <h2 class="event-counter"><%= @user.created_events.length %> Event Created</h2>
+  <% end  %>
+  <p class="bio-text"><strong>Bio: </strong><%= @user.bio %></p>
+  <p class="interest-text"><strong>Interests: </strong> <%= @user.interests %></p>
 
   <div class="user-ratings">
     <ul>
@@ -59,8 +62,8 @@
           <div class="modal-close" for="modal-9"></div>
             <div class="map-container">
                <div class="location-button">
-    <button id="get_location" class="button">Find Events Near You</button>
-  </div>
+     <button id="get_location" class="button">Find Events Near You</button>
+     </div>
       <div class="map">
         <div class="user-map-canvas" data-latitude="<%= @user.latitude.to_f %>" data-longitude="<%= @user.longitude.to_f %>"></div>
       </div>
@@ -69,6 +72,7 @@
         </div>
       </div>
     </div>
+
 
    <% else %>
 
